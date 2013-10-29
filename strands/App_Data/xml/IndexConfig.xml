@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<indexConfiguration>
+  <index name="MyArticles" indexType="XMLIndexer" indexFolderUrl="~/App_Data/RQLucene/MYARTICLE">
+    <xmlSourceDirectory path="~/MyArticles" fileExtensions="xml" />
+      <fields>
+        <field name="StrandNo" isStored="true" isIndexed="true" isTokenised="false" />
+        <field name="StrandTitle" isStored="true" isIndexed="true" isTokenised="true" />
+        <field name="StrandContent" isStored="false" isIndexed="true" isTokenised="true" />
+        <field name="FileName" isStored="true" isIndexed="false" isTokenised="false" />
+        <field name="FileTitle" isStored="true" isIndexed="false" isTokenised="false" />
+      </fields>
+    <queries>
+      <query name="Minimal" field="StrandTitle" />
+      <query name="Minimal" field="StrandContent" />
+    </queries>
+    <results>
+      <field name="StrandTitle" type="string" prefix="" valueField="StrandTitle"  suffix=""/>
+      <field name="FileTitle" type="string" prefix="" valueField="FileTitle" suffix=""/>
+      <field name="Path" type="string" prefix="" valueField="StrandNo" suffix=""/>
+    </results>
+  </index>
+  <index name="ProjectA" indexType="OLEDBIndexer" indexFolderUrl="C:\Users\jürgen\Documents\Visual Studio 2010\Projects\Lucene\Lucene.Net-1.9\Lucene.Net\LUCIND">
+    <!-- Your connection string & Select statement goes here -->
+    <selectCommandText connectionString="Provider=Microsoft.Jet.OLEDB.4.0; Data Source='C:\Users\jürgen\Documents\Visual Studio 2005\Websites\rq\~db\katalog30.mdb';User Id=admin;Password=''">SELECT * FROM Dokumente</selectCommandText>
+    <fields>
+      <field name="ID" isStored="true" isIndexed="true" isTokenised="false" />
+      <field name="DocNo" isStored="true" isIndexed="true" isTokenised="false" />
+      <field name="Title" isStored="true" isIndexed="true" isTokenised="true" />
+      <field name="Authors" isStored="true" isIndexed="true" isTokenised="true" />
+      <field name="Source" isStored="true" isIndexed="true" isTokenised="true" />
+      <field name="Edition" isStored="true" isIndexed="true" isTokenised="true" />
+      <field name="ISDN" isStored="true" isIndexed="true" isTokenised="true" />
+      <field name="Coden" isStored="true" isIndexed="true" isTokenised="true" />
+      <field name="Institutions" isStored="true" isIndexed="true" isTokenised="true" />
+      <field name="Series" isStored="true" isIndexed="true" isTokenised="true" />
+      <field name="Locality" isStored="true" isIndexed="true" isTokenised="true" />
+      <field name="Publisher" isStored="true" isIndexed="true" isTokenised="true" />
+      <field name="PublTime" isStored="true" isIndexed="true" isTokenised="true" />
+      <field name="Volume" isStored="true" isIndexed="true" isTokenised="true" />
+      <field name="Issue" isStored="true" isIndexed="true" isTokenised="true" />
+      <field name="Pages" isStored="true" isIndexed="true" isTokenised="true" />
+      <field name="Language" isStored="true" isIndexed="true" isTokenised="true" />
+      <field name="Signature" isStored="true" isIndexed="true" isTokenised="true" />
+      <field name="DocTypeCode" isStored="true" isIndexed="true" isTokenised="true" />
+      <field name="DocTypeName" isStored="true" isIndexed="true" isTokenised="true" />
+      <field name="IndexTerms" isStored="true" isIndexed="true" isTokenised="true" />
+      <field name="Subjects" isStored="true" isIndexed="true" isTokenised="true" />
+      <field name="WorkType" isStored="true" isIndexed="true" isTokenised="true" />
+      <field name="AboutLocation" isStored="true" isIndexed="true" isTokenised="true" />
+      <field name="AboutTime" isStored="true" isIndexed="true" isTokenised="true" />
+      <field name="AboutPersons" isStored="true" isIndexed="true" isTokenised="true" />
+      <field name="Classification" isStored="true" isIndexed="true" isTokenised="true" />
+      <field name="Abstract" isStored="true" isIndexed="true" isTokenised="true" />
+      <field name="CreateLocation" isStored="true" isIndexed="true" isTokenised="true" />
+      <field name="CreateTime" isStored="true" isIndexed="true" isTokenised="true" />
+      <field name="Notes" isStored="true" isIndexed="true" isTokenised="true" />
+      <field name="Feld30" isStored="true" isIndexed="true" isTokenised="true" />
+      <field name="Feld31" isStored="true" isIndexed="true" isTokenised="true" />
+    </fields>
+  </index>
+</indexConfiguration>

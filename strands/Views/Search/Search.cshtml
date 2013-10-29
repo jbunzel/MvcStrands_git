@@ -1,0 +1,48 @@
+﻿@Styles.Render("~/content/search")
+@Scripts.Render("~/bundles/search")
+<h1>The Strands - Suche</h1>
+<input id="searchfield" type="text" title="Suchterme hier eingeben" value=@ViewBag.Searchterm /><input id="searchbutton" type="submit" value="Suche"></input>
+<div id="results"></div>
+<div id="footer" class="smallcomment">
+    <p>Search Powered by <a href="http://lucene.apache.org/lucene.net/" target="_blank"><b>Lucene.net</b></a></p>
+</div>
+@section scripts{
+	<script type="text/javascript">
+	    var config = { contextPath: '@Url.Content("~")' };
+	    var searchterm = @Html.Raw(Json.Encode(@ViewBag.Searchterm));
+
+	    $(function ()
+	    {
+	        $.ajax({
+		        url: HostAdress() + '/search-api/' + searchterm,
+		        type: "GET",
+		        data: null,
+		        dataType: "json",
+		        success: function (data) {
+		            $("#results").html(
+                        $("#resultTemplate").render(data)
+		            );
+		        },
+		        error: function (xhr) {
+		            _myHelper.showMessage(decodeURIComponent(xhr.responseText).replace(/\+/g, ' '), "error");
+		        }
+		    });
+	    });
+
+	    function HostAdress() {
+	        return ((config.contextPath.length > 0) && (config.contextPath.charAt(config.contextPath.length - 1)) == "/") ? config.contextPath.substring(0, config.contextPath.length - 1) : config.contextPath;
+	    };
+
+	    function navigateTo (adr){
+	        adr = HostAdress() + "/" + adr;
+	        if (window.opener.location.href != adr)
+	            window.opener.location.href=adr;
+	    };
+	</script>
+
+    <script id="resultTemplate" type="text/x-jsrender">
+        <a onClick="navigateTo('{{>Adress}}');" href="###">{{>Title}}</a>
+        <p>{{>Section}}</p>
+    </script>
+}
+

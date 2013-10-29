@@ -1,0 +1,197 @@
+﻿/* NEUE POEM.CSS */
+
+/*------------*/
+/* base rules */
+/*------------*/
+body {
+    background-color: Beige;
+}
+
+/*--------------*/
+/* layout rules */
+/*--------------*/
+#main,
+#content {
+    width: 660px;
+    background-color: beige;
+    min-height : 200px;
+}
+
+/*--------------*/
+/* module rules */
+/*--------------*/
+
+.poemtoc {
+   font: bold 13pt garamond;
+   color: #808000;
+}
+
+p.poemtoc {
+   text-align: center;
+   color: #008080;
+}
+
+div.poemtoc {
+   font-size: 12pt;
+   font-style: italic;
+   text-align: left;
+   color: #008080;
+}
+
+a.poemtoc:link, 
+a.poemtoc:visited,  
+a.poemtoc:active {
+   color: #808000;
+   text-decoration: none; 
+   cursor: pointer;
+}  
+
+a.poemtoc:hover {
+   color: darkgray;
+} 
+
+h1.poemtoc {
+   font-size: 18pt;
+   text-align: left;
+   margin-bottom: 5px; 
+   color: #008080;
+}
+
+ul.poemtoc,
+ol.poemtoc {
+   margin-top: 40px;
+   margin-bottom: 30px;
+   text-align: center;
+}
+
+ol.poemtoc li.poemtoc {
+   margin-bottom: 15px;
+}
+
+ul.poemtoc li.poemtoc {
+   margin-left: -40px;
+   list-style-type: none;
+}
+
+/*-------------*/
+/* state rules */
+/*-------------*/
+
+/*-------------*/
+/* theme rules */
+/*-------------*/
+
+
+/* ALTE POEM.CSS */
+/* Seitenumbruch */
+
+/*body
+{
+    background-color: Beige;
+}
+
+
+#MainContent
+{
+	width: 660px;
+	text-align: center;
+	background-color: Beige;
+}
+
+
+.Normal,
+div#ColumnB
+{
+	width: 660px;
+}
+
+
+#top
+{
+    width: 0px;
+    height: 0px;
+}*/
+
+
+
+/* Allgemeine Klassen */
+
+/*.poem
+{
+    font: bold 13pt garamond;
+    color: #808000
+}*/
+
+
+/*.poemtoc
+  {font: bold 13pt garamond;
+   color: #808000}*/
+
+
+/*pre.poem,
+p.poem
+  {font-size: 13pt; 
+   line-height: 18pt;
+   text-align: center;
+   color: #808000}*/
+
+
+/*pre.poemtoc,
+p.poemtoc
+  {font-size: 13pt; 
+   text-align: center;
+   color: #008080}*/
+
+
+/*div.poem
+  {font: bold 18pt Times New Roman;
+   text-align: center;
+   color: #008080}*/
+
+
+/*div.poemtoc
+  {font-size: 12pt;
+   font-style: italic;
+   text-align: left;
+   color: #008080}*/
+
+
+/*h1.poem
+  {font: bold 24pt Times New Roman;
+   text-align: center;
+   color: #008080}*/  
+
+
+/*h1.poemtoc
+  {font-size: 18pt;
+   text-align: left;
+   margin-bottom: 5px; 
+   color: #008080}*/
+
+
+/*ul.poemtoc,
+ol.poemtoc
+  {margin-top: 40px;
+   margin-bottom: 30px;
+   text-align: center;}*/
+
+
+/*ol.poemtoc li.poemtoc
+  {margin-bottom: 15px;}*/
+
+
+/*ul.poemtoc li.poemtoc
+  {margin-left: -40px;
+   list-style-type: none }*/
+
+
+/*a.poemtoc:link, 
+a.poemtoc:visited,  
+a.poemtoc:active
+  {color: #808000;
+   text-decoration: none; 
+   cursor: hand;}*/   
+
+
+/*a.poemtoc:hover    
+  {color: darkgray}*/

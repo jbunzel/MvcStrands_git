@@ -1,0 +1,408 @@
+﻿/* A. CSS-Layout Styles */
+/*
+body
+{
+	text-align: center;
+  margin : 0,0,0,0;
+  padding: 0,0,0,0;
+	background-color: Silver;
+	scrollbar-darkshadow-color: #EAEFFD;
+  scrollbar-3dlight-color: #EAEFFD;
+  scrollbar-arrow-color: #abad85;
+  scrollbar-highlight-color: Orange;
+  scrollbar-shadow-color: Orange;
+  scrollbar-track-color: #abad85;
+}
+
+div#MainContent
+{
+	width: 600px;
+	background-color: #fffff5;
+	color: #333;
+	text-align: center;
+	border: 1px solid gray;
+}
+*/
+/* NOT USED IN STRANDS
+div#Header
+{
+	width: 950px;
+	padding-left: 15px;
+	float: left;
+	background-color: transparent;
+	background-color: Green;
+}
+
+div#CurrentDate
+{
+	width: 200px;
+	padding-right: 5px;
+	float: right;
+	text-align: right;
+	background-color: Transparent;
+}
+*/
+/*
+div#Menu
+{
+	width: 975px;
+	height: 120px;
+	padding-top: 10px;
+	background-color: Red;
+}
+*/
+/* NOT USED IN STRANDS 
+div#Logo
+{
+	width: 280px;
+	height: 130px;
+	float: right;
+	background-image: url(images/RqLogo.jpg);
+	background-color: Transparent;
+}
+
+div#ColumnA
+{
+	width: 185px;
+	padding-left: 15px;
+	padding-top: 0px;
+	float: left;
+	margin: 0;
+	background-color: Transparent;
+}
+*/
+/*
+div#ColumnB
+{
+	width: 600px;
+	padding-left: 5px;
+	padding-top: 0px;
+	background-color: Beige;
+}
+*/
+/* NOT USED IN STRANDS
+div#ColumnC
+{
+	width: 155px;
+	padding-left: 5px;
+	padding-top: 0px;
+	float: left;
+	margin: 0;
+	background-color: Transparent;
+}
+*/
+
+div#Footer
+{
+	clear: both;
+	width: 970px;
+	height: 50px;
+	padding-right: 5px;
+	padding-bottom:5px;
+	text-align: center;
+	background-color: Transparent;
+}
+
+
+/* B. General Text-Styles */
+
+H2, h3 {
+  color: red; 
+}
+
+A,
+A:link,
+A:visited,
+A:active,
+A.comment,
+A.comment:link,
+A.comment:visited,
+A.comment:active
+  {color: #797979; font-weight: bold; text-decoration: none;}
+A.comment:hover
+  {color: Silver; text-decoration: none;}    
+.comment
+  {text-align: right; font: 9pt arial; color:#557766;}
+ 
+A.smallcomment,
+A.smallcomment:link,
+A.smallcomment:visited,
+A.smallcomment:active
+  {font: 7pt arial; color: #770000; text-decoration: none;}
+A.smallcomment:hover
+  {font: 7pt arial; color: #770000; text-decoration: underline;}
+.smallcomment
+  {font: 7pt arial; text-align: right; color: #770000;}   
+
+A.reference,
+A.reference:link,
+A.reference:visited,
+A.reference:active
+  {font: 8pt arial; color: #770000; text-decoration: none;}
+A.reference:hover
+  {font: 8pt arial; color: #770000; text-decoration: underline;}
+.reference
+  {font: 8pt arial; color: #770000;}
+
+.SkinObject
+{
+	font-family: Verdana, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	text-align: left;
+	color: Gray;
+}
+
+A.SkinObject:link, A.SkinObject:visited, A.SkinObject:active
+{
+	text-decoration: none;
+	color: Gray;
+}
+
+A.SkinObject:hover
+{
+	text-decoration: none;
+	color: Silver;
+}
+
+/* style for separator between site links */
+.Accent
+{
+	font-family: Verdana, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	color: DarkRed;
+}
+
+
+/* C. Layout Object text styles */
+
+.FooterText
+{
+	font-family: Verdana, Helvetica, sans-serif;
+	font-size: 6pt;
+	font-weight: bold;
+	color: Gray;
+}
+
+A.FooterText:visited, A.FooterText:link
+{
+	text-decoration: none;
+	color: gray;
+}
+
+A.FooterText:hover
+{
+	text-decoration: none;
+	color: Silver;
+}
+
+/* menu styles */
+
+/* Main Menu */
+.MainMenu_MenuContainer
+{
+	width: 750px;
+	height: 120px;
+	text-align: center;
+	background-color: Transparent;
+}
+
+.MainMenu_StaticMenu
+{
+	height: 108px;
+	text-align: center;
+	padding:0px 0px 0px 0px;
+  background-color: Transparent;	
+}
+
+.MainMenu_StaticMenuItem
+{
+  font-family: Garamond;
+	font-size: 16px;
+	font-weight: bold;
+	font-style: normal;
+	color: Gray;
+}
+
+.MainMenu_StaticMenuItemSelected
+{
+	color: Darkred;
+}
+
+.MainMenu_StaticMenuItemHover
+{
+	color: Silver;
+}
+
+
+/* D. Strands Object Styles */
+
+/* Strand Styles */
+
+h1.strands,
+.Head
+    {text-align: center; 
+     font: italic bold 24pt garamond;
+     color: #797979;}
+     
+h2.strands
+    {text-align: left; 
+     font: italic bold 18pt garamond;
+     color: #797979;}
+
+h3.strands
+    {text-align: left; 
+     font: italic 14pt garamond;
+     color: #a52a2a;}
+     
+.main
+  {text-align: center; font: 10pt arial; color: #797979;}
+h1.main
+  {text-align: center; font: italic bold 24pt arial;}  
+h3.main
+  {text-align: right; font: bold 12pt arial;}  
+
+.menu
+  {font: 13pt garamond; text-align: center; 
+   margin-top: 10px; 
+   margin-bottom: 30px }
+
+.shadow
+  {filter: shadow(color=#999999, direction=120); }
+ 
+.source
+  {font-style: italic;}
+      
+A.strand,
+A.strand:link,
+A.strand:visited,
+A.strand:active
+  { font-family: georgia; font-size: 13px; color: #797979; text-decoration: none;}
+A.strand:hover
+  { font-family: georgia; font-size: 13px; color: Silver; text-decoration: none;}
+.strand,
+p.strand
+  {font-family: georgia; 
+   font-size: 13px; 
+   line-height: 140%;
+   letter-spacing: 0px; 
+   text-align: left; 
+   color: #797979;}  
+   
+.quote
+  {margin-left: 60px; margin-right: 60px; }     
+
+.fieldvalue 
+  { font-family: Arial;   font-size: 8pt; font-weight: bold; 
+    color: black }
+
+.fieldname,
+A.fieldname,
+A.fieldname:link,
+A.fieldname:visited,
+A.fieldname:active
+  { font-family: Verdana; font-size: 8pt; font-weight: bold; 
+    color: #005770; text-decoration: none; cursor: hand}
+A.fieldname:hover
+  { font-family: Verdana; font-size: 8pt; font-weight: bold; 
+    color: #ef8a00; text-decoration: underline; cursor: hand}
+
+.greek
+  {font: 12pt symbol; color: #a52a2a;}  
+
+
+/* StrandsBox: poem, note, bib  */
+
+.strandbox
+  {background-color: #c2cdb1; 
+   font-family: Verdana, Helvetica, sans-serif;
+   font-size: 12px;
+   font-weight: bold; 
+   color: darkblue;}   
+
+.poem
+  {font: bold 13pt garamond;
+   color: #808000}
+.poemtoc
+  {font: bold 13pt garamond;
+   color: #808000}
+pre.poem,
+p.poem
+  {font-size: 13pt; 
+   line-height: 18pt;
+   text-align: center;
+   color: #808000}
+pre.poemtoc,
+p.poemtoc
+  {font-size: 13pt; 
+   text-align: center;
+   color: #008080}
+div.poem
+  {font: bold 18pt Times New Roman;
+   text-align: center;
+   color: #008080}
+div.poemtoc
+  {font-size: 12pt;
+   font-style: italic;
+   text-align: left;
+   color: #008080}
+h1.poem
+  {font: bold 24pt Times New Roman;
+   text-align: center;
+   color: #008080}  
+h1.poemtoc
+  {font-size: 18pt;
+   text-align: left;
+   margin-bottom: 5px; 
+   color: #008080}
+ul.poemtoc,
+ol.poemtoc
+  {margin-top: 40px;
+   margin-bottom: 30px;
+   text-align: center;}
+ol.poemtoc li.poemtoc
+  {margin-bottom: 15px;}
+ul.poemtoc li.poemtoc
+  {margin-left: -40px;
+   list-style-type: none }
+a.poemtoc:link, 
+a.poemtoc:visited,  
+a.poemtoc:active
+  {color: #808000;
+   text-decoration: none; 
+   cursor: hand;}   
+a.poemtoc:hover    
+  {color: darkgray}
+
+bib,
+pre.bib,
+div.bib,
+p.bib
+  {font-family: Verdana, Helvetica, sans-serif;
+   font-size: 8pt; 
+   color: #797979;  
+   text-align: left;}
+h1.bib
+  {font: bold 20pt Times New Roman;
+   text-align: left;
+   color: #797979;}  
+a.bib:link, 
+a.bib:visited,  
+a.bib:active
+  {color: #797979;
+   text-decoration: none; 
+   cursor: hand;}   
+a.bib:hover    
+  {color: Silver; text-decoration: none;}
+
+note
+div.note,
+span.note,
+pre.note,
+p.note 
+{ font : 9pt Arial; text-align: left; color: #797979;}
+h1.note
+  {font: bold 20pt Times New Roman;
+   text-align: left;
+   color: #797979;}  

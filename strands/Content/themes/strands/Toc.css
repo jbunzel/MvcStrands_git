@@ -1,0 +1,47 @@
+﻿/*------------*/
+/* base rules */
+/*------------*/
+body {
+    background-color: Beige;
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+}
+
+/*--------------*/
+/* layout rules */
+/*--------------*/
+#main,
+#content {
+    width: 450px;
+    background-color: beige;
+    margin: 0px 0px 0px 0px;
+	padding: 20px 2px 2px 10px;
+}
+
+/*--------------*/
+/* module rules */
+/*--------------*/
+.toc {
+    text-align: left; 
+    padding: 5px 5px 10px 20px;
+    overflow: scroll;
+    font: 8pt arial; 
+    color:#557766;
+}
+
+
+A.toc,
+A.toc:link,
+A.toc:visited,
+A.toc:active {
+    text-align: left; 
+    color: #797979; 
+    font-weight: bold; 
+    text-decoration: none;
+}
+
+A.toc:hover {
+    text-align: left; 
+    color: Silver; 
+    text-decoration: none;
+}

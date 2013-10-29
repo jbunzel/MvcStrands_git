@@ -1,0 +1,247 @@
+﻿/*------------*/
+/* base rules */
+/*------------*/
+body {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: silver;
+    font-family: Georgia;
+    font-size: 100.01%;
+    line-height: 140%;
+    color: #797979;
+}
+
+a:link,
+a:visited,
+a:active {
+    color: #c22a09;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #797979;
+}
+
+h1, h2, h3, h4, h5 {
+    margin: 5px 5px 5px 0px;
+    padding: 5px 5px 5px 0px;
+    font-family: Garamond;
+    color: #797979;
+    /* border: solid 1px blue; Debug border */
+}
+
+h1 {
+    /* border: solid 1px red; Debug border */
+    line-height: 130%;
+    text-align: center;
+    margin-bottom: 40px;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 24pt;
+}
+
+h2 {
+    /* border: solid 1px red; Debug border */
+    text-align: left;
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 18pt;
+}
+
+h3 {
+    text-align: left;
+    font-style: italic;
+    font-weight: normal;
+    font-size: 14pt;
+    color: #a52a2a;
+}
+
+h4, h5 {
+    /* border: solid 1px red; Debug border */
+    text-align: left;
+    font-family: georgia;
+    font-size: 13px;
+}
+
+fieldset {
+    border: 0;
+}    
+
+/*--------------*/
+/* layout rules */
+/*--------------*/
+#nav {
+    min-height: 100px;
+    margin-top: 0px;
+    padding-top: 10px;
+}
+
+#content {
+    /*width: 975px;*/
+    background-color: #fffff5;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#footer {
+    /*width: 900px;*/
+    height: 30px;
+    margin-left: inherit;
+    margin-right: inherit;
+    padding-bottom: 10px;
+ }
+
+#main {
+    /*width: 900px;*/
+    margin-left: inherit;
+    margin-right: inherit;
+    min-height: 1000px;
+}
+
+@media screen and (min-width: 1000px) {
+ 
+   /* CSS Goes here! */
+    #content {
+        width: 975px;
+    }
+    #footer,
+    #main {
+        width: 900px;
+    }
+ }
+
+
+/*--------------*/
+/* module rules */
+/*--------------*/
+.rq-diagnostics {
+    display: none;
+}
+
+.rq-instructions {
+    font-size: 1em;
+    display: block;
+    text-align: right;
+    margin: 10px;
+    color: black;
+}
+
+#footer .rq-instructions {
+    font-family: Verdana, Helvetica, sans-serif;
+    font-size: 10px;
+    text-align: center;
+}
+
+#footer .accent {
+    color: Maroon;
+}
+
+.rq-main-image img {
+    display: none;
+}
+
+.rq-menu {
+    background-color: rgb(255, 255, 245) !important;
+    color: Gray;
+    font-family: Garamond;
+    font-size: 1.2em;
+    font-weight: bold;
+    line-height: 1.3em;
+    text-align: center;
+    vertical-align: top;
+}
+
+.rq-menu li a {
+    background-color: rgb(255, 255, 245);
+    padding-top: 0px;
+    text-decoration: none;
+    color: #797979;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.rq-menu li a:hover,
+.rq-menu li a:active,
+.pure-menu li a:focus {
+    background-color: rgb(255, 255, 245);
+    color: Silver; 
+    outline-style: none;
+}
+
+.rq-menu .pure-menu-heading {
+    display: inline;
+}
+
+.rq-quick-button {
+    padding-left: 0.3em;
+    padding-right: 0.3em;
+    background-color: #c22a09; 
+}
+
+.rq-resultbox,
+.rq-sidebar {
+    padding: 5px 5px 5px 5px;
+    max-height: 700px;
+    overflow: auto;
+}
+
+.rq-right-sidebar,
+.rq-left-sidebar {
+    margin-left: 15px;
+}
+
+.rq-resultbox {
+    min-height: 700px;
+}
+
+.content-box { 
+    border-top: 1px solid silver;
+}
+
+/*-------------*/
+/* state rules */
+/*-------------*/
+/* style for overlay element used by function ajaxLoader in module ( s.f. rqui-helpers.js) */
+.rq-ajax-wait {
+    background: url("../images/ajax-loader.gif") no-repeat center center transparent;
+    opacity: 0.7;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: beige;
+    top: 0px;
+    left: 0px;
+    z-index: 9999;
+}
+
+/* style for user-info boxes ( s. f. rqui-helpers.js) */
+#simple-user-info {
+  padding: 15px 0;
+  text-align: center;
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  position: relative;
+  color: #00529B;
+  position: fixed;
+  left: 205px;
+  top: 100px;
+  width: 70%;
+  filter: alpha(opacity=95); /* IE */
+  -moz-opacity: 0.95; /* Mozilla */
+  opacity: 0.95; /* Opera */
+}
+
+#simple-user-info.error {
+  background-color: Yellow;
+}
+
+#simple-user-info.success {
+  background-color: Lime;
+}
+
+/*-------------*/
+/* theme rules */
+/*-------------*/

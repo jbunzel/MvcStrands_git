@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<Article Type="Priv">
+  <Title> Article List / The Strands </Title>
+  <Sect1 Id="Home" Type="0">
+    <Title>The Strands</Title>
+    <Motto>
+      <Graphic FileRef="bucht.jpg" Width="633"
+	 Depth="278"/>
+      <LiteralLayout>
+        "Wenn er, sei es anderer Geschäfte halber oder wegen
+        zu geringen Eifers, nicht zu solcher Vollkommenheit
+        gelangen kann, daß er Lobwürdiges hervorbringt, sei
+        er darauf bedacht, sein Geschreibsel niemand sehn zu
+        lassen, damit er nicht andern zum Spott diene, und 
+        zeige es höchstens einem vertrauten Freund."
+        
+        <Emphasis>(Baldassare Castiglione, Der Hofmann, S. 50)</Emphasis>
+      </LiteralLayout>
+    </Motto>
+    <Para Type="text">
+      I will use these web pages to collect materials relating
+      to diverse strands of thought. Collection principle is serendipity - not
+      systematic coverage and completeness.
+    </Para>
+    <Para Type="text">
+      As I can devote only a small amount of my time to these
+      web pages most of them - at the moment - hold only one or two items (Dualistic
+      and Monistic philosophies of the mind; Theory of Rhetorics; The Tragedy of
+      Macbeth) .
+    </Para>
+  </Sect1>
+  <Sect1 Id="ArtLit" Type="2">
+    <Title>Arts &amp; Literature</Title>
+    <Para Id="macbeth" Type="featured">
+      <ULink URL="macbeth/macbeth.xml"> The Tragedy of Macbeth </ULink>
+    </Para>
+    <Sect2>
+      <Title>Weltende</Title>
+      <Motto>
+        <Graphic FileRef="century.jpg" Width="400" Depth="276"/>
+      </Motto>
+      <Sect3>
+        <Title>Jakob van Hoddis</Title>
+        <LiteralLayout>
+          Dem Bürger fliegt vom spitzen Kopf der Hut,
+          in allen Lüften hallt es wie Geschrei.
+          Dachdecker stürzen ab und gehn entzwei,
+          und an den Küsten - liest man - steigt die Flut.
+
+          Der Sturm ist da, die wilden Meere hupfen
+          an Land, um dicke Dämme zu zerdrücken.
+          Die meisten Menschen haben einen Schnupfen.
+          Die Eisenbahnen fallen von den Brücken.
+        </LiteralLayout>
+      </Sect3>
+    </Sect2>
+    <Sect2>
+      <Title></Title>
+      <Para>
+        <ALink Article="brobowski/brobowski.xml">
+          Die 10
+          schönsten Gedichte nach Johannes Brobowski
+        </ALink>
+      </Para>
+      <Para>
+        <ALink Article="heine/heine.xml">
+          Ironische Schlüsse
+          in Gedichten von Heinrich Heine
+        </ALink>
+      </Para>
+      <Para>
+        <ALink Article="knospen/knospen.xml">Knospen</ALink>
+      </Para>
+      <Para>
+        <Link Article="ringelnatz/ringelnatz.xml" Linkend="ringelnatz">
+          Ein Gedicht?
+          Ein Gedicht von Ringelnatz!
+        </Link>
+      </Para>
+      <Para>
+        <Link Article="borchardt/borchardt.xml" Linkend="borchardt">...und ein letztes Gedicht</Link>
+      </Para>
+    </Sect2>
+  </Sect1>
+  <Sect1 Id="Science" Type="1">
+    <Title> Science &amp; Philosophy </Title>
+    <Motto>
+      <Graphic FileRef="changes.gif" Width="400" Depth="276"/>
+      <LiteralLayout>
+        "Ja",  sagte er leise nach einer Pause, "es ist so, ich hätte gut Arzt werden können.
+        Der Brustmilchgang...Die Lymphe der Beine...Das interessiert mich sehr.
+        - Was ist der Körper!" rief er auf einmal stürmisch ausbrechend.
+        "Was ist das Fleisch! Was ist der Leib des Menschen! Woraus besteht er!
+        Sagen Sie uns das heute nachmittag, Herr Hofrat!
+        Sagen Sie es uns ein für allemal und genau, damit wir es wissen!"
+
+        "Aus Wasser", antwortete Behrens.
+        "Für organische Chemie interessieren Sie sich also auch?
+        Das ist allergrößtenteils Wasser, woraus der humanistische Menschenleib besteht,
+        nichts Besseres und nichts Schlechteres, es ist keine Ursache heftig zu werden..."
+
+        <Emphasis>Thomas Mann, Der Zauberberg</Emphasis>
+      </LiteralLayout>
+    </Motto>
+    <Para Id="cell" Type="featured">
+      <ULink URL="chemical/chemical.xml"> Principles of Chemical Science </ULink>
+    </Para>
+    <Para Id="Searle" Type="featured">
+      <ULink URL="searle/searle.xml"> Monism or Dualism? </ULink>
+    </Para>
+    <Para Id="Rhetoric" Type="featured">
+      <ULink URL="rhetoric/rhetoric.xml"> Rhetorical Forms and Scientific Discourse </ULink>
+    </Para>
+    <Para Id="lagrange" Type="featured">
+      <ULink URL="lagrange/lagrange.xml"> Klassische Mechanik </ULink>
+    </Para>
+    <Para Id="myquotes" Type="listed">
+      <ULink URL="myquotes/myquotes.xml"> Notizen &amp; Exzerpte</ULink>
+    </Para>
+    <Para Id="klibansky" Type="listed">
+      <ULink URL="klibansky/klibansky.xml"> Saturn &amp; Melancholie (Exzerpte)</ULink>
+    </Para>
+    <Para Id="flasch" Type="listed">
+      <ULink URL="flasch/flasch.xml"> Flasch: Meister Eckart (Exzerpte)</ULink>
+    </Para>
+    <Para Id="vaihinger" Type="listed">
+      <ULink URL="vaihinger/vaihinger.xml"> Vaihinger: Philosophie des Als Ob (Exzerpte)</ULink>
+    </Para>
+    <Para Id="Language" Type="listed">
+      <ULink URL="language/language.xml"> Philosophy of Language </ULink>
+    </Para>
+    <Para Id="Tropes" Type="listed">
+      <ULink URL="tropes/tropes.xml"> Rhetorical Tropes &amp; Figures </ULink>
+    </Para>
+    <Para Id="cell" Type="noted">
+      <ULink URL="cell/cell.xml"> Introductory Biology: Part I The Cell </ULink>
+    </Para>
+  </Sect1>
+  <Sect1 Id="Public" Type="4">
+    <Title> Public Affairs </Title>
+    <Motto>
+      <Graphic FileRef="180901NY.jpeg" Width="420" Depth="306"/>
+      <LiteralLayout>
+        "...and the farther I advanced in life, the more difficult it
+        seemed to me to handle public affairs aright.
+
+        <Emphasis>Plato, Seventh letter</Emphasis>
+      </LiteralLayout>
+    </Motto>
+    <Para Id="lineartheory" Type="featured">
+      <ULink URL="lineartheory2/lineartheory.xml"> Lineare Wirtschaftstheorie </ULink>
+    </Para>
+    <Para Id="crisis" Type="featured">
+      <ULink URL="crisis/crisis.xml"> Über wirtschaftliches Gleichgewicht &amp; Krise </ULink>
+    </Para>
+    <Para Id="vwg" Type="featured">
+      <ULink URL="vwg/vwg.xml"> Deutsche Wirtschaft</ULink>
+    </Para>
+    <Para Id="japan" Type="featured">
+      <ULink URL="japan/japan.xml"> Japan's perennial Economic Crisis </ULink>
+    </Para>
+    <Para Id="transaction" Type="listed">
+      <ULink URL="transaction/transaction.xml"> Transaktionsstruktur &amp; Tauschgleichgewicht</ULink>
+    </Para>
+    <Para Id="utility" Type="listed">
+      <ULink URL="utility/utility.xml"> Nutzentheorie </ULink>
+    </Para>
+    <Para Id="mypapers" Type="listed">
+      <ULink URL="mypapers/mypapers.xml"> Notizen &amp; Exzerpte </ULink>
+    </Para>
+    <Para Id="principles" Type="listed">
+      <ULink URL="principles/principles.xml"> Über Finanzanlagen </ULink>
+    </Para>
+    <Para Id="lineartheory_old" Type="featured">
+      <ULink URL="lineartheory/lineartheory.xml"> Lineare Wirtschaftstheorie (Vorversion)</ULink>
+    </Para>
+    <Para>
+      <?xm-replace_text Paragraph?>
+    </Para>
+  </Sect1>
+  <Sect1 Id="Music" Type="3">
+    <Title> Music </Title>
+    <Motto>
+      <Graphic FileRef="ms02.gif" Width="431" Depth="78"/>
+      <LiteralLayout>
+        It has never happened that the whole musical world, not only in this country but also abroad, has
+        gathered more or less closely around the production of an Englishman.
+        ... Though sturdily independent, courting nobody, he now occupies the position of a man with whom
+        most people are determined to be pleased.
+
+        <Emphasis>Portrait of Elgar, Michael Kennedy</Emphasis>
+
+      </LiteralLayout>
+    </Motto>
+    <Para>
+      <?xm-replace_text Paragraph?>
+    </Para>
+  </Sect1>
+  <Sect1 Id="Questionnaire" Type="5">
+    <Title> Questionnaire </Title>
+    <Motto>
+      <Graphic FileRef="vegetables.gif" Width="360" Depth="240"/>
+      <LiteralLayout>
+        The Motto
+        <Emphasis>The Motto Source</Emphasis>
+
+      </LiteralLayout>
+    </Motto>
+    <Para Id="myevents" Type="featured">
+      <ULink URL="myevents/myevents.xml"> Veranstaltungen &amp; Exkursionen </ULink>
+    </Para>
+
+    <Para Id="1307" Type="listed">
+      <ULink URL="1307_TB/1307.xml"> 2013 Juli</ULink>
+    </Para>
+
+    <Para Id="1306" Type="listed">
+      <ULink URL="1306_TB/1306.xml"> 2013 Juni</ULink>
+    </Para>
+
+    <Para Id="1305" Type="listed">
+      <ULink URL="1305_TB/1305.xml"> 2013 Mai</ULink>
+    </Para>
+
+    <Para Id="1304" Type="listed">
+      <ULink URL="1304_TB/1304.xml"> 2013 April</ULink>
+    </Para>
+
+    <Para Id="1303" Type="listed">
+      <ULink URL="1303_TB/1303.xml"> 2013 März</ULink>
+    </Para>
+
+    <Para Id="1302" Type="listed">
+      <ULink URL="1302_TB/1302.xml"> 2013 Februar</ULink>
+    </Para>
+
+    <Para Id="1301" Type="listed">
+      <ULink URL="1301_TB/1301.xml"> 2013 Januar</ULink>
+    </Para>
+
+    <Para Id="1211" Type="listed">
+      <ULink URL="1212_TB/1212.xml"> 2012 Dezember</ULink>
+    </Para>
+
+    <Para Id="1211" Type="listed">
+      <ULink URL="1211_TB/1211.xml"> 2012 November</ULink>
+    </Para>
+
+    <Para Id="1210" Type="listed">
+      <ULink URL="1210_TB/1210.xml"> 2012 Oktober</ULink>
+    </Para>
+
+    <Para Id="1209" Type="listed">
+      <ULink URL="1209_TB/1209.xml"> 2012 September</ULink>
+    </Para>
+
+    <Para Id="1208" Type="listed">
+      <ULink URL="1208_TB/1208.xml"> 2012 August</ULink>
+    </Para>
+
+    <Para Id="1207" Type="listed">
+      <ULink URL="1207_TB/1207.xml"> 2012 Juli</ULink>
+    </Para>
+
+    <Para Id="1206" Type="listed">
+      <ULink URL="1206_TB/1206.xml"> 2012 Juni</ULink>
+    </Para>
+
+    <Para Id="1205" Type="listed">
+      <ULink URL="1205_TB/1205.xml"> 2012 Mai</ULink>
+    </Para>
+
+    <Para Id="1204" Type="listed">
+      <ULink URL="1204_TB/1204.xml"> 2012 April</ULink>
+    </Para>
+
+    <Para Id="1203" Type="listed">
+      <ULink URL="1203_TB/1203.xml"> 2012 März</ULink>
+    </Para>
+
+    <Para Id="1202" Type="listed">
+      <ULink URL="1202_TB/1202.xml"> 2012 Februar</ULink>
+    </Para>
+
+    <Para Id="1201" Type="listed">
+      <ULink URL="1201_TB/1201.xml"> 2012 Januar</ULink>
+    </Para>
+
+    <Graphic FileRef="briefing.jpg" Width="1024" Depth="683"/>    
+
+    <Para Id="1112" Type="listed">
+    <ULink URL="1112_TB/1112.xml"> 2011 Dezember</ULink>
+    </Para>
+
+    <Para Id="1111" Type="listed">
+      <ULink URL="1111_TB/1111.xml"> 2011 November</ULink>
+    </Para>
+
+    <Para Id="1110" Type="listed">
+      <ULink URL="1110_TB/1110.xml"> 2011 Oktober</ULink>
+    </Para>
+
+    <Para Id="1109" Type="listed">
+      <ULink URL="1109_TB/1109.xml"> 2011 September</ULink>
+    </Para>
+
+    <Para Id="1108" Type="listed">
+      <ULink URL="1108_TB/1108.xml"> 2011 August</ULink>
+    </Para>
+
+    <Para Id="1107" Type="listed">
+      <ULink URL="1107_TB/1107.xml"> 2011 Juli</ULink>
+    </Para>
+
+    <Para Id="1106" Type="listed">
+      <ULink URL="1106_TB/1106.xml"> 2011 Juni</ULink>
+    </Para>
+
+    <Para Id="1105" Type="listed">
+      <ULink URL="1105_TB/1105.xml"> 2011 Mai</ULink>
+    </Para>
+
+    <Para Id="1104" Type="listed">
+      <ULink URL="1104_TB/1104.xml"> 2011 April</ULink>
+    </Para>
+
+    <Para Id="1103" Type="listed">
+      <ULink URL="1103_TB/1103.xml"> 2011 März</ULink>
+    </Para>
+
+    <Para Id="1102" Type="listed">
+      <ULink URL="1102_TB/1102.xml"> 2011 Februar</ULink>
+    </Para>
+
+    <Para Id="1101" Type="listed">
+      <ULink URL="1101_TB/1101.xml"> 2011 Januar</ULink>
+    </Para>
+
+    <Para Id="1011" Type="listed">
+      <ULink URL="1012_TB/1012.xml"> 2010 Dezember</ULink>
+    </Para>
+
+    <Para Id="1011" Type="listed">
+      <ULink URL="1011_TB/1011.xml"> 2010 November</ULink>
+    </Para>
+
+    <Para Id="1010" Type="listed">
+      <ULink URL="1010_TB/1010.xml"> 2010 Oktober</ULink>
+    </Para>
+
+    <Para Id="1009" Type="listed">
+      <ULink URL="1009_TB/1009.xml"> 2010 September</ULink>
+    </Para>
+
+    <Para Id="1008" Type="listed">
+      <ULink URL="1008_TB/1008.xml"> 2010 August</ULink>
+    </Para>
+
+    <Para Id="1007" Type="listed">
+      <ULink URL="1007_TB/1007.xml"> 2010 Juli</ULink>
+    </Para>
+
+    <Para Id="1006" Type="listed">
+      <ULink URL="1006_TB/1006.xml"> 2010 Juni</ULink>
+    </Para>
+
+    <Para Id="1005" Type="listed">
+      <ULink URL="1005_TB/1005.xml"> 2010 Mai</ULink>
+    </Para>
+
+    <Para Id="1004" Type="listed">
+      <ULink URL="1004_TB/1004.xml"> 2010 April</ULink>
+    </Para>
+
+    <Para Id="1003" Type="listed">
+      <ULink URL="1003_TB/1003.xml"> 2010 März</ULink>
+    </Para>
+
+    <Para Id="1002" Type="listed">
+      <ULink URL="1002_TB/1002.xml"> 2010 Februar</ULink>
+    </Para>
+
+    <Para Id="1001" Type="listed">
+      <ULink URL="1001_TB/1001.xml"> 2010 Januar</ULink>
+    </Para>
+
+    <Para Id="0912" Type="listed">
+      <ULink URL="0912_TB/0912.xml"> 2009 Dezember</ULink>
+    </Para>
+
+    <Para Id="0911" Type="listed">
+      <ULink URL="0911_TB/0911.xml"> 2009 November</ULink>
+    </Para>
+
+    <Para Id="0910" Type="listed">
+      <ULink URL="0910_TB/0910.xml"> 2009 Oktober</ULink>
+    </Para>
+
+    <Para Id="0909" Type="listed">
+      <ULink URL="0909_TB/0909.xml"> 2009 September</ULink>
+    </Para>
+
+    <Para Id="0908" Type="listed">
+      <ULink URL="0908_TB/0908.xml"> 2009 August</ULink>
+    </Para>
+
+    <Para Id="0907" Type="listed">
+      <ULink URL="0907_TB/0907.xml"> 2009 Juli</ULink>
+    </Para>
+
+    <Para Id="0906" Type="listed">
+      <ULink URL="0906_TB/0906.xml"> 2009 Juni</ULink>
+    </Para>
+
+    <Para Id="0905" Type="listed">
+      <ULink URL="0905_TB/0905.xml"> 2009 Mai</ULink>
+    </Para>
+
+    <Para Id="0904" Type="listed">
+      <ULink URL="0904_TB/0904.xml"> 2009 April</ULink>
+    </Para>
+
+    <Para Id="0903" Type="listed">
+      <ULink URL="0903_TB/0903.xml"> 2009 März</ULink>
+    </Para>
+
+    <Para Id="0902" Type="listed">
+      <ULink URL="0902_TB/0902.xml"> 2009 Februar</ULink>
+    </Para>
+
+    <Para Id="0901" Type="listed">
+      <ULink URL="0901_TB/0901.xml"> 2009 Januar</ULink>
+    </Para>
+
+    <Para Id="0812" Type="listed">
+      <ULink URL="0812_TB/0812.xml"> 2008 Dezember</ULink>
+    </Para>
+
+    <Para Id="0811" Type="listed">
+      <ULink URL="0811_TB/0811.xml"> 2008 November</ULink>
+    </Para>
+
+    <Para Id="0810" Type="listed">
+      <ULink URL="0810_TB/0810.xml"> 2008 Oktober</ULink>
+    </Para>
+
+    <Para Id="0809" Type="listed">
+      <ULink URL="0809_TB/0809.xml"> 2008 September</ULink>
+    </Para>
+
+    <Para Id="0808" Type="listed">
+      <ULink URL="0808_TB/0808.xml"> 2008 August</ULink>
+    </Para>
+
+    <Para Id="0807" Type="listed">
+      <ULink URL="0807_TB/0807.xml"> 2008 Juli</ULink>
+    </Para>
+
+    <Para Id="0806" Type="listed">
+      <ULink URL="0806_TB/0806.xml"> 2008 Juni</ULink>
+    </Para>
+
+    <Para Id="0805" Type="listed">
+      <ULink URL="0805_TB/0805.xml"> 2008 Mai</ULink>
+    </Para>
+
+    <Para Id="0804" Type="listed">
+      <ULink URL="0804_TB/0804.xml"> 2008 April</ULink>
+    </Para>
+
+    <Para Id="0803" Type="listed">
+      <ULink URL="0803_TB/0803.xml"> 2008 März</ULink>
+    </Para>
+    <Para Id="0802" Type="listed">
+      <ULink URL="0802_TB/0802.xml"> 2008 Februar</ULink>
+    </Para>
+    <Para Id="0801" Type="listed">
+      <ULink URL="0801_TB/0801.xml"> 2008 Januar</ULink>
+    </Para>
+    <Para Id="0711" Type="listed">
+      <ULink URL="0712_TB/0711.xml"> 2007 November / Dezember</ULink>
+    </Para>
+  </Sect1>
+
+  <LastModDate>Montag, 21. März 2005 22:09:49</LastModDate>
+</Article>

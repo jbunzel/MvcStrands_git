@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "strands", "strands\strands.csproj", "{F05EBD18-9A65-48BE-B914-90186DC8E4D6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "strands.Tests", "strands.Tests\strands.Tests.csproj", "{F071A664-9821-4582-A7EC-73F4162137EB}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "RQLucene", "RQLucene\RQLucene.vbproj", "{B7C90D5F-746B-4E1F-BDE4-B18A1FE05AF5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F05EBD18-9A65-48BE-B914-90186DC8E4D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F05EBD18-9A65-48BE-B914-90186DC8E4D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F05EBD18-9A65-48BE-B914-90186DC8E4D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F05EBD18-9A65-48BE-B914-90186DC8E4D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F071A664-9821-4582-A7EC-73F4162137EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F071A664-9821-4582-A7EC-73F4162137EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F071A664-9821-4582-A7EC-73F4162137EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F071A664-9821-4582-A7EC-73F4162137EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7C90D5F-746B-4E1F-BDE4-B18A1FE05AF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7C90D5F-746B-4E1F-BDE4-B18A1FE05AF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7C90D5F-746B-4E1F-BDE4-B18A1FE05AF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7C90D5F-746B-4E1F-BDE4-B18A1FE05AF5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

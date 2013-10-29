@@ -1,0 +1,51 @@
+﻿/*------------*/
+/* base rules */
+/*------------*/
+body {
+    background-color: Beige;
+    text-align: center;
+}
+
+input[type=text]
+{
+    font-family: Georgia;
+    font-size: 100.01%;
+    line-height: 140%;
+    color: #797979;
+    width: 200px;
+    vertical-align: middle;
+}
+
+input[type=submit]
+{
+    vertical-align: middle;
+}
+
+/*--------------*/
+/* layout rules */
+/*--------------*/
+#content {
+    width: 480px;
+    background-color: beige;
+    padding: 5px 10px 10px 10px;
+}
+
+#main {
+    width: 480px;
+    min-height: 0px;
+}
+
+#footer {
+    max-width: 300px;
+    background-color: beige;
+    padding: 15px 15px 15px 15px;
+}
+
+/*--------------*/
+/* module rules */
+/*--------------*/
+#results {
+    text-align: left;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}

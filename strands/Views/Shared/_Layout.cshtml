@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div id="content" class="pure-g-r">
+        <div id="nav" class="pure-u-1">
+            <div class=" rq-menu pure-menu pure-menu-open pure-menu-horizontal">
+                <ul>
+                    <li>@Html.ActionLink("Home", "Index", "Home", new {Strand = "Themes", Section = "Home"}, null)</li>
+                    <li><img src="~/Content/Themes/strands/images/tabseparator.gif" alt="" /></li>
+                    <li>@Html.ActionLink("Science & Philosophy", "Index", "Home", new {Strand = "Themes", Section = "Science"}, null)</li>
+                    <li><img src="~/Content/Themes/strands/images/tabseparator.gif" alt="" /></li>
+                    <li>@Html.ActionLink("Arts & Literature", "Index", "Home", new {Strand = "Themes", Section = "Arts"}, null)</li>
+                    <li><img src="~/Content/Themes/strands/images/tabseparator.gif" alt="" /></li>
+                    <li>@Html.ActionLink("Music", "Index", "Home", new {Strand = "Themes", Section = "Music"}, null)</li>
+                    <li><img src="~/Content/Themes/strands/images/tabseparator.gif" alt="" /></li>
+                    <li>@Html.ActionLink("Public Affairs", "Index", "Home", new {Strand = "Themes", Section = "Public Affairs"}, null)</li>
+                    <li><img src="~/Content/Themes/strands/images/tabseparator.gif" alt="" /></li>
+                    <li>@Html.ActionLink("Questionnaire", "Index", "Home", new {Strand = "Themes", Section = "Questionnaire"}, null)</li>
+                </ul>
+            </div>
+        </div>
+        <div id="main" class="pure-u-1">
+            @RenderBody()
+        </div>
+        <div id="footer" class="pure-u-1">
+            <div class="rq-instructions">
+                <a href="">Home</a> <span class="accent">&nbsp;|&nbsp;</span>
+				<a href="">Terms</a> <span class="accent">&nbsp;|&nbsp;</span>
+				<a href="">Privacy</a> <span class="accent">&nbsp;|&nbsp;</span> 
+				<a href="">Register</a>	<span class="accent">&nbsp;|&nbsp;</span> 
+				<a href="">Login</a><br />
+				<span id="copyright" class="smallcomment">Copyright 2002-2013 by <a href="http://www.jbunzel.de/jb/">Jürgen Bunzel</a></span>
+            </div>
+        </div>
+    </div>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

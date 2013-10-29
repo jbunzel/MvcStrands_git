@@ -1,0 +1,58 @@
+﻿body 
+{
+    text-align: center;
+}
+
+.Normal img 
+/* regelt Abstände auf der Hompage */
+{
+    /* border: solid 1px black; Debug border */
+    margin: 0px 0px 30px 0px;
+}
+
+.Normal table, .Normal tr, .Normal td, .Normal th
+{
+    /* border: solid 1px red; Debug border */
+    border-collapse: collapse;
+    padding: 10px 2px 2px 2px;
+}
+
+pre
+{
+    /* border: solid 1px red; Debug border */
+    text-align: right;   
+    font: 9pt arial;
+    line-height: 130%;
+}
+
+.Abstract
+{
+    text-align: left;
+    
+    font-family: Georgia;
+    font-size: 100.01%;
+    line-height: 140%;
+    letter-spacing: 0px;
+    color: #797979;
+}
+
+.Test1
+{
+    text-align: center;
+    font: italic bold 24pt arial;
+}
+
+.Test3
+{
+    /* border: solid 1px red; Debug border */
+    text-align: right;
+    font: bold 12pt arial;
+    color: #797979;
+}
+
+.Test2
+{
+    text-align: left;
+    font: italic bold 24pt arial;
+    margin: 0;
+}

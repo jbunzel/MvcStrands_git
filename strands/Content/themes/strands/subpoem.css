@@ -1,0 +1,59 @@
+﻿/*------------*/
+/* base rules */
+/*------------*/
+body {
+    background-color: Beige;
+}
+
+/*--------------*/
+/* layout rules */
+/*--------------*/
+
+.Normal div {
+    padding: 5px 5px 5px 0px;
+}
+
+#main,
+#content {
+    width: 660px;
+    background-color: beige;
+    min-height : 200px;
+    margin-top: 5px;
+}
+
+/*--------------*/
+/* module rules */
+/*--------------*/
+
+.subpoem {
+    font: bold 13pt garamond;
+    color: #808000
+}
+
+pre.subpoem,
+p.subpoem {
+   font-size: 13pt; 
+   line-height: 18pt;
+   text-align: center;
+   color: #808000
+}
+
+div.subpoem {
+   font: bold 18pt Times New Roman;
+   text-align: center;
+   color: #008080
+}
+
+h1.subpoem {
+   font: bold 24pt Times New Roman;
+   text-align: center;
+   color: #008080
+}  
+
+/*-------------*/
+/* state rules */
+/*-------------*/
+
+/*-------------*/
+/* theme rules */
+/*-------------*/

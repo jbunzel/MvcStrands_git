@@ -1,0 +1,35 @@
+﻿/*------------*/
+/* base rules */
+/*------------*/
+body {
+    background-color: Beige;
+}
+
+/*--------------*/
+/* layout rules */
+/*--------------*/
+#main,
+#content {
+    width: auto;
+    background-color: beige;
+    min-height : 200px;
+    padding: 15px 15px 15px 15px;
+}
+
+/*--------------*/
+/* module rules */
+/*--------------*/
+h1.note {
+   font: bold 20pt Times New Roman;
+   text-align: left;
+   color: #797979;
+}
+
+note,
+div.note,
+span.note,
+pre.note,
+p.note { font : 9pt Arial; 
+          text-align: left; 
+          color: #797979;
+}

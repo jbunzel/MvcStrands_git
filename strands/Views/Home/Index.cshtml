@@ -1,0 +1,39 @@
+﻿<div id="strands" class="Normal"></div>
+@Styles.Render("~/content/" + @ViewBag.Type)
+@Scripts.Render("~/bundles/strands")
+@section scripts{
+	<script type="text/javascript">
+	    var config = { contextPath: '@Url.Content("~")' };
+	    var strand = @Html.Raw(Json.Encode(@ViewBag.Strand));
+	    var section = @Html.Raw(Json.Encode(@ViewBag.Section));
+	    var element = @Html.Raw(Json.Encode(@ViewBag.Element));
+
+	    $(function ()
+	    {
+	        $.ajax({
+		        url: HostAdress() + '/api' + Path(),
+		        type: "GET",
+		        data: null,
+		        dataType: "json",
+		        success: function (data) {
+		            $('#strands').html(data);
+		        },
+		        error: function (xhr) {
+		            _myHelper.showMessage(decodeURIComponent(xhr.responseText).replace(/\+/g, ' '), "error");
+		        }
+		    });
+	    });
+
+	    function HostAdress() {
+	        return ((config.contextPath.length > 0) && (config.contextPath.charAt(config.contextPath.length - 1)) == "/") ? config.contextPath.substring(0, config.contextPath.length - 1) : config.contextPath;
+	    };
+
+	    function Path() {
+	        var t = (strand != "") ? "/" + strand : "";
+	        var s = (section != "") ? "/" + section : "";
+	        var e = (element != "") ? "/" + element : "";
+
+	        return t + s + e; 
+	    }
+	</script>
+}
