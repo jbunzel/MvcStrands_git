@@ -138,7 +138,7 @@ namespace strands.Services
                     return ToHtml(model.Select(StrandName, SectionName, ElementName));
                 }
                 catch (Exception ex) {
-                    throw new Exception("ERROR!<br/>" + ex.Message + ".", ex);
+                    throw new Exception("ERROR!\\n" + ex.Message + ".", ex);
                 }
             }
         }
@@ -168,7 +168,7 @@ namespace StrandsExtension
             System.Web.Mvc.UrlHelper u = new System.Web.Mvc.UrlHelper(HttpContext.Current.Request.RequestContext);
             string strand = link.Contains("/") ? link.Substring(0, link.IndexOf("/")) : link;
 
-            return u.Action("Index", "Home", new { Strand = strand, Section = ((section != "") ? section : "1") });
+            return u.Action("Index", "Home", new { Strand = strand, Section = ((section != "") ? section : "") });
         }
 
         public string GenerateUlink(string link, string section, string type)

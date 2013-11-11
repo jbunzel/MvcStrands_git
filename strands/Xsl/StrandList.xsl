@@ -16,15 +16,13 @@
   
   <xsl:template match="/">
     <script type="text/javascript" language="JavaScript">
-
       function readSearchField(path)
       {
         InputText = document.getElementById("searchfield").value;
         InputText = InputText.replace("*","$"); // needed because '*' is in requestPathInvalidCharacters
-        path = path.replace("/1", "/" + InputText);
+        path = path + "/" + InputText;
         window.open(path, 'SEARCH','scrollbars,width=500,height=650,left=20,top=20');
       }
-
     </script>
 
     <table width="100%">

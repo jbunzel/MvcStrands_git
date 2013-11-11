@@ -20,7 +20,7 @@ namespace strands.Tests.Controllers
             ValuesController controller = new ValuesController();
 
             // Aktion ausführen
-            IEnumerable<string> result = controller.Get();
+            string result = controller.Get();
 
             // Bestätigen
             Assert.IsNotNull(result);
@@ -36,7 +36,7 @@ namespace strands.Tests.Controllers
             ValuesController controller = new ValuesController();
 
             // Aktion ausführen
-            string result = controller.Get(5);
+            string result = controller.Get("5");
 
             // Bestätigen
             Assert.AreEqual("value", result);

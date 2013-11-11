@@ -19,7 +19,7 @@ namespace strands.Controllers
             var resp = new HttpResponseMessage(HttpStatusCode.NotFound)
             {
                 Content = new StringContent(ex.Message),
-                ReasonPhrase = "Product ID Not Found"
+                ReasonPhrase = ex.InnerException.Message
             };
             throw new HttpResponseException(resp);
         }
@@ -38,7 +38,7 @@ namespace strands.Controllers
         // GET api/values/5
         public string Get(string Strand)
         {
-           return this.Get(Strand, "Home", "");
+           return this.Get(Strand, "1", "");
         }
 
         // GET api/values/5

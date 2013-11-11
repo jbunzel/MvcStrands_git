@@ -18,12 +18,14 @@ namespace strands.Models
 
     public class SearchResult
     {
+        public string SortField {get; set;}
         public string Title {get; set;}
         public string Section { get; set; }
         public string Adress { get; set; }
 
         public SearchResult(string Title, string Section, string Adress) 
         {
+            this.SortField = null;
             this.Title = Title;
             this.Section = Section;
             this.Adress = Adress;

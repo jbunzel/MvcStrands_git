@@ -22,7 +22,9 @@
   <xsl:key name="linkend-group" match="Link" use="@Linkend" />
 
   <xsl:template match="/">
+<!--    
     <script src="Scripts/HtmlFactoryScripts/rqui-pdf.js" type="text/javascript"></script>
+-->    
     <style type="text/css">
       .embedded {
       width: 730px;
@@ -108,14 +110,15 @@
       //alert(el.outerHTML);
       }
       }
-      
-      function readSearchField(path)
+
+      function readSearchField(path, field_replication)
       {
-        InputText = document.getElementById("searchfield").value;
-        InputText = InputText.replace("*","$"); // needed because '*' is in requestPathInvalidCharacters
-        path = path.replace("/1", "/" + InputText);
-        window.open(path, 'SEARCH','scrollbars,width=500,height=650,left=20,top=20');
+      InputText = document.getElementById("searchfield" + field_replication).value;
+      InputText = InputText.replace("*","$"); // needed because '*' is in requestPathInvalidCharacters
+      path = path + "/" + InputText;
+      window.open(path, 'SEARCH','scrollbars,width=500,height=650,left=20,top=20');
       }
+
 
     </script>
 
@@ -259,6 +262,8 @@
   <!-- Navigation elements -->
 
   <xsl:template name="Sect1.Toolbar">
+    <xsl:param name="replication" select="1" />
+    
     <table border="0" width="50px">
       <tr align="center" valign="baseline">
         <td class="smallcomment">
@@ -322,7 +327,9 @@
       <tr>
         <td colspan="3">
           <xsl:element name="input">
-            <xsl:attribute name="id">searchfield</xsl:attribute>
+            <xsl:attribute name="id">
+              <xsl:value-of select="concat('searchfield', $replication)"/>
+            </xsl:attribute>
             <xsl:attribute name="type">text</xsl:attribute>
             <xsl:attribute name="title">Suchterme hier eingeben</xsl:attribute>
           </xsl:element>
@@ -341,8 +348,7 @@
                     <xsl:variable name="path">
                       <xsl:value-of select="LinkUtils:GenerateUlink('Search', '')"/>
                     </xsl:variable>
-
-                    <xsl:value-of select="concat('javascript:readSearchField(&quot;',$path,'&quot;)')" />
+                    <xsl:value-of select="concat( 'javascript:readSearchField(&quot;', $path, '&quot;', ', ', $replication, ')' )" />
                   </xsl:attribute>
                   <xsl:attribute name="href">
                     <xsl:text>#</xsl:text>
@@ -385,7 +391,9 @@
     <table border="0">
       <tr align="right">
         <td colspan="2">
-          <xsl:call-template name="Sect1.Toolbar"/>
+          <xsl:call-template name="Sect1.Toolbar">
+            <xsl:with-param name="replication" select="1" />
+          </xsl:call-template>
         </td>
       </tr>
       <tr>
@@ -431,7 +439,9 @@
       </tr>
       <tr align="right" valign="bottom">
         <td colspan="2">
-          <xsl:call-template name="Sect1.Toolbar"/>
+          <xsl:call-template name="Sect1.Toolbar">
+            <xsl:with-param name="replication" select="2" />
+          </xsl:call-template>
         </td>
       </tr>
     </table>
@@ -583,7 +593,9 @@
           <xsl:text> </xsl:text>
         </td>
         <td align="right">
-          <xsl:call-template name="Sect1.Toolbar"/>
+          <xsl:call-template name="Sect1.Toolbar">
+            <xsl:with-param name="replication" select="3" />
+          </xsl:call-template>
         </td>
       </tr>
     </table>

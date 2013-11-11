@@ -140,13 +140,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\LuceneSearchService.cs" />
     <Compile Include="Services\MathSymbolSupport.cs" />
+    <Compile Include="Services\Settings.cs" />
     <Compile Include="Services\StrandsRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\xml\IndexConfig.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="App_Data\xml\menu.xml">
+    <Content Include="App_Data\xml\StrandsConfig.xml">
       <SubType>Designer</SubType>
     </Content>
     <Content Include="App_Data\xml\StrandList.xml">
@@ -160,8 +161,8 @@
     <Content Include="Content\themes\strands\themes.css" />
     <Content Include="Content\themes\strands\subpoem.css" />
     <Content Include="Content\themes\strands\Toc.css" />
-    <Content Include="Scripts\HtmlFactoryScripts\rqui-pdf.js" />
     <Content Include="Scripts\HtmlFactoryScripts\rqui-helpers.js" />
+    <Content Include="Scripts\HtmlFactoryScripts\rqui-pdf.js" />
     <Content Include="Scripts\jsrender.js" />
     <Content Include="Xsl\jbarticle.xsl">
       <SubType>Designer</SubType>

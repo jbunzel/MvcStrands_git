@@ -51,7 +51,22 @@ namespace strands.Services
                     {
                         this.ResultList = new List<SearchResult>(sr.ResultTable.Rows.Count);
                         for (int i = 0; i < sr.ResultTable.Rows.Count; i++)
-                            this.ResultList.Add(new SearchResult(sr.ResultTable.Rows[i][0].ToString(), sr.ResultTable.Rows[i][1].ToString(), sr.ResultTable.Rows[i][2].ToString()));
+                        {
+                            SearchResult result = new SearchResult(sr.ResultTable.Rows[i][0].ToString(), sr.ResultTable.Rows[i][1].ToString(), sr.ResultTable.Rows[i][2].ToString());
+
+                            try
+                            {
+                                DateTime dateStr = DateTime.Parse(sr.ResultTable.Rows[i][0].ToString());
+
+                                result.SortField = dateStr.Date.Year.ToString().Substring(2) + dateStr.Month.ToString("d2") + dateStr.Day.ToString("d2");
+                            }
+                            catch
+                            {
+                                result.SortField = result.Title;
+                            }
+                            this.ResultList.Add(result);
+                        }
+                        this.ResultList = ResultList.OrderBy(o => o.SortField).ToList();
                     }
                 }
                 catch { }

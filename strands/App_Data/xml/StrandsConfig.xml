@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  <legacy-routes>
+    <route old="lineartheory2"    new="lineare-wirtschaftstheorie" />
+    <route old="lineartheory2/1"  new="lineare-wirtschaftstheorie/grundbegriffe-der-produktionstheorie" />
+    <route old="lineartheory2/2"  new="lineare-wirtschaftstheorie/lineare-produktionssysteme" />
+    <route old="lineartheory2/3"  new="lineare-wirtschaftstheorie/leontief-produktionssysteme" />
+    <route old="lineartheory2/4"  new="lineare-wirtschaftstheorie/technologische-expansionsfaktoren" />
+    <route old="lineartheory2/5"  new="lineare-wirtschaftstheorie/lineare-preissysteme" />
+    <route old="lineartheory2/6"  new="lineare-wirtschaftstheorie/leontief-preissysteme" />
+    <route old="lineartheory2/7"  new="lineare-wirtschaftstheorie/oekonomische-expansionsfaktoren" />
+    <route old="lineartheory2/8"  new="lineare-wirtschaftstheorie/wirtschaftstheoretische-modellvorstellung" />
+    <route old="lineartheory2/9"  new="lineare-wirtschaftstheorie/lineare-oekonomische-systemmodelle" />
+    <route old="lineartheory2/10" new="lineare-wirtschaftstheorie/walras-law" />
+    <route old="lineartheory2/11" new="lineare-wirtschaftstheorie/loesungen-des-linearen-oekonomischen-systemmodells" />
+    <route old="lineartheory2/12" new="lineare-wirtschaftstheorie/von-neumann-systeme" />
+    <route old="lineartheory2/13" new="lineare-wirtschaftstheorie/existenz-des-von-neumann-gleichgewichts" />
+    <route old="lineartheory2/14" new="lineare-wirtschaftstheorie/oekonomisch-gehaltvolle-von-neumann-gleichgewichte" />
+    <route old="lineartheory2/16" new="lineare-wirtschaftstheorie/sraffa-systeme" />
+    <route old="lineartheory2/18" new="lineare-wirtschaftstheorie/walras-systeme" />
+    <route old="lineartheory2/20" new="lineare-wirtschaftstheorie/oesterreichische-kapitaltheorie" />
+    <route old="lineartheory"     new="lineare-wirtschaftstheorie" />
+    <route old="lineartheory/1"   new="lineare-wirtschaftstheorie/grundbegriffe-der-produktionstheorie" />
+    <route old="lineartheory/2"   new="lineare-wirtschaftstheorie/lineare-produktionssysteme" />
+    <route old="lineartheory/3"   new="lineare-wirtschaftstheorie/leontief-produktionssysteme" />
+    <route old="lineartheory/4"   new="lineare-wirtschaftstheorie/technologische-expansionsfaktoren" />
+    <route old="lineartheory/5"   new="lineare-wirtschaftstheorie/lineare-preissysteme" />
+    <route old="lineartheory/6"   new="lineare-wirtschaftstheorie/leontief-preissysteme" />
+    <route old="lineartheory/7"   new="lineare-wirtschaftstheorie/oekonomische-expansionsfaktoren" />
+    <route old="lineartheory/8"   new="lineare-wirtschaftstheorie/wirtschaftstheoretische-modellvorstellung" />
+    <route old="lineartheory/9"   new="lineare-wirtschaftstheorie/lineare-oekonomische-systemmodelle" />
+    <route old="lineartheory/10"  new="lineare-wirtschaftstheorie/walras-law" />
+    <route old="lineartheory/11"  new="lineare-wirtschaftstheorie/loesungen-des-linearen-oekonomischen-systemmodells" />
+    <route old="lineartheory/12"  new="lineare-wirtschaftstheorie/von-neumann-systeme" />
+    <route old="lineartheory/13"  new="lineare-wirtschaftstheorie/existenz-des-von-neumann-gleichgewichts" />
+    <route old="lineartheory/14"  new="lineare-wirtschaftstheorie/oekonomisch-gehaltvolle-von-neumann-gleichgewichte" />
+    <route old="lineartheory/16"  new="lineare-wirtschaftstheorie/sraffa-systeme" />
+    <route old="lineartheory/18"  new="lineare-wirtschaftstheorie/walras-systeme" />
+    <route old="lineartheory/20"  new="lineare-wirtschaftstheorie/oesterreichische-kapitaltheorie" />
+  </legacy-routes>
+  <menuitems>
+    <menuitem text="home" value="" />
+    <menuitem text="Science &amp; Philosophy" value="" />
+    <menuitem text="Arts &amp; Literature" value="" />
+    <menuitem text="Music" value="" />
+    <menuitem text="Public Affairs" value="" />
+  </menuitems>
+</configuration>

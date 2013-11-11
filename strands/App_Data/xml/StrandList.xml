@@ -148,7 +148,7 @@
       </LiteralLayout>
     </Motto>
     <Para Id="lineartheory" Type="featured">
-      <ULink URL="lineartheory2/lineartheory.xml"> Lineare Wirtschaftstheorie </ULink>
+      <ULink URL="lineare-wirtschaftstheorie/lineare-wirtschaftstheorie.xml"> Lineare Wirtschaftstheorie </ULink>
     </Para>
     <Para Id="crisis" Type="featured">
       <ULink URL="crisis/crisis.xml"> Über wirtschaftliches Gleichgewicht &amp; Krise </ULink>
@@ -170,9 +170,6 @@
     </Para>
     <Para Id="principles" Type="listed">
       <ULink URL="principles/principles.xml"> Über Finanzanlagen </ULink>
-    </Para>
-    <Para Id="lineartheory_old" Type="featured">
-      <ULink URL="lineartheory/lineartheory.xml"> Lineare Wirtschaftstheorie (Vorversion)</ULink>
     </Para>
     <Para>
       <?xm-replace_text Paragraph?>

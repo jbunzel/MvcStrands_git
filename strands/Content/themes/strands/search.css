@@ -49,3 +49,27 @@ input[type=submit]
     margin-top: 10px;
     margin-bottom: 30px;
 }
+
+/*-------------*/
+/* state rules */
+/*-------------*/
+/* overwrites site.css */
+#simple-user-info {
+  padding: 15px 0;
+  text-align: center;
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  position: relative;
+  color: #00529B;
+  position: fixed;
+  left: 0px;
+  top: 140px;
+  width: 100%;
+  filter: alpha(opacity=95); /* IE */
+  -moz-opacity: 0.95; /* Mozilla */
+  opacity: 0.95; /* Opera */
+}
+
+#simple-user-info.error {
+  background-color: yellow;
+}

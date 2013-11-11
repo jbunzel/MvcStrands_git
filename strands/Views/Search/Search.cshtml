@@ -1,7 +1,10 @@
 ﻿@Styles.Render("~/content/search")
 @Scripts.Render("~/bundles/search")
 <h1>The Strands - Suche</h1>
-<input id="searchfield" type="text" title="Suchterme hier eingeben" value=@ViewBag.Searchterm /><input id="searchbutton" type="submit" value="Suche"></input>
+<form>
+    <input id="searchfield" type="text" title="Suchterme hier eingeben" value=@ViewBag.Searchterm />
+    <input id="searchbutton" type="button" value="Suche"></input>
+</form>
 <div id="results"></div>
 <div id="footer" class="smallcomment">
     <p>Search Powered by <a href="http://lucene.apache.org/lucene.net/" target="_blank"><b>Lucene.net</b></a></p>
@@ -13,21 +16,29 @@
 
 	    $(function ()
 	    {
-	        $.ajax({
-		        url: HostAdress() + '/search-api/' + searchterm,
-		        type: "GET",
-		        data: null,
-		        dataType: "json",
-		        success: function (data) {
-		            $("#results").html(
-                        $("#resultTemplate").render(data)
-		            );
-		        },
-		        error: function (xhr) {
-		            _myHelper.showMessage(decodeURIComponent(xhr.responseText).replace(/\+/g, ' '), "error");
-		        }
-		    });
+	        $("#searchbutton").click(function(){
+	            Search($("#searchfield").val().replace("*","$")); // needed because '*' is in requestPathInvalidCharacters);
+	        });
+	        Search(searchterm);
 	    });
+
+	    function Search(term)
+        {
+	        $("#results").html("");
+	        $.ajax({
+	            url: HostAdress() + '/search-api/' + term,
+	            type: "GET",
+	            data: null,
+	            dataType: "json",
+	            success: function (data) {
+	                $("#searchfield").val(term.replace("$","*"));
+	                $("#results").html($("#resultTemplate").render(data));
+	            },
+	            error: function (xhr) {
+	                _myHelper.showMessage($.parseJSON(xhr.responseText).ExceptionMessage, "error");
+	            }
+	        });
+	    }
 
 	    function HostAdress() {
 	        return ((config.contextPath.length > 0) && (config.contextPath.charAt(config.contextPath.length - 1)) == "/") ? config.contextPath.substring(0, config.contextPath.length - 1) : config.contextPath;

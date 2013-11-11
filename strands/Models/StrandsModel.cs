@@ -143,7 +143,7 @@ namespace strands.Models
         public StrandSection Select(string SectionName) 
         {
             if (!Sections.ContainsKey(SectionName))
-                this.Sections.Add(SectionName, new StrandSection(SectionName));
+                this.Sections.Add(SectionName, new StrandSection(this, SectionName));
             if (Sections.ContainsKey(SectionName))
                 this.ActualSection = this.Sections[SectionName];
             return this.ActualSection;
@@ -176,6 +176,12 @@ namespace strands.Models
 
     public class StrandSection
     {
+        #region private properties
+
+        Strand _theStrand = null;
+        
+        #endregion
+        
         #region public properties
 
         public string Name { get; set; }
@@ -196,7 +202,18 @@ namespace strands.Models
 
                 if (int.TryParse(SectionName, out i))
                 {
-                    path = "Article/Sect1[" + SectionName + "]";
+                    XPathNavigator pn;
+                    //XPathNodeIterator pni;
+
+                    pn = new XPathDocument(this._theStrand.GetDirectoryPath()).CreateNavigator();
+                    pn = pn.SelectSingleNode("Article/Sect1[" + SectionName + "]/@Id");
+                    if (pn != null)
+                    {
+                        this.Name = pn.InnerXml;
+                        path = "Article/Sect1[@Id='" + this.Name + "']";
+                    }
+                    else
+                        path = "Article/Sect1[" + SectionName + "]";
                 }
                 else
                 {
@@ -220,15 +237,16 @@ namespace strands.Models
 
         #region public constructors
 
-        public StrandSection() 
+        public StrandSection(Strand theStrand) 
         {
+            this._theStrand = theStrand;
             this.SectionPath = "";
             this.Name = "";
             this.ActualElement = null;
         }
 
-        public StrandSection (string SectionName)
-            : this()
+        public StrandSection (Strand theStrand, string SectionName)
+            : this(theStrand)
         {
             this.Name = SectionName;
             this.SectionPath = this.GetLocationPath(SectionName);

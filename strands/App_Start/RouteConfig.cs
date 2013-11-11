@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using System.Xml.XPath;
 
 namespace strands
 {
@@ -33,30 +34,58 @@ namespace strands
     {
         public override RouteData GetRouteData(HttpContextBase httpContext)
         {
-            var request = httpContext.Request;
-            var legacyUrl = request.Url.ToString();
-            var newUrl = "";
-
-            if (legacyUrl.ToLower().Contains("default.aspx") || legacyUrl.Contains("?"))
+            if (strands.Services.Settings.CheckLegacyRoutes == true)
             {
-                //const string status = "301 Moved Permanently";
-                string t = string.IsNullOrEmpty(request.QueryString["tabid"]) ? request.QueryString["amp;tabid"] : request.QueryString["tabid"];
-                string l = string.IsNullOrEmpty(request.QueryString["L"]) ? request.QueryString["amp;L"] : request.QueryString["L"];
-                string s = string.IsNullOrEmpty(request.QueryString["S"]) ? request.QueryString["amp;S"] : request.QueryString["S"]; 
-                string strand = "";
-                string section = "";
+                var request = httpContext.Request;
                 var response = httpContext.Response;
+                var legacyUrl = request.Url.ToString();
+                string urlPrefix = "http://" + HttpContext.Current.Request.ServerVariables["HTTP_HOST"] + HttpRuntime.AppDomainAppVirtualPath;
+                string newUrl = "";
+                string testUrl = "";
+                string testUrlPostfix = "";
+                XPathNavigator config = null;
+                XPathNavigator node = null;
 
-                l = (!string.IsNullOrEmpty(l) && l.Contains("/")) ? l.Substring(0, l.IndexOf("/")) : l;
-                if (!string.IsNullOrEmpty(l))
+                if (legacyUrl.ToLower().Contains("default.aspx") || legacyUrl.Contains("?"))
                 {
-                    strand = string.IsNullOrEmpty(t) ? l : "Themes";
-                    section = string.IsNullOrEmpty(t) ? (string.IsNullOrEmpty(s) ? "/1" : "/" + s) : "/" + t;
-                    newUrl = System.Text.RegularExpressions.Regex.Replace((strand + section), @"[^\u0000-\u007F]", string.Empty);
+                    //const string status = "301 Moved Permanently";
+                    string t = string.IsNullOrEmpty(request.QueryString["tabid"]) ? request.QueryString["amp;tabid"] : request.QueryString["tabid"];
+                    string l = string.IsNullOrEmpty(request.QueryString["L"]) ? request.QueryString["amp;L"] : request.QueryString["L"];
+                    string s = string.IsNullOrEmpty(request.QueryString["S"]) ? request.QueryString["amp;S"] : request.QueryString["S"];
+                    string strand = "";
+                    string section = "";
+
+                    l = (!string.IsNullOrEmpty(l) && l.Contains("/")) ? l.Substring(0, l.IndexOf("/")) : l;
+                    if (!string.IsNullOrEmpty(l))
+                    {
+                        strand = string.IsNullOrEmpty(t) ? l : "Themes";
+                        section = string.IsNullOrEmpty(t) ? (string.IsNullOrEmpty(s) ? "/1" : "/" + s) : "/" + t;
+                        newUrl = System.Text.RegularExpressions.Regex.Replace((strand + section), @"[^\u0000-\u007F]", string.Empty);
+                    }
+                    else
+                        newUrl = urlPrefix;
                 }
-                else
-                    newUrl = "http://" + HttpContext.Current.Request.ServerVariables["HTTP_HOST"] + HttpRuntime.AppDomainAppVirtualPath;
-                response.Redirect(newUrl, true);
+                testUrl = (string.IsNullOrEmpty(newUrl)) ? legacyUrl.Replace(urlPrefix + "/", "") : newUrl.Replace(urlPrefix + "/", "");
+                config = new XPathDocument(HttpContext.Current.Server.MapPath(HttpRuntime.AppDomainAppVirtualPath + "/App_Data/xml/StrandsConfig.xml")).CreateNavigator();
+                while (!string.IsNullOrEmpty(testUrl))
+                {
+                    node = config.SelectSingleNode("/configuration/legacy-routes/route[@old='" + testUrl + "']");
+                    if (node != null)
+                    {
+                        node.MoveToAttribute("new", "");
+                        newUrl = urlPrefix + "/" + node.InnerXml + testUrlPostfix;
+                        break;
+                    }
+                    if (testUrl.Contains("/"))
+                    {
+                        testUrlPostfix = testUrl.Substring(testUrl.LastIndexOf("/"));
+                        testUrl = testUrl.Substring(0, testUrl.LastIndexOf("/"));
+                    }
+                    else
+                        testUrl = "";
+                }
+                if (newUrl != "")
+                    response.Redirect(newUrl, true);
             }
             return null;
         }

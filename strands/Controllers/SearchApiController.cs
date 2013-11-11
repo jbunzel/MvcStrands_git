@@ -22,7 +22,12 @@ namespace strands.Controllers
         // GET api/values/5
         public List<SearchResult> Get(string searchterm)
         {
-            return new SearchResults(LuceneSearchService.Normalize(searchterm)).ResultList;
+            var result = new SearchResults(LuceneSearchService.Normalize(searchterm)).ResultList;
+
+            if (result != null)
+                return result;
+            else
+                throw new Exception("Der Suchbegriff ist in keinem Strand enthalten."); 
         }
     }
 }
