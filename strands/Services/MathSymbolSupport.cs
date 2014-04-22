@@ -46,13 +46,10 @@ namespace strands.Services
 
         public string GetMathTransformParams()
         {
-            switch (HttpContext.Current.Request.Browser.Browser)
-            {
-                case "Firefox":
-                    return "HTML5 MathML2.0";
-                default:
-                    return "";
-            }
+            if (strands.Services.FeatureDetection.MathMLSupport())
+                return "HTML5 MathML2.0";
+            else
+                return "";
         }
 
         static public string GreekLetters(Char Letter)

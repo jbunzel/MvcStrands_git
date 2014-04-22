@@ -661,7 +661,7 @@
     <xsl:apply-templates />
     <xsl:if test="@Id" >
       <xsl:variable name="docno" select="substring-after(@Id,'RQ')" />
-      <a href="http://www.riquest.de/default.aspx?tabindex=0&amp;tabitem=0&amp;QRY=$access${$docno}" title="catalog">
+      <a href="http://www.riquest.de/rqitems/{$docno}" title="catalog">
         <img src="images/catalog.gif" alt="catalog" width="8" height="8" />
       </a>
     </xsl:if>

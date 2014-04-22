@@ -151,7 +151,7 @@
     <xsl:if test="@Id" >
       <xsl:variable name="docno" select="substring-after(@Id,'RQ')" />
       
-        <a href="http://www.riquest.de/default.aspx?tabindex=0&amp;tabitem=0&amp;QRY=$access${$docno}" target="riquest" title="open catalog">
+        <a href="http://www.riquest.de/rqitems/{$docno}" target="riquest" title="open catalog">
         <img src="{$AppImgBase}/catalog.gif" align="top" alt="open catalog" width="9" height="6" border="0" />
       </a>
     </xsl:if>
@@ -223,7 +223,7 @@
   <xsl:template match = "Citation">
     <xsl:if test="//BiblioItem[@Id=string(current()/@Linkend)]/BiblioEntry/@Id">
       <xsl:variable name="docno" select="substring-after(//BiblioItem[@Id=string(current()/@Linkend)]/BiblioEntry/@Id,'RQ')" />
-      <a class="comment" href="http://www.riquest.de/default.aspx?QRY=$access${$docno}" target="riquest" title="open catalog">
+      <a class="comment" href="http://www.riquest.de/rqitems/{$docno}" target="riquest" title="open catalog">
         <xsl:apply-templates/>
       </a>
     </xsl:if>

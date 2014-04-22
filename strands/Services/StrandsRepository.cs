@@ -84,32 +84,39 @@ namespace strands.Services
             return arguments;
         }
         
-        private string LookupCache(string strandName, string sectionName, string elementName)
-        {
-            throw new System.Exception("Strand not available in cache.");
-        }
+        //private string LookupCache(string strandName, string sectionName, string elementName)
+        //{
+        //    throw new System.Exception("Strand not available in cache.");
+        //}
 
         private string ToHtml(Strand Strand)
         {
-            var transform = new XslCompiledTransform(true);
-            var arguments = new XsltArgumentList();
-            var settings = new XsltSettings();
-            var readersettings = new XmlReaderSettings();
-            string xslsrc = (!string.IsNullOrEmpty(this._displayType)) ? "/XMLList.xsl" : "/Strands.xsl"; 
-            var xslfile = (Strand.Name == "Themes") ? HttpContext.Current.Server.MapPath(this._xslAppUrl + "/StrandList.xsl") : HttpContext.Current.Server.MapPath(this._xslAppUrl + xslsrc);
-
-            settings.EnableDocumentFunction = true;
-            settings.EnableScript = true;
-            readersettings.DtdProcessing = DtdProcessing.Parse;
-            readersettings.ValidationType = ValidationType.None;
-            transform.Load(xslfile, settings, new XmlUrlResolver());
-            arguments = TransformArguments(Strand);
-            using (XmlReader reader = XmlReader.Create(Strand.GetDirectoryPath(), readersettings))
+            if (Services.StrandsCache.Contains(Strand))
+            { 
+                return Services.StrandsCache.Read(Strand); 
+            }
+            else
             {
-                System.IO.StringWriter writer = new System.IO.StringWriter();
+                var transform = new XslCompiledTransform(true);
+                var arguments = new XsltArgumentList();
+                var settings = new XsltSettings();
+                var readersettings = new XmlReaderSettings();
+                string xslsrc = (!string.IsNullOrEmpty(this._displayType)) ? "/XMLList.xsl" : "/Strands.xsl";
+                var xslfile = (Strand.Name == "Themes") ? HttpContext.Current.Server.MapPath(this._xslAppUrl + "/StrandList.xsl") : HttpContext.Current.Server.MapPath(this._xslAppUrl + xslsrc);
 
-                transform.Transform(reader, arguments, writer);
-                return writer.ToString();
+                settings.EnableDocumentFunction = true;
+                settings.EnableScript = true;
+                readersettings.DtdProcessing = DtdProcessing.Parse;
+                readersettings.ValidationType = ValidationType.None;
+                transform.Load(xslfile, settings, new XmlUrlResolver());
+                arguments = TransformArguments(Strand);
+                using (XmlReader reader = XmlReader.Create(Strand.GetDirectoryPath(), readersettings))
+                {
+                    System.IO.StringWriter writer = new System.IO.StringWriter();
+
+                    transform.Transform(reader, arguments, writer);
+                    return Services.StrandsCache.Write(Strand, writer.ToString());
+                }
             }
         }
 
@@ -131,15 +138,10 @@ namespace strands.Services
             ElementName = this.StripDisplayType(ElementName);
 
             try {
-                return LookupCache(StrandName, SectionName,ElementName);
+                return ToHtml(model.Select(StrandName, SectionName, ElementName));
             }
-            catch {
-                try {
-                    return ToHtml(model.Select(StrandName, SectionName, ElementName));
-                }
-                catch (Exception ex) {
-                    throw new Exception("ERROR!\\n" + ex.Message + ".", ex);
-                }
+            catch (Exception ex) {
+                throw new Exception("ERROR!\\n" + ex.Message + ".", ex);
             }
         }
 

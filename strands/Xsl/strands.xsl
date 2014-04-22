@@ -22,9 +22,6 @@
   <xsl:key name="linkend-group" match="Link" use="@Linkend" />
 
   <xsl:template match="/">
-<!--    
-    <script src="Scripts/HtmlFactoryScripts/rqui-pdf.js" type="text/javascript"></script>
--->    
     <style type="text/css">
       .embedded {
       width: 730px;
@@ -41,6 +38,11 @@
 
     <script type="text/javascript" language="JavaScript">
 
+      function setMetadata() {
+      document.title = $("#TITLE").html();
+      $('meta[name=description]').attr('content', $("#DESCRIPTION").html());
+      }
+      
       function embedPDF(file, divname)
       {
       var pObj = new PDFObject({url: file,
@@ -780,7 +782,7 @@
           <xsl:if test="//BiblioItem[@Id=string(current()/@Linkend)]/BiblioEntry/@Id">
             <xsl:variable name="docno" select="substring-after(//BiblioItem[@Id=string(current()/@Linkend)]/BiblioEntry/@Id,'RQ')"/>
 
-            <a href="http://www.riquest.de/default.aspx?QRY=$access${$docno}" target="riquest" title="open catalog">
+            <a href="http://www.riquest.de/rqitems/{$docno}" target="riquest" title="open catalog">
               <img src="{$AppImgBase}/catalog.gif" alt="open catalog" title="open catalog" />
             </a>
           </xsl:if>
@@ -1001,6 +1003,23 @@
 
   <xsl:template match="Sect1">
     <xsl:apply-templates select="Title"/>
+    <xsl:element name="div">
+      <xsl:attribute name="id">
+        <xsl:value-of select="'METADATA'"/>
+      </xsl:attribute>
+      <xsl:element name="div">
+        <xsl:attribute name="id">
+          <xsl:value-of select="'TITLE'"/>
+        </xsl:attribute>
+        <xsl:value-of select="concat(Title, ' / ', //Article/Title, ' / The Strands' )"/>
+      </xsl:element>
+      <xsl:element name="div">
+        <xsl:attribute name="id">
+          <xsl:value-of select="'DESCRIPTION'"/>
+        </xsl:attribute>
+        <xsl:value-of select="Trailer"/>
+      </xsl:element>
+    </xsl:element>
     <table border="0" width="100%" class="strand" align="center" cellspacing="0" cellpadding="0">
       <tr>
         <td width="15%" valign="top" align="left">
@@ -1114,6 +1133,12 @@
         </xsl:element>
       </xsl:if>
     </xsl:element>
+  </xsl:template>
+
+  <xsl:template match="Sect1/Trailer">
+    <!--
+      prevents duoble insertion of trailer content 
+    -->
   </xsl:template>
 
 </xsl:stylesheet>

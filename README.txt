@@ -1,0 +1,1 @@
+MvcStrands is a VS 12 / .NET 4.0 application with code in C#, VB, JavaScript & JQuery.

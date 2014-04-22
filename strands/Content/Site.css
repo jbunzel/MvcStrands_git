@@ -117,6 +117,7 @@ fieldset {
 /*--------------*/
 /* module rules */
 /*--------------*/
+#METADATA, 
 .rq-diagnostics {
     display: none;
 }

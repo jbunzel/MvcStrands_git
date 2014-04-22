@@ -10,6 +10,41 @@
 
 	    $(function ()
 	    {
+	        if($.cookie('_clientInfo') == undefined) {
+	            Modernizr.addTest('mathml', function(){
+	                var hasMathML = false;
+	                if ( document.createElementNS ) {
+	                    var ns = "http://www.w3.org/1998/Math/MathML",
+                            div = document.createElement("div");
+	                    div.style.position = "absolute"; 
+	                    var mfrac = div.appendChild(document.createElementNS(ns,"math"))
+                                       .appendChild(document.createElementNS(ns,"mfrac"));
+	                    mfrac.appendChild(document.createElementNS(ns,"mi"))
+                             .appendChild(document.createTextNode("xx"));
+	                    mfrac.appendChild(document.createElementNS(ns,"mi"))
+                             .appendChild(document.createTextNode("yy"));
+	                    document.body.appendChild(div);
+	                    hasMathML = div.offsetHeight > div.offsetWidth;
+	                }
+	                return hasMathML;
+	            });
+
+	            var clientInfo = {
+	                browserWidth: $(window).width(),
+	                browserHeight: $(window).height(),
+                    MathMLSupport: Modernizr.mathml,
+	            };
+	            //var cookieVal = JSON.stringify(clientInfo);
+	            var date = new Date();
+	            var minutes = 30;
+	            date.setTime(date.getTime() + (minutes * 60 * 1000));
+	            	 
+	            $.cookie.json = true;
+	            $.cookie("_clientInfo", clientInfo, {
+                    path: "/",
+	                expires: date 
+	            });
+	        }
 	        $.ajax({
 		        url: HostAdress() + '/api' + Path(),
 		        type: "GET",
@@ -17,6 +52,8 @@
 		        dataType: "json",
 		        success: function (data) {
 		            $('#strands').html(data);
+                    if ($("#METADATA").length > 0)
+		                setMetadata();
 		        },
 		        error: function (xhr) {
 		            _myHelper.showMessage(decodeURIComponent(xhr.responseText).replace(/\+/g, ' '), "error");

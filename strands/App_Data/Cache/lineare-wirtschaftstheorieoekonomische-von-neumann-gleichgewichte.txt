@@ -1,0 +1,1543 @@
+<style type="text/css" xmlns:LinkUtils="urn:StrandsExtension">
+      .embedded {
+      width: 730px;
+      height: 600px;
+      margin: 2em auto;
+      border: 5px solid #808080;
+      }
+
+      object {
+      display: block;
+      border: solid 1px #C0C0C0;
+      }
+    </style><script type="text/javascript" language="JavaScript" xmlns:LinkUtils="urn:StrandsExtension">
+
+      function setMetadata() {
+      document.title = $("#TITLE").html();
+      $('meta[name=description]').attr('content', $("#DESCRIPTION").html());
+      }
+      
+      function embedPDF(file, divname)
+      {
+      var pObj = new PDFObject({url: file,
+      id: "myPDF",
+      pdfOpenParams: {navpanes: 0,
+      toolbar: 0,
+      statusbar: 0,
+      view: "FitH" }});
+
+      if(pObj){
+      var plugintype = pObj.get("pluginTypeFound");
+      msg = "Type of PDF plugin found: " +plugintype;
+      if(plugintype){
+      //alert(msg);
+      document.getElementById(divname).className = "embedded";  //Style the DIV
+      var htmlObj = pObj.embed(divname);	//Returns a reference to the HTML or null if unsuccessful
+      if(htmlObj){
+      msg = "The PDF was successfully embedded!";
+      //alert("link"+divname);
+      visibilityToggle("link"+divname);
+      } else {
+      msg = "Irgendwas ist bei der Anzeige schief gelaufen.";
+      alert(msg);
+      }
+      } else {
+      msg += "Die Anzeige von PDF-Dateien scheint mit Ihrem Browser nicht möglich zu sein. Sie müssen ein geeignetes Add-In installieren.";
+      alert(msg);
+      s.className = "fail";
+      }
+      }
+      }
+
+      function showBox (ref, boxName, features)
+      {
+      newWin=window.open(ref,boxName,features);
+      newWin.window.focus();
+      }
+
+      function visibilityToggle(id, displayClass) {
+      var el = document.getElementById(id);
+      if(el.className.indexOf("Linklist") == 0) {
+      el.className = displayClass;
+      }
+      else {
+      el.className = "Linklist";
+      }
+      }
+
+      function createDiv(id, linkid)
+      {
+      var el = document.getElementById(id);
+      var il = document.getElementById(linkid);
+      var ind = el.className.indexOf("Linklist");
+
+      if(ind == 0) {
+      var newDiv = document.createElement("div");
+
+      newDiv.innerHTML = il.innerHTML;
+      newDiv.className = "Linkshow " + el.className.substr(9);
+      el.appendChild(newDiv);
+      el.className= "Linkshow " + el.className.substr(9);
+      //alert(el.outerHTML);
+      }
+      else {
+      el.innerHTML = '';
+      el.className = "Linklist " + el.className.substr(9);
+      //alert(el.outerHTML);
+      }
+      }
+
+      function readSearchField(path, field_replication)
+      {
+      InputText = document.getElementById("searchfield" + field_replication).value;
+      InputText = InputText.replace("*","$"); // needed because '*' is in requestPathInvalidCharacters
+      path = path + "/" + InputText;
+      window.open(path, 'SEARCH','scrollbars,width=500,height=650,left=20,top=20');
+      }
+
+
+    </script><h1>Ökonomische von-Neumann-Gleichgewichte</h1>
+<div id="METADATA">
+  <div id="TITLE">Ökonomische von-Neumann-Gleichgewichte / Lineare Wirtschaftstheorie / The Strands</div>
+  <div id="DESCRIPTION">
+  </div>
+</div>
+<table border="0" width="100%" class="strand" align="center" cellspacing="0" cellpadding="0" xmlns:LinkUtils="urn:StrandsExtension">
+  <tr>
+    <td width="15%" valign="top" align="left">
+      <table border="0">
+        <tr align="right">
+          <td colspan="2">
+            <table border="0" width="50px">
+              <tr align="center" valign="baseline">
+                <td class="smallcomment"><a href="/MvcStrands/lineare-wirtschaftstheorie/vob-Neumann-Systeme-und-Matrixspiele" class="smallcomment" title="zurück"> &lt; </a></td>
+                <td class="smallcomment">15/21</td>
+                <td><a href="/MvcStrands/lineare-wirtschaftstheorie/16" class="smallcomment" title="vor"> &gt; </a></td>
+              </tr>
+              <tr>
+                <td colspan="3"><input id="searchfield1" type="text" title="Suchterme hier eingeben"></td>
+              </tr>
+              <tr>
+                <td colspan="3">
+                  <table border="0">
+                    <tr align="center" valign="baseline">
+                      <td><a class="smallcomment" onclick="javascript:readSearchField(&quot;/MvcStrands/Search&quot;, 1)" href="#" title="textsuche (in allen strands)">search</a></td>
+                      <td><a class="smallcomment" href="###" title="Inhaltsverzeichnis" onClick="window.open(&quot;/MvcStrands/lineare-wirtschaftstheorie/Article/%24%24TOC&quot;, &quot;TOC&quot;, &quot;scrollbars,width=500height=650,left=20,top=20&quot;)">/toc</a></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td valign="top"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/tibanner.gif" border="0" alt="Ökonomische von-Neumann-Gleichgewichte" title="Ökonomische von-Neumann-Gleichgewichte"></td>
+          <td class="shadow" valign="top"><a href="/MvcStrands/lineare-wirtschaftstheorie/grundbegriffe-der-produktionstheorie"><img src="http://localhost/MvcStrands/images/bluepixel.gif" border="0" alt="1. Grundbegriffe der Produktionstheorie" title="1. Grundbegriffe der Produktionstheorie" align="middle" width="15" height="15"></a><p></p><a href="/MvcStrands/lineare-wirtschaftstheorie/lineare-produktionssysteme"><img src="http://localhost/MvcStrands/images/bluepixel.gif" border="0" alt="2. Lineare Produktionssysteme" title="2. Lineare Produktionssysteme" align="middle" width="15" height="15"></a><p></p><a href="/MvcStrands/lineare-wirtschaftstheorie/leontief-produktionssysteme"><img src="http://localhost/MvcStrands/images/bluepixel.gif" border="0" alt="3. Leontief-Produktionssysteme" title="3. Leontief-Produktionssysteme" align="middle" width="15" height="15"></a><p></p><a href="/MvcStrands/lineare-wirtschaftstheorie/technologische-expansionsfaktoren"><img src="http://localhost/MvcStrands/images/bluepixel.gif" border="0" alt="4. Technologische Expansionsfaktoren &amp; Wachstum" title="4. Technologische Expansionsfaktoren &amp; Wachstum" align="middle" width="15" height="15"></a><p></p><a href="/MvcStrands/lineare-wirtschaftstheorie/lineare-preissysteme"><img src="http://localhost/MvcStrands/images/bluepixel.gif" border="0" alt="5. Dualität &amp; Lineare Preissysteme" title="5. Dualität &amp; Lineare Preissysteme" align="middle" width="15" height="15"></a><p></p><a href="/MvcStrands/lineare-wirtschaftstheorie/leontief-preissysteme"><img src="http://localhost/MvcStrands/images/bluepixel.gif" border="0" alt="6. Leontief-Preissysteme" title="6. Leontief-Preissysteme" align="middle" width="15" height="15"></a><p></p><a href="/MvcStrands/lineare-wirtschaftstheorie/oekonomische-expansionsfaktoren"><img src="http://localhost/MvcStrands/images/bluepixel.gif" border="0" alt="7. Ökonomische Expansionsfaktoren &amp; Zinseinkommen" title="7. Ökonomische Expansionsfaktoren &amp; Zinseinkommen" align="middle" width="15" height="15"></a><p></p><a href="/MvcStrands/lineare-wirtschaftstheorie/wirtschaftstheoretische-modellvorstellung"><img src="http://localhost/MvcStrands/images/bluepixel.gif" border="0" alt="8. Wirtschaftstheoretische Modellvorstellungen" title="8. Wirtschaftstheoretische Modellvorstellungen" align="middle" width="15" height="15"></a><p></p><a href="/MvcStrands/lineare-wirtschaftstheorie/lineare-oekonomische-systemmodelle"><img src="http://localhost/MvcStrands/images/bluepixel.gif" border="0" alt="9. Lineare ökonomische Systemmodelle" title="9. Lineare ökonomische Systemmodelle" align="middle" width="15" height="15"></a><p></p><a href="/MvcStrands/lineare-wirtschaftstheorie/walras-law"><img src="http://localhost/MvcStrands/images/bluepixel.gif" border="0" alt="10. Walras' Law" title="10. Walras' Law" align="middle" width="15" height="15"></a><p></p><a href="/MvcStrands/lineare-wirtschaftstheorie/loesungen-des-linearen-oekonomischen-systemmodells"><img src="http://localhost/MvcStrands/images/bluepixel.gif" border="0" alt="11. Lösungen des Linearen ökonomischen Systemmodells" title="11. Lösungen des Linearen ökonomischen Systemmodells" align="middle" width="15" height="15"></a><p></p><a href="/MvcStrands/lineare-wirtschaftstheorie/von-neumann-systeme"><img src="http://localhost/MvcStrands/images/bluepixel.gif" border="0" alt="12. von-Neumann-Systeme" title="12. von-Neumann-Systeme" align="middle" width="15" height="15"></a><p></p><a href="/MvcStrands/lineare-wirtschaftstheorie/existenz-des-von-neumann-gleichgewichts"><img src="http://localhost/MvcStrands/images/bluepixel.gif" border="0" alt="13.  Existenz des von-Neumann-Gleichgewichts" title="13.  Existenz des von-Neumann-Gleichgewichts" align="middle" width="15" height="15"></a><p></p><a href="/MvcStrands/lineare-wirtschaftstheorie/vob-Neumann-Systeme-und-Matrixspiele"><img src="http://localhost/MvcStrands/images/bluepixel.gif" border="0" alt="14. von-Neumann-Systeme &amp; Matrixspiele" title="14. von-Neumann-Systeme &amp; Matrixspiele" align="middle" width="15" height="15"></a><p></p><img src="http://localhost/MvcStrands/images/selpixel.jpg" border="0" alt="15. Ökonomische von-Neumann-Gleichgewichte" title="15. Ökonomische von-Neumann-Gleichgewichte" align="middle" width="15" height="15"><p></p><a href="/MvcStrands/lineare-wirtschaftstheorie/16"><img src="http://localhost/MvcStrands/images/bluepixel.gif" border="0" alt="16. Produktionstechnik, Technikwahl &amp; Faktoreinsatz" title="16. Produktionstechnik, Technikwahl &amp; Faktoreinsatz" align="middle" width="15" height="15"></a><p></p><a href="/MvcStrands/lineare-wirtschaftstheorie/sraffa-systeme"><img src="http://localhost/MvcStrands/images/bluepixel.gif" border="0" alt="17. Sraffa-Systeme" title="17. Sraffa-Systeme" align="middle" width="15" height="15"></a><p></p><a href="/MvcStrands/lineare-wirtschaftstheorie/18"><img src="http://localhost/MvcStrands/images/bluepixel.gif" border="0" alt="18. Technikwahl &amp; Distribution" title="18. Technikwahl &amp; Distribution" align="middle" width="15" height="15"></a><p></p><a href="/MvcStrands/lineare-wirtschaftstheorie/walras-systeme"><img src="http://localhost/MvcStrands/images/bluepixel.gif" border="0" alt="19. Walras-Systeme" title="19. Walras-Systeme" align="middle" width="15" height="15"></a><p></p><a href="/MvcStrands/lineare-wirtschaftstheorie/20"><img src="http://localhost/MvcStrands/images/bluepixel.gif" border="0" alt="20. Lineare ökonomische Systemmodelle &amp; Lineare&#xD;&#xA;		Programmierung" title="20. Lineare ökonomische Systemmodelle &amp; Lineare&#xD;&#xA;		Programmierung" align="middle" width="15" height="15"></a><p></p><a href="/MvcStrands/lineare-wirtschaftstheorie/oesterreichische-kapitaltheorie"><img src="http://localhost/MvcStrands/images/bluepixel.gif" border="0" alt="21. Lineare Systemmodelle &amp; Österreichische&#xD;&#xA;		Kapitaltheorien" title="21. Lineare Systemmodelle &amp; Österreichische&#xD;&#xA;		Kapitaltheorien" align="middle" width="15" height="15"></a><p></p>
+          </td>
+        </tr>
+        <tr align="right" valign="bottom">
+          <td colspan="2">
+            <table border="0" width="50px">
+              <tr align="center" valign="baseline">
+                <td class="smallcomment"><a href="/MvcStrands/lineare-wirtschaftstheorie/vob-Neumann-Systeme-und-Matrixspiele" class="smallcomment" title="zurück"> &lt; </a></td>
+                <td class="smallcomment">15/21</td>
+                <td><a href="/MvcStrands/lineare-wirtschaftstheorie/16" class="smallcomment" title="vor"> &gt; </a></td>
+              </tr>
+              <tr>
+                <td colspan="3"><input id="searchfield2" type="text" title="Suchterme hier eingeben"></td>
+              </tr>
+              <tr>
+                <td colspan="3">
+                  <table border="0">
+                    <tr align="center" valign="baseline">
+                      <td><a class="smallcomment" onclick="javascript:readSearchField(&quot;/MvcStrands/Search&quot;, 2)" href="#" title="textsuche (in allen strands)">search</a></td>
+                      <td><a class="smallcomment" href="###" title="Inhaltsverzeichnis" onClick="window.open(&quot;/MvcStrands/lineare-wirtschaftstheorie/Article/%24%24TOC&quot;, &quot;TOC&quot;, &quot;scrollbars,width=500height=650,left=20,top=20&quot;)">/toc</a></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td valign="top">
+      <table border="0" width="100%" align="center" cellspacing="0" cellpadding="0">
+        <tr>
+          <td colspan="2">
+            <table border="0" class="strand" width="100%" cellspacing="0" cellpadding="10">
+              <tr>
+                <td>
+                  <p>Ein <i><span class="lookup" onclick="createDiv('ID0EIGAM', 'NILINKDEF12')" title="Anklicken, um Verweis ein- bzw. auszublenden.">lineares
+		ökonomisches Systemmodell</span><span ID="ID0EIGAM" class="Linklist Definition"></span></i> vom <i><span class="lookup" onclick="createDiv('ID0ENGAM', 'NILINKDEF15')" title="Anklicken, um Verweis ein- bzw. auszublenden.">von-Neumann-Typ</span><span ID="ID0ENGAM" class="Linklist Definition"></span></i></p>
+                  <p><span class="lookup" onclick="createDiv('ID0ETGAM', 'NILINKGL104')" title="Anklicken, um Verweis ein- bzw. auszublenden."> (12.3) </span><span ID="ID0ETGAM" class="Linklist Formel"></span><span class="lookup" onclick="createDiv('ID0EWGAM', 'NILINKGL165')" title="Anklicken, um Verweis ein- bzw. auszublenden."> (9.1) </span><span ID="ID0EWGAM" class="Linklist Formel"></span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/GL0026.gif" height="28" width="230" alt=""></span></p>
+                  <p><span class="lookup" onclick="createDiv('ID0EGHAM', 'NILINKGL105')" title="Anklicken, um Verweis ein- bzw. auszublenden."> (12.4) </span><span ID="ID0EGHAM" class="Linklist Formel"></span><span class="lookup" onclick="createDiv('ID0EJHAM', 'NILINKGL166')" title="Anklicken, um Verweis ein- bzw. auszublenden."> (9.2) </span><span ID="ID0EJHAM" class="Linklist Formel"></span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/GL0027.gif" height="28" width="330" alt=""></span></p>
+                  <p><span class="lookup" onclick="createDiv('ID0EZHAM', 'NILINKGL103')" title="Anklicken, um Verweis ein- bzw. auszublenden."> (12.5) </span><span ID="ID0EZHAM" class="Linklist Formel"></span><span class="lookup" onclick="createDiv('ID0E3HAM', 'NILINKGL167')" title="Anklicken, um Verweis ein- bzw. auszublenden."> (9.3) </span><span ID="ID0E3HAM" class="Linklist Formel"></span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/GL0028.gif" height="28" width="234" alt=""></span></p>
+                  <p><span class="lookup" onclick="createDiv('ID0EMIAM', 'NILINKGL102')" title="Anklicken, um Verweis ein- bzw. auszublenden."> (12.6) </span><span ID="ID0EMIAM" class="Linklist Formel"></span><span class="lookup" onclick="createDiv('ID0EPIAM', 'NILINKGL167')" title="Anklicken, um Verweis ein- bzw. auszublenden."> (9.3) </span><span ID="ID0EPIAM" class="Linklist Formel"></span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/GL0029.gif" height="33" width="340" alt=""></span></p>
+                  <p> besitzt nur dann Lösungen (<b>p*</b>,
+		<b>y*</b>) mit nicht-negativen Preisen <b>p*</b> &gt;
+		<b>0</b> und <i><span class="lookup" onclick="createDiv('ID0EJJAM', 'NILINKDEF5')" title="Anklicken, um Verweis ein- bzw. auszublenden.">Prozessintensitäten </span><span ID="ID0EJJAM" class="Linklist Definition"></span></i><b>y*</b> &gt; <b>0</b>, wenn für den Parameter
+		<span class='Greek'>m</span> der <i><span class="lookup" onclick="createDiv('ID0EUJAM', 'NILINKDEF23')" title="Anklicken, um Verweis ein- bzw. auszublenden.">Güterverwendungsfunktion
+		</span><span ID="ID0EUJAM" class="Linklist Definition"></span></i><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/GL0005.gif" height="28" width="134" alt=""></span> und den Parameter <span class='Greek'>p</span> der <i><span class="lookup" onclick="createDiv('ID0EGKAM', 'NILINKDEF24')" title="Anklicken, um Verweis ein- bzw. auszublenden.">Surplusverwendungsfunktion
+		</span><span ID="ID0EGKAM" class="Linklist Definition"></span></i><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/GL0006.gif" height="28" width="138" alt=""></span> spezifische Werte gewählt werden. Gemäß
+		<span class="lookup" onclick="createDiv('ID0EVKAM', 'NILINKS15')" title="Anklicken, um Verweis ein- bzw. auszublenden.">Satz  (13.1) </span><span ID="ID0EVKAM" class="Linklist Satz"></span> sind hinreichend, dass</p>
+                  <ol>
+                    <li>
+                      <p>die Wachstumsrate <span class='Greek'>m</span> und der Zinssatz
+			 <span class='Greek'>p</span> gleich gesetzt, und </p>
+                    </li>
+                    <li>
+                      <p>der <i>Expansionsfaktor </i><span class='Greek'>l</span> =
+			 <span class='Greek'>m</span> + 1 und der damit identische <i>Zinsfaktor </i><span class='Greek'>r</span> = <span class='Greek'>p</span> + 1 aus dem abgeschlossenen Intervall
+			 zwischen dem <i><span class="lookup" onclick="createDiv('ID0ETLAM', 'NILINKDEF18')" title="Anklicken, um Verweis ein- bzw. auszublenden.">ökonomischen Expansionsfaktor
+			 </span><span ID="ID0ETLAM" class="Linklist Definition"></span></i><span class='Greek'>r</span><sub>0</sub> und dem <i><span class="lookup" onclick="createDiv('ID0E2LAM', 'NILINKDEF13')" title="Anklicken, um Verweis ein- bzw. auszublenden.">technischen Expansionsfaktor
+			 </span><span ID="ID0E2LAM" class="Linklist Definition"></span></i><span class='Greek'>l</span><sub>0</sub> gewählt
+			 wird.</p>
+                    </li>
+                  </ol>
+                  <div class="Sect2">
+                    <h2>von-Neumann-Gleichgewichte mit positivem
+		  Bruttoproduktionswert</h2>
+                    <p><i><a href="http://de.wikipedia.org/w/index.php?title=John_G._Kemeny&amp;oldid=119665575">John
+		  G. Kemeny (1926 - 1992)</a></i>, <i><a href="http://de.wikipedia.org/w/index.php?title=Oskar_Morgenstern&amp;oldid=119080020">Oskar
+		  Morgenstern (1902 - 1977)</a></i> und <i><a href="http://en.wikipedia.org/w/index.php?title=Gerald_L._Thompson&amp;oldid=538430035">Gerald
+		  L. Thompson (1923 - 2009)</a></i> weisen in ihrem wegweisenden
+		  Aufsatz zur Theorie der <i>von-Neumann-Wachstumsmodelle</i> von
+		  1956 <span class="reference"><a href="###" title="Kemeny, John G.; Morgenstern, Oskar; Thompson, Gerald L.: A generalization of the von Neumann model of an expanding economy. - in: Econometrica (24, 1956, 2). - S. 115 - 135" onClick="window.open(&quot;/MvcStrands/lineare-wirtschaftstheorie/Tag-Bibliography/%24%24Bibliography&quot;, &quot;BIB&quot;, &quot;scrollbars,width=300height=650,left=20,top=20&quot;)"><img src="http://localhost/MvcStrands/images/bibliography.gif" alt="bibliography" title="bibliography">[KEM56]</a></span><span class="top"><a href="http://www.riquest.de/rqitems/07906" target="riquest" title="open catalog"><img src="http://localhost/MvcStrands/images/catalog.gif" alt="open catalog" title="open catalog"></a></span> darauf hin, dass diese
+		  Bedingungen allerdings noch nicht ausreichen, um ökonomisch sinnvolle
+		  Lösungen eines <i>von-Neumann-Systems</i> zu
+		  gewährleisten.</p>
+                    <p>Es ist nämlich nicht garantiert, dass für beliebige Werte
+		  <span class='Greek'>l</span> = <span class='Greek'>r</span> aus dem Intervall <span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/GL0016.gif" height="28" width="58" alt=""></span> Lösungen resultieren, bei denen der Wert aller produzierten
+		  Güter größer Null ist. Ein Zustand, in dem überhaupt
+		  nichts produziert oder alle produzierten Güter freie Güter sind, ist
+		  aber offensichtlich ökonomisch nicht von Belang.</p>
+                    <p><span class="Quote">"We therefore impose an additional condition not contained
+		  in the original von Neumann model, namely
+		  <b>p*</b><b>B</b><b>y*</b> &gt; 0. Intuitively
+		  this condition means that the total value of all goods produced must be
+		  positive." <span class="reference"><a href="###" title="Kemeny, John G.; Morgenstern, Oskar; Thompson, Gerald L.: A generalization of the von Neumann model of an expanding economy. - in: Econometrica (24, 1956, 2). - S. 115 - 135" onClick="window.open(&quot;/MvcStrands/lineare-wirtschaftstheorie/Tag-Bibliography/%24%24Bibliography&quot;, &quot;BIB&quot;, &quot;scrollbars,width=300height=650,left=20,top=20&quot;)"><img src="http://localhost/MvcStrands/images/bibliography.gif" alt="bibliography" title="bibliography">[KEM56], S. 118</a></span><span class="top"><a href="http://www.riquest.de/rqitems/07906" target="riquest" title="open catalog"><img src="http://localhost/MvcStrands/images/catalog.gif" alt="open catalog" title="open catalog"></a></span></span></p>
+                    <p>Diese zusätzliche Bedingung führt zum Konzept des
+		  <i>ökonomischen von-Neumann-Gleichgewichts</i>:</p>
+                    <div class="Definition"><span class="NumberedItemCount">15. 1</span><i>(ökonomisches
+		von-Neumann-Gleichgewicht)</i><p>Sei (<b>p*</b>, <b>y*</b>) eine Lösung des
+		  <i><span class="lookup" onclick="createDiv('ID0EKOAM', 'NILINKDEF15')" title="Anklicken, um Verweis ein- bzw. auszublenden.">von-Neumann-Systems</span><span ID="ID0EKOAM" class="Linklist Definition"></span></i></p>
+                      <p><span class="lookup" onclick="createDiv('ID0EQOAM', 'NILINKGL104')" title="Anklicken, um Verweis ein- bzw. auszublenden."> (12.3) </span><span ID="ID0EQOAM" class="Linklist Formel"></span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn104.gif" height="28" width="130" alt=""></span></p>
+                      <p><span class="lookup" onclick="createDiv('ID0EAPAM', 'NILINKGL105')" title="Anklicken, um Verweis ein- bzw. auszublenden."> (12.4) </span><span ID="ID0EAPAM" class="Linklist Formel"></span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn105.gif" height="28" width="316" alt=""></span></p>
+                      <p><span class="lookup" onclick="createDiv('ID0EQPAM', 'NILINKGL103')" title="Anklicken, um Verweis ein- bzw. auszublenden."> (12.5) </span><span ID="ID0EQPAM" class="Linklist Formel"></span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn103.gif" height="28" width="132" alt=""></span></p>
+                      <p><span class="lookup" onclick="createDiv('ID0EAQAM', 'NILINKGL102')" title="Anklicken, um Verweis ein- bzw. auszublenden."> (12.6) </span><span ID="ID0EAQAM" class="Linklist Formel"></span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn102.gif" height="33" width="321" alt=""></span></p>
+                      <p>mit</p>
+                      <p><span class="lookup" onclick="createDiv('ID0ESQAM', 'NILINKGL106')" title="Anklicken, um Verweis ein- bzw. auszublenden."> (12.7) </span><span ID="ID0ESQAM" class="Linklist Formel"></span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn106.gif" height="28" width="324" alt=""></span></p>
+                      <p>(<b>p*</b>, <b>y*</b>) heißt ein
+		  <i>ökonomisches von-Neumann-Gleichgewicht</i> genau dann,
+		  wenn zusätzlich</p>
+                      <div class="Formel"><span class="NumberedItemCount">15. 1</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/GL0020.gif" height="24" width="100" alt=""></span></div>
+                      <p>erfüllt ist.</p>
+                    </div>
+                    <p>Wie man leicht verifiziert können <i>ökonomische
+		  von-Neumann-Gleichgewichte</i> nur existieren, wenn der
+		  <i>Expansions-</i> gleich dem <i>Zinsfaktor</i>
+		  ist:</p>
+                    <div class="Lemma"><span class="NumberedItemCount">15. 1</span><i>(Gleichheit von
+		Wachstumsrate und Zinssatz)</i><p>Ist (<b>p*</b>, <b>y*</b>) ein <i><span class="lookup" onclick="createDiv('ID0ERSAM', 'NILINKDEF36')" title="Anklicken, um Verweis ein- bzw. auszublenden.">ökonomisches
+		  von-Neumann-Gleichgewicht</span><span ID="ID0ERSAM" class="Linklist Definition"></span></i> zum <i>Expansionsfaktor
+		  </i><span class='Greek'>l</span> und <i>Zinsfaktor </i><span class='Greek'>r</span>, so gilt</p>
+                      <p><span class="lookup" onclick="createDiv('ID0E5SAM', 'NILINKGL0011')" title="Anklicken, um Verweis ein- bzw. auszublenden."> (13.1) </span><span ID="ID0E5SAM" class="Linklist Formel"></span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/GL0011.gif" height="18" width="48" alt=""></span></p>
+                    </div>
+                    <p><b>Beweis</b><span onclick="visibilityToggle('ID0ESTAM', 'strand');" class="lookup" title="Anklicken, um Abschnitt ein- bzw. auszublenden."> (Ein-
+		  / Ausblenden)</span><div ID="ID0ESTAM" class="Linklist">
+                        <div Id="NILINKBW21"><span><p>
+                              <ol>
+                                <li>
+                                  <p>Wegen <b>y<sup>*</sup></b> &gt;
+				<b>0</b> folgt aus <span class="lookup" onclick="createDiv('ID0EDUAM', 'NILINKGL103')" title="Anklicken, um Verweis ein- bzw. auszublenden."> (12.5) </span><span ID="ID0EDUAM" class="Linklist Formel"></span></p>
+                                  <div class="Formel"><span class="NumberedItemCount">15. 2</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/GL0097.gif" height="29" width="149" alt=""></span></div>
+                                  <p>und mit <span class="lookup" onclick="createDiv('ID0EZUAM', 'NILINKGL0020')" title="Anklicken, um Verweis ein- bzw. auszublenden."> (15.1) </span><span ID="ID0EZUAM" class="Linklist Formel"></span>
+				erhält man</p>
+                                  <div class="Formel"><span class="NumberedItemCount">15. 3</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/GL0098.gif" height="28" width="204" alt=""></span></div>
+                                  <p>Wegen <span class='Greek'>r</span> &gt; 0 ist dann</p>
+                                  <div class="Formel"><span class="NumberedItemCount">15. 4</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/GL0021.gif" height="28" width="100" alt=""></span></div>
+                                </li>
+                                <li>
+                                  <p> Lösungen des <i>linearen ökonomischen
+				Systemmodells</i> erfüllen nach <span class="lookup" onclick="createDiv('ID0EGWAM', 'NILINKS5')" title="Anklicken, um Verweis ein- bzw. auszublenden.">Satz  (10.1) </span><span ID="ID0EGWAM" class="Linklist Satz"></span> das <i>Walras'sche Gesetz</i>.</p>
+                                  <p>Für jedes <i>von-Neumann-Gleichgewicht </i>
+				(p<sup>*</sup>, y<sup>*</sup>) gilt somit die
+				Beziehung</p>
+                                  <div class="Formel"><span class="NumberedItemCount">15. 5</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/GL0007.gif" height="33" width="425" alt=""></span></div>
+                                  <p>und wegen <span class="lookup" onclick="createDiv('ID0EIXAM', 'NILINKGL0021')" title="Anklicken, um Verweis ein- bzw. auszublenden."> (15.4) </span><span ID="ID0EIXAM" class="Linklist Formel"></span>
+				ist <span class='Greek'>m</span> = <span class='Greek'>p</span> gezeigt.</p>
+                                </li>
+                              </ol>
+                              <p>Q. E. D.</p>
+                            </p></span></div>
+                      </div>
+                    </p>
+                    <p>Für die Existenz <span class="lookup" onclick="createDiv('ID0EVXAM', 'NILINKDEF36')" title="Anklicken, um Verweis ein- bzw. auszublenden.">ökonomischer von-Neumann-Gleichgewichte</span><span ID="ID0EVXAM" class="Linklist Definition"></span> ist somit
+		  die Vorgabe eines <span class="lookup" onclick="createDiv('ID0E1XAM', 'NILINKDEF32')" title="Anklicken, um Verweis ein- bzw. auszublenden.">von-Neumann-Faktors</span><span ID="ID0E1XAM" class="Linklist Definition"></span>, d. h. eines
+		  übereinstimmenden <i>Expansions- </i> und
+		  <i>Zinsfaktors </i><span class='Greek'>n</span> = <span class='Greek'>l</span> =
+		  <span class='Greek'>m</span> + 1 = <span class='Greek'>r</span> = <span class='Greek'>p</span> + 1 aus dem
+		  abgeschlossenen Intervall<span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/GL0016.gif" height="28" width="58" alt=""></span> (vgl. <span class="lookup" onclick="createDiv('ID0EXYAM', 'NILINKS15')" title="Anklicken, um Verweis ein- bzw. auszublenden.">Satz  (13.1) </span><span ID="ID0EXYAM" class="Linklist Satz"></span>) eine
+		  notwendige, wenn auch keine hinreichende Bedingung.</p>
+                    <p><span class="Quote">Die Frage ist also, für welche
+		  <i>von-Neumann-Faktoren</i> aus dem Intervall
+		  <span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/GL0016.gif" height="28" width="58" alt=""></span> die <i>von-Neumann-Gleichgewichte</i> auch
+		  ökonomisch sinnvoll sind, d. h. zu einem positiven
+		  <i>Bruttoproduktionswert</i> führen.</span></p>
+                  </div>
+                  <div class="Sect2">
+                    <h2>Gleichgewichte bei irreduziblen Produktionstechnologien</h2>
+                    <p>Einfach liegen die Dinge bei
+		  <span class="lookup" onclick="createDiv('ID0EVZAM', 'NILINKDEF31')" title="Anklicken, um Verweis ein- bzw. auszublenden.">irreduziblen
+		  Produktionstechnologien</span><span ID="ID0EVZAM" class="Linklist Definition"></span>, in denen zur Produktion jeder Güterart
+		  direkt oder indirekt alle anderen Güterarten benötigt werden. </p>
+                    <p><span class="Quote">Die <span class="lookup" onclick="createDiv('ID0E4ZAM', 'NILINKDEF31')" title="Anklicken, um Verweis ein- bzw. auszublenden.">Unzerlegbarkeit
+		  der Produktionstechnologie</span><span ID="ID0E4ZAM" class="Linklist Definition"></span> ist eine hinreichende Bedingung dafür,
+		  daß der <i>von-Neumann-Faktor</i> eindeutig bestimmt
+		  ist.</span></p>
+                    <p>Da die Ökonomie in diesem Fall vollständig miteinander
+		  verwoben ist, kann sie nicht in voneinander unabhängige Sub-Ökonomien
+		  zerlegt werden, die mit möglicherweise unterschiedlichen
+		  <span class="lookup" onclick="createDiv('ID0EG1AM', 'NILINKDEF32')" title="Anklicken, um Verweis ein- bzw. auszublenden.">von-Neumann-Faktoren</span><span ID="ID0EG1AM" class="Linklist Definition"></span> betrieben
+		  werden können.<span onclick="createDiv('ID0EK1AM0.7067820475002667', 'NILINKFN59')"><sup class="reference">75) </sup></span><span ID="ID0EK1AM0.7067820475002667" class="Linklist Footnote"></span></p>
+                    <div class="Satz"><span class="NumberedItemCount">15. 1</span><i>(Eindeutigkeit des
+		<span class="lookup" onclick="createDiv('ID0EU1AM', 'NILINKDEF32')" title="Anklicken, um Verweis ein- bzw. auszublenden.">von-Neumann-Faktors</span><span ID="ID0EU1AM" class="Linklist Definition"></span>)</i><p>Gegeben sei eine <span class="lookup" onclick="createDiv('ID0E21AM', 'NILINKDEF5')" title="Anklicken, um Verweis ein- bzw. auszublenden.">endliche
+		  Produktionstechnologie </span><span ID="ID0E21AM" class="Linklist Definition"></span> mit <span class="lookup" onclick="createDiv('ID0E61AM', 'NILINKDEF2')" title="Anklicken, um Verweis ein- bzw. auszublenden.">konstanten Skalenerträgen </span><span ID="ID0E61AM" class="Linklist Definition"></span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn008.gif" height="24" width="156" alt=""></span> und dem <span class="lookup" onclick="createDiv('ID0EO2AM', 'NILINKDEF18')" title="Anklicken, um Verweis ein- bzw. auszublenden.">ökonomischen Zinsfaktor </span><span ID="ID0EO2AM" class="Linklist Definition"></span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn263.gif" height="34" width="108" alt=""></span> sowie dem <span class="lookup" onclick="createDiv('ID0E42AM', 'NILINKDEF13')" title="Anklicken, um Verweis ein- bzw. auszublenden.">technologischen Expansionsfaktor </span><span ID="ID0E42AM" class="Linklist Definition"></span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn098.gif" height="38" width="108" alt=""></span> . </p>
+                      <p>Ist <span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn012.gif" height="22" width="18" alt=""></span><span class="lookup" onclick="createDiv('ID0EZ3AM', 'NILINKDEF27')" title="Anklicken, um Verweis ein- bzw. auszublenden."> regulär</span><span ID="ID0EZ3AM" class="Linklist Definition"></span> und
+		  <span class="lookup" onclick="createDiv('ID0E43AM', 'NILINKDEF31')" title="Anklicken, um Verweis ein- bzw. auszublenden.">irreduzibel</span><span ID="ID0E43AM" class="Linklist Definition"></span>, so ist </p>
+                      <ol>
+                        <li>
+                          <p><span class='Greek'>l</span><sub>0</sub> =
+				<span class='Greek'>r</span><sub>0</sub> = <span class='Greek'>n</span>, </p>
+                          <p>und somit der <span class="lookup" onclick="createDiv('ID0ES4AM', 'NILINKDEF32')" title="Anklicken, um Verweis ein- bzw. auszublenden.">von-Neumann-Faktor</span><span ID="ID0ES4AM" class="Linklist Definition"></span> - d. h. der
+				<i>Expansions-</i> und <i>Zinsfaktor </i><span class='Greek'>n</span>, für den <i><span class="lookup" onclick="createDiv('ID0E44AM', 'NILINKDEF15')" title="Anklicken, um Verweis ein- bzw. auszublenden.">von-Neumann-Gleichgewichte</span><span ID="ID0E44AM" class="Linklist Definition"></span></i> existieren -
+				eindeutig bestimmt.</p>
+                        </li>
+                        <li>
+                          <p>Alle <i><span class="lookup" onclick="createDiv('ID0EH5AM', 'NILINKDEF15')" title="Anklicken, um Verweis ein- bzw. auszublenden.">von-Neumann-Gleichgewichte</span><span ID="ID0EH5AM" class="Linklist Definition"></span></i>
+				(<b>p<sup>*</sup>,
+				<b>y</b><sup>*</sup></b>) zu diesem
+				<span class="lookup" onclick="createDiv('ID0ET5AM', 'NILINKDEF32')" title="Anklicken, um Verweis ein- bzw. auszublenden.">von-Neumann-Faktor</span><span ID="ID0ET5AM" class="Linklist Definition"></span> sind
+				<span class="lookup" onclick="createDiv('ID0EX5AM', 'NILINKDEF36')" title="Anklicken, um Verweis ein- bzw. auszublenden.">ökonomische
+				von-Neumann-Gleichgewichte</span><span ID="ID0EX5AM" class="Linklist Definition"></span>, d. h. </p>
+                          <p><span class="lookup" onclick="createDiv('ID0E45AM', 'NILINKGL0020')" title="Anklicken, um Verweis ein- bzw. auszublenden."> (15.1) </span><span ID="ID0E45AM" class="Linklist Formel"></span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/GL0020.gif" height="24" width="100" alt=""></span></p>
+                        </li>
+                      </ol>
+                    </div>
+                    <p><b>Beweis</b><span onclick="visibilityToggle('ID0ER6AM', 'strand');" class="lookup" title="Anklicken, um Abschnitt ein- bzw. auszublenden."> (Ein-
+		  / Ausblenden)</span><div ID="ID0ER6AM" class="Linklist">
+                        <div Id="NILINKBW22"><span><p>
+                              <ol>
+                                <li>
+                                  <p>Folgt unmittelbar aus <span class="lookup" onclick="createDiv('ID0E36AM', 'NILINKS14')" title="Anklicken, um Verweis ein- bzw. auszublenden.">Satz  (7.2) </span><span ID="ID0E36AM" class="Linklist Satz"></span> in Verbindung mit <span class="lookup" onclick="createDiv('ID0EBABM', 'NILINKS15')" title="Anklicken, um Verweis ein- bzw. auszublenden.">Satz  (13.1) </span><span ID="ID0EBABM" class="Linklist Satz"></span>.</p>
+                                </li>
+                                <li>
+                                  <ul>
+                                    <li>
+                                      <p>Im Beweis von <span class="lookup" onclick="createDiv('ID0EOABM', 'NILINKS14')" title="Anklicken, um Verweis ein- bzw. auszublenden.">Satz  (7.2) </span><span ID="ID0EOABM" class="Linklist Satz"></span>
+					 wurde für <span class="lookup" onclick="createDiv('ID0ESABM', 'NILINKDEF29')" title="Anklicken, um Verweis ein- bzw. auszublenden.">technologische
+					 Prozessintensitäten </span><span ID="ID0ESABM" class="Linklist Definition"></span><b>y</b><sup>0</sup>
+					 und <span class="lookup" onclick="createDiv('ID0EYABM', 'NILINKDEF30')" title="Anklicken, um Verweis ein- bzw. auszublenden.">ökonomische Preisvektoren
+					 </span><span ID="ID0EYABM" class="Linklist Definition"></span><b>p</b><sup>0</sup> die Ungleichung</p>
+                                      <p><span class="lookup" onclick="createDiv('ID0EABBM', 'NILINKGL322')" title="Anklicken, um Verweis ein- bzw. auszublenden."> (7.31) </span><span ID="ID0EABBM" class="Linklist Formel"></span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn322.gif" height="28" width="101" alt=""></span></p>
+                                      <p>bewiesen.</p>
+                                    </li>
+                                    <li>
+                                      <p>Bei <i>irreduziblen Technologien</i> ist
+					 wegen der 1. Aussage des vorliegenden Satzes <span class='Greek'>n</span> =
+					 <span class='Greek'>l</span><sub>0</sub> =
+					 <span class='Greek'>r</span><sub>0</sub> und daher ist <b>y*</b> eine
+					 <span class="lookup" onclick="createDiv('ID0EACBM', 'NILINKDEF29')" title="Anklicken, um Verweis ein- bzw. auszublenden.">technologische Prozessintensität
+					 </span><span ID="ID0EACBM" class="Linklist Definition"></span> und <b>p*</b> ein <span class="lookup" onclick="createDiv('ID0EGCBM', 'NILINKDEF30')" title="Anklicken, um Verweis ein- bzw. auszublenden.">ökonomischer Preisvektor</span><span ID="ID0EGCBM" class="Linklist Definition"></span>; also ist</p>
+                                      <p><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/GL0021.gif" height="28" width="100" alt=""></span></p>
+                                    </li>
+                                    <li>
+                                      <p>Aus den Gleichgewichtsbedingungen</p>
+                                      <div class="Formel"><span class="NumberedItemCount">15. 6</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/GL0022.gif" height="29" width="132" alt=""></span></div>
+                                      <p>und</p>
+                                      <div class="Formel"><span class="NumberedItemCount">15. 7</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/GL0023.gif" height="29" width="132" alt=""></span></div>
+                                      <p>folgt wegen <b>p<sup>*</sup></b>
+					 &gt; <b>0</b> und <b>y<sup>*</sup></b> &gt;
+					 <b>0</b></p>
+                                      <div class="Formel"><span class="NumberedItemCount">15. 8</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/GL0024.gif" height="29" width="158" alt=""></span></div>
+                                      <p>oder, da nach <span class="lookup" onclick="createDiv('ID0E1EBM', 'NILINKL9')" title="Anklicken, um Verweis ein- bzw. auszublenden.">Lemma  (4.2) </span><span ID="ID0E1EBM" class="Linklist Lemma"></span>
+					 bei <span class="lookup" onclick="createDiv('ID0E5EBM', 'NILINKDEF27')" title="Anklicken, um Verweis ein- bzw. auszublenden.">output-regulärer</span><span ID="ID0E5EBM" class="Linklist Definition"></span>
+					 Produktionstechnik <span class='Greek'>l</span><sub>0</sub> &gt;
+					 0:</p>
+                                      <div class="Formel"><span class="NumberedItemCount">15. 9</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/GL0025.gif" height="28" width="198" alt=""></span></div>
+                                    </li>
+                                  </ul>
+                                </li>
+                              </ol>
+                              <p>Q. E. D.</p>
+                            </p></span></div>
+                      </div>
+                    </p>
+                    <div class="Sect3">
+                      <h3>Abschwächung auf notwendige &amp; hinreichende
+			 Bedingungen</h3>
+                      <p><i>Hans-Jürgen Jaksch</i><span class="reference"><a href="###" title="Jaksch, Hans-Jürgen: A necessary and sufficient condition for the equality of the expansion rates in the von Neumann growth model. - in: Journal of Economic Theory. - 15(1977). - S. 228 - 234" onClick="window.open(&quot;/MvcStrands/lineare-wirtschaftstheorie/Tag-Bibliography/%24%24Bibliography&quot;, &quot;BIB&quot;, &quot;scrollbars,width=300height=650,left=20,top=20&quot;)"><img src="http://localhost/MvcStrands/images/bibliography.gif" alt="bibliography" title="bibliography">[JAK77]</a></span><span class="top"></span> findet schwächere -
+			 <i>hinreichende </i><i>und </i><i>notwendige</i> - Bedingungen für die Eindeutigkeit des
+			 <span class="lookup" onclick="createDiv('ID0E1IBM', 'NILINKDEF32')" title="Anklicken, um Verweis ein- bzw. auszublenden.">von-Neumann-Faktors</span><span ID="ID0E1IBM" class="Linklist Definition"></span>, die auch
+			 bei einer <span class="lookup" onclick="createDiv('ID0E5IBM', 'NILINKDEF31')" title="Anklicken, um Verweis ein- bzw. auszublenden.">reduzierbaren
+			 Produktionstechnologie</span><span ID="ID0E5IBM" class="Linklist Definition"></span> erfüllt sein können. </p>
+                      <p>Ohne auf den komplexen Beweis einzugehen soll hier nur die
+			 ökonomische Interpretation dieser Bedingungen referiert werden:</p>
+                      <p>Der <span class="lookup" onclick="createDiv('ID0EHJBM', 'NILINKDEF32')" title="Anklicken, um Verweis ein- bzw. auszublenden.">von-Neumann-Faktor</span><span ID="ID0EHJBM" class="Linklist Definition"></span> ist danach genau dann eindeutig
+			 bestimmt, wenn im <i><span class="lookup" onclick="createDiv('ID0ENJBM', 'NILINKDEF15')" title="Anklicken, um Verweis ein- bzw. auszublenden.">von-Neumann-Gleichgewicht</span><span ID="ID0ENJBM" class="Linklist Definition"></span></i> in keiner
+			 Subtechnologie von <span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn008.gif" height="24" width="156" alt=""></span></p>
+                      <ol>
+                        <li>
+                          <p>nur freie Güter produziert werden, und / oder</p>
+                        </li>
+                        <li>
+                          <p>nur solche Güterarten positive Preise aufweisen, die gar
+				  nicht produziert werden.</p>
+                        </li>
+                      </ol>
+                      <p> Systeme, die diese Bedingungen <i>nicht</i>
+			 erfüllen, sind nach <i>Jaksch</i> ökonomisch kaum
+			 plausibel. Aus seiner Sicht sind daher <i><span class="lookup" onclick="createDiv('ID0ENKBM', 'NILINKDEF15')" title="Anklicken, um Verweis ein- bzw. auszublenden.">von-Neumann-Systeme</span><span ID="ID0ENKBM" class="Linklist Definition"></span></i> nur für
+			 <i>Produktionstechnologien</i> von Bedeutung, bei denen der
+			 <span class="lookup" onclick="createDiv('ID0EUKBM', 'NILINKDEF18')" title="Anklicken, um Verweis ein- bzw. auszublenden.">ökonomische Zinsfaktor </span><span ID="ID0EUKBM" class="Linklist Definition"></span> und
+			 der <span class="lookup" onclick="createDiv('ID0EYKBM', 'NILINKDEF13')" title="Anklicken, um Verweis ein- bzw. auszublenden.">technologische
+			 Expansionsfaktor</span><span ID="ID0EYKBM" class="Linklist Definition"></span> übereinstimmen.</p>
+                    </div>
+                  </div>
+                  <div class="Sect2">
+                    <h2>Von-Neumann-Gleichgewichte bei reduziblen Technologien</h2>
+                    <p>Die Dinge komplizieren sich, wenn <i><span class="lookup" onclick="createDiv('ID0ECLBM', 'NILINKDEF31')" title="Anklicken, um Verweis ein- bzw. auszublenden.">zerlegbare Technologien</span><span ID="ID0ECLBM" class="Linklist Definition"></span></i> zugelassen werden.
+		  Denn in diesem Fall kann die Ökonomie in voneinander unabhängige
+		  Sub-Ökonomien zerlegt werden, die möglicherweise mit
+		  unterschiedlichen <span class="lookup" onclick="createDiv('ID0EHLBM', 'NILINKDEF32')" title="Anklicken, um Verweis ein- bzw. auszublenden.">von-Neumann-Faktoren</span><span ID="ID0EHLBM" class="Linklist Definition"></span> betrieben werden
+		  müssen.</p>
+                    <div class="Sect3">
+                      <h3>Ein Beispiel</h3>
+                      <p>Man nehme beispielsweise an, eine
+			 <span class="lookup" onclick="createDiv('ID0ERLBM', 'NILINKDEF27')" title="Anklicken, um Verweis ein- bzw. auszublenden."> reguläre</span><span ID="ID0ERLBM" class="Linklist Definition"></span> und
+			 <span class="lookup" onclick="createDiv('ID0EVLBM', 'NILINKDEF5')" title="Anklicken, um Verweis ein- bzw. auszublenden.">endliche Produktionstechnologie </span><span ID="ID0EVLBM" class="Linklist Definition"></span>
+			 mit <span class="lookup" onclick="createDiv('ID0EZLBM', 'NILINKDEF2')" title="Anklicken, um Verweis ein- bzw. auszublenden.">konstanten Skalenerträgen
+			 </span><span ID="ID0EZLBM" class="Linklist Definition"></span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn008.gif" height="24" width="156" alt=""></span> sei auf die folgende Weise in unabhängige Teiltechnologien
+			 zerlegbar:</p>
+                      <div class="Formel"><span class="NumberedItemCount">15. 11</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/GL0099.gif" height="68" width="154" alt=""></span></div>
+                      <p>D. h. I<sub>1</sub> bzw. I<sub>2</sub>
+			 sind disjunkte <i><span class="lookup" onclick="createDiv('ID0E5MBM', 'NILINKDEF31')" title="Anklicken, um Verweis ein- bzw. auszublenden.">unabhängige</span><span ID="ID0E5MBM" class="Linklist Definition"></span></i> Teilmengen von
+			 Güterarten, die jeweils mit den disjunkten Teilmengen
+			 J<sub>1</sub> bzw. J<sub>2</sub> von
+			 <i>Produktionsaktivitäten</i> erzeugt werden
+			 können.</p>
+                      <p>Falls die beiden Teiltechnologien selbst nicht weiter
+			 <i>zerlegbar</i> sind, so gibt es für sie nach
+			 <span class="lookup" onclick="createDiv('ID0EONBM', 'NILINKS16')" title="Anklicken, um Verweis ein- bzw. auszublenden.">Satz  (15.1) </span><span ID="ID0EONBM" class="Linklist Satz"></span> einen jeweils eindeutig bestimmten
+			 <span class="lookup" onclick="createDiv('ID0ESNBM', 'NILINKDEF32')" title="Anklicken, um Verweis ein- bzw. auszublenden.">von-Neumann-Faktor</span><span ID="ID0ESNBM" class="Linklist Definition"></span>, der mit
+			 <span class='Greek'>n</span><sub>1</sub> bzw.
+			 <span class='Greek'>n</span><sub>2</sub> bezeichnet sei. Weiterhin gibt es nach
+			 <span class="lookup" onclick="createDiv('ID0E3NBM', 'NILINKS16')" title="Anklicken, um Verweis ein- bzw. auszublenden.">Satz  (15.1) </span><span ID="ID0E3NBM" class="Linklist Satz"></span> für jede Teiltechnologie
+			 <span class="lookup" onclick="createDiv('ID0EAOBM', 'NILINKDEF36')" title="Anklicken, um Verweis ein- bzw. auszublenden.">ökonomische
+			 von-Neumann-Gleichgewichte</span><span ID="ID0EAOBM" class="Linklist Definition"></span> zum jeweiligen
+			 <i>von-Neumann-Faktor</i>, die mit
+			 (<b>p<sub>1</sub><sup>*</sup></b>,
+			 <b>y<sub>1</sub><sup>*</sup></b>) bzw.
+			 (<b>p<sub>2</sub><sup>*</sup></b>,
+			 <b>y<sub>2</sub><sup>*</sup></b>)
+			 bezeichnet seien.</p>
+                      <ul>
+                        <li>
+                          <p>Ist <span class='Greek'>n</span><sub>1</sub> ungleich
+				  <span class='Greek'>n</span><sub>2</sub> und o. B. d. A.
+				  <span class='Greek'>n</span><sub>1</sub> &gt;
+				  <span class='Greek'>n</span><sub>2</sub>, so macht man sich leicht klar, dass
+				  jedes (<b>p<sup>*</sup></b>,
+				  <b>y<sup>*</sup></b>) mit
+				  <b>p<sup>*</sup></b> = ((1 - <span class='Greek'>a</span>)
+				  <b>p<sub>1</sub><sup>*</sup></b>,
+				  <span class='Greek'>a</span><b>
+				  p<sub>2</sub><sup>*</sup></b>),
+				  <b>y<sup>*</sup></b> =
+				  (<b>y<sub>1</sub><sup>*</sup></b>,
+				  <b>0</b>)<sup>T</sup> ein
+				  <span class="lookup" onclick="createDiv('ID0ETQBM', 'NILINKDEF36')" title="Anklicken, um Verweis ein- bzw. auszublenden.">ökonomisches
+				  von-Neumann-Gleichgewicht</span><span ID="ID0ETQBM" class="Linklist Definition"></span> für die Gesamtökonomie zum
+				  <span class="lookup" onclick="createDiv('ID0EXQBM', 'NILINKDEF32')" title="Anklicken, um Verweis ein- bzw. auszublenden.">von-Neumann-Faktor </span><span ID="ID0EXQBM" class="Linklist Definition"></span><span class='Greek'>n</span><sub>1</sub> und mit
+				  <b>p<sup>*</sup></b> = (<b>0</b>,
+				  <b>p<sub>2</sub><sup>*</sup></b>) und
+				  <b>y<sup>*</sup></b> = (<span class='Greek'>a</span><b>
+				  y<sub>1</sub><sup>*</sup></b>, (1 -
+				  <span class='Greek'>a</span>)
+				  <b>y<sub>2</sub><sup>*</sup></b>)<sup>T</sup>
+				  zum <span class="lookup" onclick="createDiv('ID0E2RBM', 'NILINKDEF32')" title="Anklicken, um Verweis ein- bzw. auszublenden.">von-Neumann-Faktor </span><span ID="ID0E2RBM" class="Linklist Definition"></span><span class='Greek'>n</span><sub>2</sub> ist; jeweils für beliebiges
+				  <span class='Greek'>a</span> in [0,1].<span onclick="createDiv('ID0EDSBM0.5379309433223358', 'NILINKFN80')"><sup class="reference">76) </sup></span><span ID="ID0EDSBM0.5379309433223358" class="Linklist Footnote"></span></p>
+                          <p>Im ersten Fall können die Güterarten aus
+				  I<sub>2</sub> positive Preise haben, da sie nicht produziert
+				  werden. Im zweiten Fall können die
+				  <i>Produktionsaktivitäten</i> aus J<sub>1</sub>
+				  mit positiven <i>Prozessintensitäten</i> betrieben werden,
+				  da die Preise aller beteiligten Einsatz- und Ausstoßgüterarten
+				  gleich Null sind.</p>
+                        </li>
+                        <li>
+                          <p>Schließlich ist jedes beliebige <span class='Greek'>n</span>' mit
+				  <span class='Greek'>n</span><sub>1</sub> &gt; <span class='Greek'>n</span>' &gt;
+				  <span class='Greek'>n</span><sub>2</sub> ein
+				  <span class="lookup" onclick="createDiv('ID0EATBM', 'NILINKDEF32')" title="Anklicken, um Verweis ein- bzw. auszublenden.">von-Neumann-Faktor </span><span ID="ID0EATBM" class="Linklist Definition"></span> für
+				  (<b>p<sup>*</sup></b>,
+				  <b>y<sup>*</sup></b>) mit
+				  <b>p<sup>*</sup></b> = (<b>0</b>,
+				  <b>p<sub>2</sub><sup>*</sup></b>) und
+				  <b>y<sup>*</sup></b> =
+				  (<b>y<sub>1</sub><sup>*</sup></b>,
+				  <b>0</b>)<sup>T</sup>.
+				  (<b>p<sup>*</sup></b>,
+				  <b>y<sup>*</sup></b>) ist allerdings kein
+				  <span class="lookup" onclick="createDiv('ID0EMUBM', 'NILINKDEF36')" title="Anklicken, um Verweis ein- bzw. auszublenden.">ökonomisches
+				  von-Neumann-Gleichgewicht</span><span ID="ID0EMUBM" class="Linklist Definition"></span>, denn der <i>Bruttoproduktionswert
+				  </i><b>p<sup>*</sup></b><b> B
+				  </b><b>y<sup>*</sup></b> ist gleich Null.<span onclick="createDiv('ID0EZUBM0.5969663269803702', 'NILINKFN81')"><sup class="reference">77) </sup></span><span ID="ID0EZUBM0.5969663269803702" class="Linklist Footnote"></span></p>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="Sect3">
+                      <h3>Ökonomische Gleichgewichte existieren nur für endlich
+			 viele von-Neumann-Faktoren</h3>
+                      <p>Aus dem Kontinuum der <span class="lookup" onclick="createDiv('ID0EGXBM', 'NILINKDEF32')" title="Anklicken, um Verweis ein- bzw. auszublenden.">von-Neumann-Faktoren</span><span ID="ID0EGXBM" class="Linklist Definition"></span> im nicht-leeren, abgeschlossenen
+			 und beschränkten Intervall <span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/GL0016.gif" height="28" width="58" alt=""></span> (vgl. <span class="lookup" onclick="createDiv('ID0EWXBM', 'NILINKS15')" title="Anklicken, um Verweis ein- bzw. auszublenden.">Satz  (13.1) </span><span ID="ID0EWXBM" class="Linklist Satz"></span>) verbleiben nur
+			 endlich viele (nämlich min{l, s}) die auch
+			 <i>ökonomisch</i> sind. <span class="reference"><a href="###" title="Kemeny, John G.; Morgenstern, Oskar; Thompson, Gerald L.: A generalization of the von Neumann model of an expanding economy. - in: Econometrica (24, 1956, 2). - S. 115 - 135" onClick="window.open(&quot;/MvcStrands/lineare-wirtschaftstheorie/Tag-Bibliography/%24%24Bibliography&quot;, &quot;BIB&quot;, &quot;scrollbars,width=300height=650,left=20,top=20&quot;)"><img src="http://localhost/MvcStrands/images/bibliography.gif" alt="bibliography" title="bibliography">[KEM56],
+			 Theorem 1, S. 121</a></span><span class="top"><a href="http://www.riquest.de/rqitems/07906" target="riquest" title="open catalog"><img src="http://localhost/MvcStrands/images/catalog.gif" alt="open catalog" title="open catalog"></a></span></p>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td> </td>
+          <td align="right">
+            <table border="0" width="50px">
+              <tr align="center" valign="baseline">
+                <td class="smallcomment"><a href="/MvcStrands/lineare-wirtschaftstheorie/vob-Neumann-Systeme-und-Matrixspiele" class="smallcomment" title="zurück"> &lt; </a></td>
+                <td class="smallcomment">15/21</td>
+                <td><a href="/MvcStrands/lineare-wirtschaftstheorie/16" class="smallcomment" title="vor"> &gt; </a></td>
+              </tr>
+              <tr>
+                <td colspan="3"><input id="searchfield3" type="text" title="Suchterme hier eingeben"></td>
+              </tr>
+              <tr>
+                <td colspan="3">
+                  <table border="0">
+                    <tr align="center" valign="baseline">
+                      <td><a class="smallcomment" onclick="javascript:readSearchField(&quot;/MvcStrands/Search&quot;, 3)" href="#" title="textsuche (in allen strands)">search</a></td>
+                      <td><a class="smallcomment" href="###" title="Inhaltsverzeichnis" onClick="window.open(&quot;/MvcStrands/lineare-wirtschaftstheorie/Article/%24%24TOC&quot;, &quot;TOC&quot;, &quot;scrollbars,width=500height=650,left=20,top=20&quot;)">/toc</a></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<div class="Linklist Definition" Id="NILINKDEF12">
+  <p>Definition 9. 1: <i>(Lineares
+	 ökonomisches Systemmodell)</i><p>Gegeben sei eine <span class="lookup" onclick="createDiv('ID0E4TCK', 'NILINKDEF5')" title="Anklicken, um Verweis ein- bzw. auszublenden.">endlichen
+		Produktionstechnologie </span><span ID="ID0E4TCK" class="Linklist Definition"></span> mit <span class="lookup" onclick="createDiv('ID0EBUCK', 'NILINKDEF2')" title="Anklicken, um Verweis ein- bzw. auszublenden.">konstanten Skalenerträgen </span><span ID="ID0EBUCK" class="Linklist Definition"></span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn008.gif" height="24" width="156" alt=""></span>.</p>
+    <p>Das Ungleichungssystem</p>
+    <div class="Formel"><span class="NumberedItemCount">9. 1</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn165.gif" height="28" width="153" alt=""></span></div>
+    <p></p>
+    <div class="Formel"><span class="NumberedItemCount">9. 2</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn166.gif" height="28" width="344" alt=""></span></div>
+    <p></p>
+    <div class="Formel"><span class="NumberedItemCount">9. 3</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn167.gif" height="28" width="158" alt=""></span></div>
+    <p></p>
+    <div class="Formel"><span class="NumberedItemCount">9. 4</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn168.gif" height="33" width="358" alt=""></span></div>
+    <p>mit</p>
+    <div class="Formel"><span class="NumberedItemCount">9. 5</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn169.gif" height="28" width="224" alt=""></span></div>
+    <p>heißt ein <i>Lineares ökonomisches
+		Systemmodell</i>. </p>
+    <p><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn172.gif" height="28" width="56" alt=""></span> ist die <i><span class="lookup" onclick="createDiv('ID0EYXCK', 'NILINKDEF23')" title="Anklicken, um Verweis ein- bzw. auszublenden.">Güterverwendungsfunktion</span><span ID="ID0EYXCK" class="Linklist Definition"></span></i>;
+		<span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn173.gif" height="28" width="61" alt=""></span> ist die <i><span class="lookup" onclick="createDiv('ID0EJYCK', 'NILINKDEF24')" title="Anklicken, um Verweis ein- bzw. auszublenden.">Surplusverwendungsfunktion</span><span ID="ID0EJYCK" class="Linklist Definition"></span></i>. Die Gleichungen
+		<span class="lookup" onclick="createDiv('ID0EOYCK', 'NILINKGL165')" title="Anklicken, um Verweis ein- bzw. auszublenden."> (9.1) </span><span ID="ID0EOYCK" class="Linklist Formel"></span> und
+		<span class="lookup" onclick="createDiv('ID0ESYCK', 'NILINKGL166')" title="Anklicken, um Verweis ein- bzw. auszublenden."> (9.2) </span><span ID="ID0ESYCK" class="Linklist Formel"></span> beschreiben die
+		<i><span class="lookup" onclick="createDiv('ID0EXYCK', 'NILINKDEF25')" title="Anklicken, um Verweis ein- bzw. auszublenden.">Mengenbilanz</span><span ID="ID0EXYCK" class="Linklist Definition"></span></i>; die Gleichungen
+		<span class="lookup" onclick="createDiv('ID0E3YCK', 'NILINKGL167')" title="Anklicken, um Verweis ein- bzw. auszublenden."> (9.3) </span><span ID="ID0E3YCK" class="Linklist Formel"></span> und
+		<span class="lookup" onclick="createDiv('ID0EAZCK', 'NILINKGL168')" title="Anklicken, um Verweis ein- bzw. auszublenden."> (9.4) </span><span ID="ID0EAZCK" class="Linklist Formel"></span> beschreiben die
+		<i><span class="lookup" onclick="createDiv('ID0EFZCK', 'NILINKDEF26')" title="Anklicken, um Verweis ein- bzw. auszublenden.">Wertbilanz</span><span ID="ID0EFZCK" class="Linklist Definition"></span></i>.</p>
+    <p>Ein Tupel <span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn175.gif" height="28" width="65" alt=""></span>, das die Ungleichungen <span class="lookup" onclick="createDiv('ID0EYZCK', 'NILINKGL165')" title="Anklicken, um Verweis ein- bzw. auszublenden."> (9.1) </span><span ID="ID0EYZCK" class="Linklist Formel"></span> bis <span class="lookup" onclick="createDiv('ID0E4ZCK', 'NILINKGL169')" title="Anklicken, um Verweis ein- bzw. auszublenden."> (9.5) </span><span ID="ID0E4ZCK" class="Linklist Formel"></span>
+		erfüllt, heißt Lösung des <i>linearen ökonomischen
+		Systemmodells</i>.</p>
+  </p>
+</div>
+<div class="Linklist Definition" Id="NILINKDEF23">
+  <p>Definition 8. 4: <i>(Güterverwendungsfunktion)</i><p>Gegeben seien m <i>implizite Gleichungen
+				</i><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn224.gif" height="28" width="125" alt=""></span>, die die <i>Handlungsdispositionen</i> der
+				<i>Wirtschaftssubjekte</i> h = 1, ..., m bezüglich der
+				<i><span class="lookup" onclick="createDiv('ID0EHICK', 'NILINKDEF33')" title="Anklicken, um Verweis ein- bzw. auszublenden.">volkswirtschaftlichen
+				Kenngrößen </span><span ID="ID0EHICK" class="Linklist Definition"></span></i> (<b>p</b>,
+				<b>y</b>, <b>z</b>, <b>w</b>) beschreiben.</p>
+    <p>Läßt sich deren Summenfunktion <span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn225.gif" height="52" width="254" alt=""></span> eindeutig nach den Variablen <b>z</b> und
+				<b>w</b> auflösen, so heißt die Projektion der so
+				entstehenden Funktion auf <b>z</b></p>
+    <div class="Formel"><span class="NumberedItemCount">8. 6</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn172.gif" height="28" width="56" alt=""></span></div>
+    <p>die <i>Güterverwendungsfunktion</i>.</p>
+    <p>Die <i>Güterverwendungsfunktion</i> gibt die
+				Mengen der einzelnen Güterarten i = 1, ..., l an, die von der Gesamtheit
+				der <i>Wirtschaftssubjekte</i> in einer
+				<i>Wirtschaftsperiode</i><span onclick="createDiv('ID0ECKCK0.13875462540367367', 'NILINKFN38')"><sup class="reference" xmlns:LinkUtils="urn:StrandsExtension">47) </sup></span><span ID="ID0ECKCK0.13875462540367367" class="Linklist Footnote"></span> netto angefordert (z<sub>i</sub> &gt;
+				0)<span onclick="createDiv('ID0EJKCK0.6577014921501751', 'NILINKFN36')"><sup class="reference" xmlns:LinkUtils="urn:StrandsExtension">48) </sup></span><span ID="ID0EJKCK0.6577014921501751" class="Linklist Footnote"></span>, bzw. netto abgegeben
+				(z<sub>i</sub> &lt; 0)<span onclick="createDiv('ID0EPKCK0.13279352436437902', 'NILINKFN40')"><sup class="reference" xmlns:LinkUtils="urn:StrandsExtension">49) </sup></span><span ID="ID0EPKCK0.13279352436437902" class="Linklist Footnote"></span> würden , wenn die
+				<i>volkswirtschaftlichen Kenngrößen</i> gleich
+				<span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn230.gif" height="28" width="45" alt=""></span> wären.</p>
+  </p>
+</div>
+<div class="Linklist Definition" Id="NILINKDEF33">
+  <p>Definition 8. 1: <i>(Volkswirtschaftliche Kenngrößen)</i><p>Die <i>volkswirtschaftlichen
+			 Kenngrößen</i> der <i>wirtschaftstheoretischen
+			 Modellvorstellung</i> der <i>linearen
+			 Wirtschaftstheorie</i> sind das Tupel (<b>p</b>,
+			 <b>y</b>, <b>z</b>, <b>w</b>), bestehend aus
+			 </p>
+    <ol>
+      <li>
+        <p>den <i><span class="lookup" onclick="createDiv('ID0EUQBK', 'NILINKDEF11')" title="Anklicken, um Verweis ein- bzw. auszublenden.">Preisen
+				  </span><span ID="ID0EUQBK" class="Linklist Definition"></span></i><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn064.gif" height="28" width="54" alt=""></span> der einzelnen Güterarten i = 1, ..., l<span onclick="createDiv('ID0ECRBK0.45415309372085755', 'NILINKFN39')"><sup class="reference" xmlns:LinkUtils="urn:StrandsExtension">39) </sup></span><span ID="ID0ECRBK0.45415309372085755" class="Linklist Footnote"></span>;</p>
+      </li>
+      <li>
+        <p>den <i><span class="lookup" onclick="createDiv('ID0EMRBK', 'NILINKDEF5')" title="Anklicken, um Verweis ein- bzw. auszublenden.">Prozessintensitäten
+				  </span><span ID="ID0EMRBK" class="Linklist Definition"></span></i><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn037.gif" height="28" width="54" alt=""></span>, mit denen die verfügbaren
+				  <span class="lookup" onclick="createDiv('ID0E2RBK', 'NILINKDEF1')" title="Anklicken, um Verweis ein- bzw. auszublenden.">Produktionsaktivitäten</span><span ID="ID0E2RBK" class="Linklist Definition"></span> j =
+				  1, ..., s betrieben werden;<span onclick="createDiv('ID0E6RBK0.6787442060554141', 'NILINKFN41')"><sup class="reference" xmlns:LinkUtils="urn:StrandsExtension">40) </sup></span><span ID="ID0E6RBK0.6787442060554141" class="Linklist Footnote"></span></p>
+      </li>
+      <li>
+        <p>der <i>Güterverwendung
+				  </i><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn220.gif" height="22" width="49" alt=""></span> , d. h. den Mengen der einzelnen Güterarten i = 1, ..., l,
+				  die der Gesamtheit der <i>Wirtschaftssubjekte</i> in einer
+				  <i>Wirtschaftsperiode</i><span onclick="createDiv('ID0EWSBK0.5968845978364742', 'NILINKFN38')"><sup class="reference" xmlns:LinkUtils="urn:StrandsExtension">41) </sup></span><span ID="ID0EWSBK0.5968845978364742" class="Linklist Footnote"></span> netto zufließen (z<sub>i</sub>
+				  &gt; 0)<span onclick="createDiv('ID0E4SBK0.37647351686678526', 'NILINKFN36')"><sup class="reference" xmlns:LinkUtils="urn:StrandsExtension">42) </sup></span><span ID="ID0E4SBK0.37647351686678526" class="Linklist Footnote"></span>, bzw. von ihnen netto
+				  abgegeben<span onclick="createDiv('ID0EBTBK0.31407066961474283', 'NILINKFN40')"><sup class="reference" xmlns:LinkUtils="urn:StrandsExtension">43) </sup></span><span ID="ID0EBTBK0.31407066961474283" class="Linklist Footnote"></span> werden
+				  (z<sub>i</sub> &lt; 0).</p>
+      </li>
+      <li>
+        <p>der <i>Surplusverwendung
+				  </i><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/GL0002.gif" height="24" width="56" alt=""></span>, d. h. den Anteilen an den <i><span class="lookup" onclick="createDiv('ID0EYTBK', 'NILINKDEF11')" title="Anklicken, um Verweis ein- bzw. auszublenden.">Wertschöpfungsbeiträgen</span><span ID="ID0EYTBK" class="Linklist Definition"></span></i> der
+				  einzelnen <i>Produktionsaktivitäten</i> j = 1, ..., s, die
+				  der Gesamtheit der <i>Wirtschaftssubjekte</i> in einer
+				  <i>Wirtschaftsperiode</i> netto zufließen
+				  (w<sub>j</sub> &gt; 0 ) <span onclick="createDiv('ID0EFUBK0.6742904161449011', 'NILINKFN37')"><sup class="reference" xmlns:LinkUtils="urn:StrandsExtension">44) </sup></span><span ID="ID0EFUBK0.6742904161449011" class="Linklist Footnote"></span>, bzw. von ihnen netto zugeschossen werden
+				  (w<sub>j</sub> &lt; 0);</p>
+      </li>
+    </ol>
+  </p>
+</div>
+<div class="Linklist Footnote" Id="NILINKFN39"><span><p>Der <i>Preisvektor</i> ist eine Größe,
+			 die nur auf einen Zeitpunkt bezogen werden kann. Man bezeichnet eine solche
+			 Größe als <i>Bestandsgröße</i>. </p>
+    <p>Implizit wird hier also die Modellvorstellung bereits durch die
+			 Annahme vereinfacht, daß der <i>Preisvektor</i> zu jedem
+			 Zeitpunkt innerhalb der betrachteten <i>Wirtschaftsperiode</i>
+			 gleich bleibt.</p></span></div>
+<div class="Linklist Footnote" Id="NILINKFN41"><span><p>Streng genommen ist der Vektor der
+			 <i>Prozessintensitäten</i> eine Größe, die nur
+			 auf einen Zeitpunkt bezogen werden kann. Man bezeichnet eine solche
+			 Größe als <i>Bestandsgröße</i>. </p>
+    <p>Man kann sich jedoch vorstellen, daß die einzelnen
+			 <i>Produktionsaktivitäten</i> zu unterschiedlichen
+			 Zeitpunkten während der betrachteten
+			 <i>Wirtschaftsperiode</i> mit unterschiedlichen
+			 <i>Prozessintensitäten</i> betrieben werden. Als
+			 volkswirtschaftliche Kenngröße ist nur die Summe dieser
+			 <i>Prozessintensitäten</i> von Belang.</p>
+    <p>Ebenso ist die Vorstellung zulässig, daß sich die
+			 <i>Produktionsaktivitäten</i> in mehrere Unterprozesse
+			 aufgliedern, die zu unterschielichen Zeitpunkten, ggf. mit dem Einsatz
+			 unterschiedlicher Vorleistungsgüterarten ausgeführt
+			 werden.</p></span></div>
+<div class="Linklist Footnote" Id="NILINKFN38"><span><p>Der Vektor der <i>Güterverwendung</i> ist
+		  eine Größe, die immer auf einen Zeitraum bezogen werden muß.
+		  Man bezeichnet eine solche Größe als
+		  <i>Flußgröße</i>.</p></span></div>
+<div class="Linklist Footnote" Id="NILINKFN36"><span><p><i>Wirtschaftssubjekten</i> können
+		  Gütermengen natürlich nur dann netto zufließen, wenn in der
+		  Wirtschaftsperiode Produktion stattfindet.</p></span></div>
+<div class="Linklist Footnote" Id="NILINKFN40"><span><p><i>Wirtschaftssubjekte</i> können
+		  Gütermengen natürlich nur dann netto abgeben, wenn sie zu Beginn der
+		  Wirtschaftsperiode über Anfangsbestände der betreffenden
+		  Güterarten verfügen.</p></span></div>
+<div class="Linklist Footnote" Id="NILINKFN37"><span><p>Der Vektor der <i>Surplusverwendung</i> ist eine
+			 Größe, die immer auf einen Zeitraum bezogen werden muß. Man
+			 bezeichnet eine solche Größe als
+			 <i>Flußgröße</i>.</p>
+    <p>Entscheidend ist, dass der <i>Surplus</i> hier
+			 nicht als eine Residualgrösse aufgefasst wird, sondern als ein von den
+			 <i>Wirtschaftssubjekten</i> als <i>Anspruch</i>
+			 geplanter Anteil an der aus den
+			 <i>Produktionsaktivitäten</i> fließenden
+			 <i>Wertschöpfung</i>, auf dessen Erlangung ihr
+			 <i>wirtschaftliches Handeln</i> gerichtet ist.</p>
+    <p>Negative Werte der <i>Surplusverwendung</i>
+			 bedeuten (Rück)Erstattungen der <i>Wirtschaftssubjekte</i>
+			 an <i>Produktionsaktivitäten</i>.</p></span></div>
+<div class="Linklist Definition" Id="NILINKDEF24">
+  <p>Definition 8. 5: <i>(Surplusverwendungsfunktion)</i><p>Gegeben seien m <i>implizite Gleichungen
+				</i><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn224.gif" height="28" width="125" alt=""></span>, die die <i>Handlungsdispositionen</i> der
+				<i>Wirtschaftssubjekte</i> h = 1, ..., m bezüglich der
+				<i><span class="lookup" onclick="createDiv('ID0E4LCK', 'NILINKDEF33')" title="Anklicken, um Verweis ein- bzw. auszublenden.">volkswirtschaftlichen
+				Kenngrößen </span><span ID="ID0E4LCK" class="Linklist Definition"></span></i> (<b>p</b>,
+				<b>y</b>, <b>z</b>, <b>w</b>) beschreiben.</p>
+    <p>Läßt sich deren Summenfunktion <span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn225.gif" height="52" width="254" alt=""></span> eindeutig nach den Variablen <b>z</b> und
+				<b>w</b> auflösen, so heißt die Projektion der so
+				entstehenden Funktion auf <b>w</b></p>
+    <div class="Formel"><span class="NumberedItemCount">8. 7</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn173.gif" height="28" width="61" alt=""></span></div>
+    <p>die <i>Surplusverwendungsfunktion</i><span onclick="createDiv('ID0EPNCK0.6622622919558837', 'NILINKFN46')"><sup class="reference" xmlns:LinkUtils="urn:StrandsExtension">50) </sup></span><span ID="ID0EPNCK0.6622622919558837" class="Linklist Footnote"></span>.</p>
+    <p>Die <i>Surplusverwendungsfunktion</i> gibt die
+				<i>Anteile</i> an den <i><span class="lookup" onclick="createDiv('ID0E3NCK', 'NILINKDEF11')" title="Anklicken, um Verweis ein- bzw. auszublenden.">Wertschöpfungsbeiträgen</span><span ID="ID0E3NCK" class="Linklist Definition"></span></i> der
+				einzelnen <i>Produktionsaktivitäten</i> j = 1, ..., s an,
+				die die Gesamtheit der <i>Wirtschaftssubjekte</i> in einer
+				<i>Wirtschaftsperiode</i> beanspruchen (w<sub>j</sub>
+				&gt; 0) bzw. erstatten (w<sub>j</sub> &lt; 0) würde, wenn die
+				<i>volkswirtschaftlichen Kenngrößen</i> gleich
+				<span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn230.gif" height="28" width="45" alt=""></span> wären.</p>
+  </p>
+</div>
+<div class="Linklist Footnote" Id="NILINKFN46"><span><p>Präziser wäre die Bezeichnung
+			 <i>Surplusanteilfunktion</i>, denn w<sub>j</sub> ist
+			 der pro <span class="lookup" onclick="createDiv('ID0EBPCK', 'NILINKDEF4')" title="Anklicken, um Verweis ein- bzw. auszublenden.">normierter
+			 Produktionsaktivität</span><span ID="ID0EBPCK" class="Linklist Definition"></span> j beanspruchte <i>Surplus</i>;
+			 d. h. für die <i><span class="lookup" onclick="createDiv('ID0EIPCK', 'NILINKDEF5')" title="Anklicken, um Verweis ein- bzw. auszublenden.">Prozessintensität </span><span ID="ID0EIPCK" class="Linklist Definition"></span></i>
+			 y<sub>j</sub> = 1. Der insgesamt aus der
+			 <i>Produktionsaktivität</i> beanspruchte Surplus ist
+			 w<sub>j</sub> * y<sub>j</sub>.</p></span></div>
+<div class="Linklist Formel" Id="NILINKGL165">
+  <p>Gleichung 9. 1: <span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn165.gif" height="28" width="153" alt=""></span></p>
+</div>
+<div class="Linklist Formel" Id="NILINKGL166">
+  <p>Gleichung 9. 2: <span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn166.gif" height="28" width="344" alt=""></span></p>
+</div>
+<div class="Linklist Definition" Id="NILINKDEF25">
+  <p>Definition 8. 2: <i>(Mengenbilanz)</i><p>Ein <i><span class="lookup" onclick="createDiv('ID0EK3BK', 'NILINKDEF11')" title="Anklicken, um Verweis ein- bzw. auszublenden.">Preisvektor </span><span ID="ID0EK3BK" class="Linklist Definition"></span></i><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn064.gif" height="28" width="54" alt=""></span>, sowie Vektoren <span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn013.gif" height="22" width="49" alt=""></span> der <i><span class="lookup" onclick="createDiv('ID0EF4BK', 'NILINKDEF3')" title="Anklicken, um Verweis ein- bzw. auszublenden.">Nettoproduktion</span><span ID="ID0EF4BK" class="Linklist Definition"></span></i> und <span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn220.gif" height="22" width="49" alt=""></span> der <i>Güterverwendung</i> erfüllen die
+				<i>Mengenbilanz</i> genau dann, wenn</p>
+    <div class="Formel"><span class="NumberedItemCount">8. 1</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn226.gif" height="17" width="41" alt=""></span></div>
+    <p>und</p>
+    <div class="Formel"><span class="NumberedItemCount">8. 2</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn227.gif" height="28" width="248" alt=""></span></div>
+  </p>
+</div>
+<div class="Linklist Formel" Id="NILINKGL167">
+  <p>Gleichung 9. 3: <span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn167.gif" height="28" width="158" alt=""></span></p>
+</div>
+<div class="Linklist Formel" Id="NILINKGL168">
+  <p>Gleichung 9. 4: <span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn168.gif" height="33" width="358" alt=""></span></p>
+</div>
+<div class="Linklist Definition" Id="NILINKDEF26">
+  <p>Definition 8. 3: <i>(Wertbilanz)</i><p>Ein Vektor von <i><span class="lookup" onclick="createDiv('ID0EFBCK', 'NILINKDEF5')" title="Anklicken, um Verweis ein- bzw. auszublenden.">Prozessintensitäten
+				</span><span ID="ID0EFBCK" class="Linklist Definition"></span></i><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn037.gif" height="28" width="54" alt=""></span>, sowie Vektoren <span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/GL0004.gif" height="24" width="52" alt=""></span> der <i><span class="lookup" onclick="createDiv('ID0EACCK', 'NILINKDEF11')" title="Anklicken, um Verweis ein- bzw. auszublenden.">Wertschöpfungsbeiträge </span><span ID="ID0EACCK" class="Linklist Definition"></span></i> und
+				<span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/GL0002.gif" height="24" width="56" alt=""></span> der <i>Surplusverwendung</i> erfüllen die
+				<i>Wertbilanz</i> genau dann, wenn</p>
+    <div class="Formel"><span class="NumberedItemCount">8. 3</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn229.gif" height="18" width="48" alt=""></span></div>
+    <p>und</p>
+    <div class="Formel"><span class="NumberedItemCount">8. 4</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn228.gif" height="29" width="261" alt=""></span></div>
+  </p>
+</div>
+<div class="Linklist Formel" Id="NILINKGL169">
+  <p>Gleichung 9. 5: <span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn169.gif" height="28" width="224" alt=""></span></p>
+</div>
+<div class="Linklist Definition" Id="NILINKDEF15">
+  <p>Definition 12. 1: <i>(von-Neumann-System)</i><p>Seien <span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn008.gif" height="24" width="156" alt=""></span> eine <span class="lookup" onclick="createDiv('ID0EDSEK', 'NILINKDEF5')" title="Anklicken, um Verweis ein- bzw. auszublenden.">endliche
+			 Produktionstechnologie </span><span ID="ID0EDSEK" class="Linklist Definition"></span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn022.gif" height="36" width="56" alt=""></span> mit <span class="lookup" onclick="createDiv('ID0ERSEK', 'NILINKDEF2')" title="Anklicken, um Verweis ein- bzw. auszublenden.">konstanten
+			 Skalenerträgen</span><span ID="ID0ERSEK" class="Linklist Definition"></span>, sowie <span class='Greek'>l</span> ein gegebener
+			 <i>Expansions-</i> und <span class='Greek'>r</span> ein gegebener
+			 <i>Zinsfaktor-</i> größer als Null.</p>
+    <p>Das Ungleichungssystem</p>
+    <div class="Formel"><span class="NumberedItemCount">12. 3</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn104.gif" height="28" width="130" alt=""></span></div>
+    <p></p>
+    <div class="Formel"><span class="NumberedItemCount">12. 4</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn105.gif" height="28" width="316" alt=""></span></div>
+    <p></p>
+    <div class="Formel"><span class="NumberedItemCount">12. 5</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn103.gif" height="28" width="132" alt=""></span></div>
+    <p></p>
+    <div class="Formel"><span class="NumberedItemCount">12. 6</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn102.gif" height="33" width="321" alt=""></span></div>
+    <p>mit</p>
+    <div class="Formel"><span class="NumberedItemCount">12. 7</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn106.gif" height="28" width="324" alt=""></span></div>
+    <p>heißt ein <i>von-Neumann-System</i>.</p>
+    <p>Eine Lösung des <i>von-Neumann-Systems</i>, d.
+			 h. ein Tupel (<b>p</b><sup>*</sup>,
+			 <b>y</b><sup>*</sup>), das die Ungleichungen
+			 <span class="lookup" onclick="createDiv('ID0ECWEK', 'NILINKGL103')" title="Anklicken, um Verweis ein- bzw. auszublenden."> (12.5) </span><span ID="ID0ECWEK" class="Linklist Formel"></span> bis
+			 <span class="lookup" onclick="createDiv('ID0EGWEK', 'NILINKGL106')" title="Anklicken, um Verweis ein- bzw. auszublenden."> (12.7) </span><span ID="ID0EGWEK" class="Linklist Formel"></span> erfüllt, heißt ein
+			 <i>von-Neumann-Gleichgewicht</i>.</p>
+  </p>
+</div>
+<div class="Linklist Formel" Id="NILINKGL103">
+  <p>Gleichung 12. 5: <span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn103.gif" height="28" width="132" alt=""></span></p>
+</div>
+<div class="Linklist Formel" Id="NILINKGL106">
+  <p>Gleichung 12. 7: <span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn106.gif" height="28" width="324" alt=""></span></p>
+</div>
+<div class="Linklist Formel" Id="NILINKGL104">
+  <p>Gleichung 12. 3: <span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn104.gif" height="28" width="130" alt=""></span></p>
+</div>
+<div class="Linklist Formel" Id="NILINKGL165">
+  <p>Gleichung 9. 1: <span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn165.gif" height="28" width="153" alt=""></span></p>
+</div>
+<div class="Linklist Formel" Id="NILINKGL105">
+  <p>Gleichung 12. 4: <span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn105.gif" height="28" width="316" alt=""></span></p>
+</div>
+<div class="Linklist Formel" Id="NILINKGL166">
+  <p>Gleichung 9. 2: <span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn166.gif" height="28" width="344" alt=""></span></p>
+</div>
+<div class="Linklist Formel" Id="NILINKGL103">
+  <p>Gleichung 12. 5: <span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn103.gif" height="28" width="132" alt=""></span></p>
+</div>
+<div class="Linklist Formel" Id="NILINKGL167">
+  <p>Gleichung 9. 3: <span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn167.gif" height="28" width="158" alt=""></span></p>
+</div>
+<div class="Linklist Formel" Id="NILINKGL102">
+  <p>Gleichung 12. 6: <span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn102.gif" height="33" width="321" alt=""></span></p>
+</div>
+<div class="Linklist Definition" Id="NILINKDEF5">
+  <p>Definition 1. 4: <i>(Endliche Produktionstechnologie)</i><p>Eine <span class="lookup" onclick="createDiv('ID0EQJAC', 'NILINKDEF2')" title="Anklicken, um Verweis ein- bzw. auszublenden.">Produktionstechnologie </span><span ID="ID0EQJAC" class="Linklist Definition"></span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn022.gif" height="36" width="52" alt=""></span> heißt <i>endlich</i>, wenn sie nur endlich
+			 viele <span class="lookup" onclick="createDiv('ID0EBKAC', 'NILINKDEF1')" title="Anklicken, um Verweis ein- bzw. auszublenden.">Produktionsaktivitäten
+			 </span><span ID="ID0EBKAC" class="Linklist Definition"></span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn009.gif" height="24" width="93" alt=""></span>, j = 1, ... , s enthält.</p>
+    <ul>
+      <li>
+        <p><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn021.gif" height="25" width="20" alt=""></span> kann dann als
+				  <i>Produktionsmatrix</i></p>
+        <div class="Formel"><span class="NumberedItemCount">1. 10</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn008.gif" height="24" width="156" alt=""></span></div>
+        <p>dargestellt werden, deren Spalten durch die j = 1, ... , s
+				  <i>Produktionsaktivitäten </i><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn009.gif" height="24" width="93" alt=""></span> gebildet werden. <b>B</b> und <b>A</b> sind
+				  somit <i>nicht-negative Matrizen</i>.<span onclick="createDiv('ID0EFMAC0.08368246866561588', 'NILINKFN16')"><sup class="reference" xmlns:LinkUtils="urn:StrandsExtension">3) </sup></span><span ID="ID0EFMAC0.08368246866561588" class="Linklist Footnote"></span></p>
+      </li>
+      <li>
+        <p>Die <span class="lookup" onclick="createDiv('ID0ENMAC', 'NILINKDEF1')" title="Anklicken, um Verweis ein- bzw. auszublenden.">Prozessintensitäten</span><span ID="ID0ENMAC" class="Linklist Definition"></span>, mit denen die einzelnen
+				  <i>Produktionsaktivitäten</i> betrieben werden, können
+				  dann als Vektor</p>
+        <div class="Formel"><span class="NumberedItemCount">1. 11</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn135.gif" height="38" width="330" alt=""></span></div>
+        <p>dargestellt werden.</p>
+        <p>Eine <i>endliche Produktionstechnologie</i>
+				  wird mit <span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn139.gif" height="38" width="81" alt=""></span> bezeichnet.</p>
+      </li>
+      <li>
+        <p>Bei <span class="lookup" onclick="createDiv('ID0EZNAC', 'NILINKDEF2')" title="Anklicken, um Verweis ein- bzw. auszublenden."> konstanten
+				  Skalenerträgen</span><span ID="ID0EZNAC" class="Linklist Definition"></span> ist</p>
+        <div class="Formel"><span class="NumberedItemCount">1. 12</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn144.gif" height="36" width="89" alt=""></span></div>
+        <p>Eine <i>endliche Produktionstechnologie</i> mit
+				  <span class="lookup" onclick="createDiv('ID0EROAC', 'NILINKDEF2')" title="Anklicken, um Verweis ein- bzw. auszublenden."> konstanten Skalenerträgen</span><span ID="ID0EROAC" class="Linklist Definition"></span>
+				  wird mit <span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn145.gif" height="36" width="62" alt=""></span> oder kurz durch die <i>Produktionsmatrix
+				  </i><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn170.gif" height="22" width="18" alt=""></span> bezeichnet.</p>
+      </li>
+    </ul>
+  </p>
+</div>
+<div class="Linklist Definition" Id="NILINKDEF2">
+  <p>Definition 1. 3: <i>(Produktionstechnologie)</i><p>Sei</p>
+    <div class="Formel"><span class="NumberedItemCount">1. 5</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn019.gif" height="36" width="437" alt=""></span></div>
+    <p>eine Menge von <span class="lookup" onclick="createDiv('ID0EMEAC', 'NILINKDEF4')" title="Anklicken, um Verweis ein- bzw. auszublenden.">normierten
+		  Produktionsaktivitäten</span><span ID="ID0EMEAC" class="Linklist Definition"></span>, und</p>
+    <div class="Formel"><span class="NumberedItemCount">1. 6</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn020.gif" height="60" width="124" alt=""></span></div>
+    <p>eine Korrespondenz, die jeder <i>normierten
+		  Produktionsaktivität</i> in <span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn021.gif" height="25" width="20" alt=""></span> die Menge der Prozessintensitäten zuordnet, mit denen sie
+		  betrieben werden kann. </p>
+    <p>Dann heißt das Tupel <span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn022.gif" height="36" width="52" alt=""></span> eine <i>Produktionstechnologie</i>.</p>
+    <ul>
+      <li>
+        <p>Man spricht (vgl. <span class="reference"><a href="###" title="Debreu, Gérard: Theory of Value. - New York : Wiley, 1959. - (Deutsche Übersetzung: Werttheorie. - Berlin, Heidelberg, New York : Springer. - 1976" onClick="window.open(&quot;/MvcStrands/lineare-wirtschaftstheorie/Tag-Bibliography/%24%24Bibliography&quot;, &quot;BIB&quot;, &quot;scrollbars,width=300height=650,left=20,top=20&quot;)"><img src="http://localhost/MvcStrands/images/bibliography.gif" alt="bibliography" title="bibliography" xmlns:LinkUtils="urn:StrandsExtension">[DEB59], S. 50
+				f.</a></span><span class="top"><a href="http://www.riquest.de/rqitems/07204" target="riquest" title="open catalog" xmlns:LinkUtils="urn:StrandsExtension"><img src="http://localhost/MvcStrands/images/catalog.gif" alt="open catalog" title="open catalog"></a></span>) von einer <i>Produktionstechnologie</i> mit</p>
+        <ol>
+          <li>
+            <p><i>nichtzunehmenden Skalenerträgen</i>,
+					 wenn</p>
+            <div class="Formel"><span class="NumberedItemCount">1. 7</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn024.gif" height="30" width="316" alt=""></span></div>
+            <p>d. h., jede technologisch mögliche
+					 <i>Prozessintensität</i> kann beliebig vermindert
+					 werden.</p>
+          </li>
+          <li>
+            <p><i>nichtabnehmenden Skalenerträgen</i>,
+					 wenn</p>
+            <div class="Formel"><span class="NumberedItemCount">1. 8</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn023.gif" height="30" width="309" alt=""></span></div>
+            <p>d. h., jede technologisch mögliche
+					 <i>Prozessintensität</i> kann beliebig erhöht
+					 werden.</p>
+          </li>
+          <li>
+            <p><i> konstanten Skalenerträgen</i>, wenn
+					 <span class="lookup" onclick="createDiv('ID0EFIAC', 'NILINKGL24')" title="Anklicken, um Verweis ein- bzw. auszublenden."> (1.7) </span><span ID="ID0EFIAC" class="Linklist Formel"></span> und
+					 <span class="lookup" onclick="createDiv('ID0EJIAC', 'NILINKGL23')" title="Anklicken, um Verweis ein- bzw. auszublenden."> (1.8) </span><span ID="ID0EJIAC" class="Linklist Formel"></span> gilt, d. h. die
+					 <i>Prozessintensität</i> kann beliebig verändert
+					 werden; anders gesagt</p>
+            <div class="Formel"><span class="NumberedItemCount">1. 9</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn025.gif" height="30" width="154" alt=""></span></div>
+          </li>
+        </ol>
+      </li>
+    </ul>
+  </p>
+</div>
+<div class="Linklist Definition" Id="NILINKDEF4">
+  <p>Definition 1. 2: <i>(Normierte Vektoren)</i><p>Ein <i>Vektor </i><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn004.gif" height="24" width="106" alt=""></span> heißt</p>
+    <ol>
+      <li>
+        <p>normiert auf den <i>Einheits-Simplex</i> genau
+				  dann, wenn</p>
+        <div class="Formel"><span class="NumberedItemCount">1. 2</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn016.gif" height="57" width="185" alt=""></span></div>
+      </li>
+      <li>
+        <p>normiert auf die <i>Einheits-Sphäre</i>
+				  genau dann, wenn</p>
+        <div class="Formel"><span class="NumberedItemCount">1. 3</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn017.gif" height="57" width="182" alt=""></span></div>
+      </li>
+      <li>
+        <p>normiert auf die <i>k-te
+				  Einheits-Hyperfläche</i> genau dann, wenn</p>
+        <div class="Formel"><span class="NumberedItemCount">1. 4</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn018.gif" height="36" width="257" alt=""></span></div>
+      </li>
+    </ol>
+  </p>
+</div>
+<div class="Linklist Formel" Id="NILINKGL24">
+  <p>Gleichung 1. 7: <span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn024.gif" height="30" width="316" alt=""></span></p>
+</div>
+<div class="Linklist Formel" Id="NILINKGL23">
+  <p>Gleichung 1. 8: <span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn023.gif" height="30" width="309" alt=""></span></p>
+</div>
+<div class="Linklist Footnote" Id="NILINKFN16"><span><p><i>Nicht-negative
+		  Matrizen</i> weisen besondere Eigenschaften auf, darunter einige, die im
+		  allgemeinen Fall nur für symmetrische Matrizen gelten. (vgl z. B.
+		  <span class="reference"><a href="###" title="Berman, Abraham; Plemmons, Robert J.: Nonnegative matrices in the mathematical sciences. - New York : Academic Press, 1979. - (Classics in applied mathematics ; 9)" onClick="window.open(&quot;/MvcStrands/lineare-wirtschaftstheorie/Tag-Bibliography/%24%24Bibliography&quot;, &quot;BIB&quot;, &quot;scrollbars,width=300height=650,left=20,top=20&quot;)"><img src="http://localhost/MvcStrands/images/bibliography.gif" alt="bibliography" title="bibliography" xmlns:LinkUtils="urn:StrandsExtension">[BER79]</a></span><span class="top"><a href="http://www.riquest.de/rqitems/07259" target="riquest" title="open catalog" xmlns:LinkUtils="urn:StrandsExtension"><img src="http://localhost/MvcStrands/images/catalog.gif" alt="open catalog" title="open catalog"></a></span>)</p></span></div>
+<div class="Linklist Definition" Id="NILINKDEF23">
+  <p>Definition 8. 4: <i>(Güterverwendungsfunktion)</i><p>Gegeben seien m <i>implizite Gleichungen
+				</i><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn224.gif" height="28" width="125" alt=""></span>, die die <i>Handlungsdispositionen</i> der
+				<i>Wirtschaftssubjekte</i> h = 1, ..., m bezüglich der
+				<i><span class="lookup" onclick="createDiv('ID0EHICK', 'NILINKDEF33')" title="Anklicken, um Verweis ein- bzw. auszublenden.">volkswirtschaftlichen
+				Kenngrößen </span><span ID="ID0EHICK" class="Linklist Definition"></span></i> (<b>p</b>,
+				<b>y</b>, <b>z</b>, <b>w</b>) beschreiben.</p>
+    <p>Läßt sich deren Summenfunktion <span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn225.gif" height="52" width="254" alt=""></span> eindeutig nach den Variablen <b>z</b> und
+				<b>w</b> auflösen, so heißt die Projektion der so
+				entstehenden Funktion auf <b>z</b></p>
+    <div class="Formel"><span class="NumberedItemCount">8. 6</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn172.gif" height="28" width="56" alt=""></span></div>
+    <p>die <i>Güterverwendungsfunktion</i>.</p>
+    <p>Die <i>Güterverwendungsfunktion</i> gibt die
+				Mengen der einzelnen Güterarten i = 1, ..., l an, die von der Gesamtheit
+				der <i>Wirtschaftssubjekte</i> in einer
+				<i>Wirtschaftsperiode</i><span onclick="createDiv('ID0ECKCK0.344777875274782', 'NILINKFN38')"><sup class="reference" xmlns:LinkUtils="urn:StrandsExtension">47) </sup></span><span ID="ID0ECKCK0.344777875274782" class="Linklist Footnote"></span> netto angefordert (z<sub>i</sub> &gt;
+				0)<span onclick="createDiv('ID0EJKCK0.020968224397380008', 'NILINKFN36')"><sup class="reference" xmlns:LinkUtils="urn:StrandsExtension">48) </sup></span><span ID="ID0EJKCK0.020968224397380008" class="Linklist Footnote"></span>, bzw. netto abgegeben
+				(z<sub>i</sub> &lt; 0)<span onclick="createDiv('ID0EPKCK0.09230476342714613', 'NILINKFN40')"><sup class="reference" xmlns:LinkUtils="urn:StrandsExtension">49) </sup></span><span ID="ID0EPKCK0.09230476342714613" class="Linklist Footnote"></span> würden , wenn die
+				<i>volkswirtschaftlichen Kenngrößen</i> gleich
+				<span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn230.gif" height="28" width="45" alt=""></span> wären.</p>
+  </p>
+</div>
+<div class="Linklist Definition" Id="NILINKDEF33">
+  <p>Definition 8. 1: <i>(Volkswirtschaftliche Kenngrößen)</i><p>Die <i>volkswirtschaftlichen
+			 Kenngrößen</i> der <i>wirtschaftstheoretischen
+			 Modellvorstellung</i> der <i>linearen
+			 Wirtschaftstheorie</i> sind das Tupel (<b>p</b>,
+			 <b>y</b>, <b>z</b>, <b>w</b>), bestehend aus
+			 </p>
+    <ol>
+      <li>
+        <p>den <i><span class="lookup" onclick="createDiv('ID0EUQBK', 'NILINKDEF11')" title="Anklicken, um Verweis ein- bzw. auszublenden.">Preisen
+				  </span><span ID="ID0EUQBK" class="Linklist Definition"></span></i><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn064.gif" height="28" width="54" alt=""></span> der einzelnen Güterarten i = 1, ..., l<span onclick="createDiv('ID0ECRBK0.6986003647086212', 'NILINKFN39')"><sup class="reference" xmlns:LinkUtils="urn:StrandsExtension">39) </sup></span><span ID="ID0ECRBK0.6986003647086212" class="Linklist Footnote"></span>;</p>
+      </li>
+      <li>
+        <p>den <i><span class="lookup" onclick="createDiv('ID0EMRBK', 'NILINKDEF5')" title="Anklicken, um Verweis ein- bzw. auszublenden.">Prozessintensitäten
+				  </span><span ID="ID0EMRBK" class="Linklist Definition"></span></i><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn037.gif" height="28" width="54" alt=""></span>, mit denen die verfügbaren
+				  <span class="lookup" onclick="createDiv('ID0E2RBK', 'NILINKDEF1')" title="Anklicken, um Verweis ein- bzw. auszublenden.">Produktionsaktivitäten</span><span ID="ID0E2RBK" class="Linklist Definition"></span> j =
+				  1, ..., s betrieben werden;<span onclick="createDiv('ID0E6RBK0.060439103311132225', 'NILINKFN41')"><sup class="reference" xmlns:LinkUtils="urn:StrandsExtension">40) </sup></span><span ID="ID0E6RBK0.060439103311132225" class="Linklist Footnote"></span></p>
+      </li>
+      <li>
+        <p>der <i>Güterverwendung
+				  </i><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn220.gif" height="22" width="49" alt=""></span> , d. h. den Mengen der einzelnen Güterarten i = 1, ..., l,
+				  die der Gesamtheit der <i>Wirtschaftssubjekte</i> in einer
+				  <i>Wirtschaftsperiode</i><span onclick="createDiv('ID0EWSBK0.1961140843090201', 'NILINKFN38')"><sup class="reference" xmlns:LinkUtils="urn:StrandsExtension">41) </sup></span><span ID="ID0EWSBK0.1961140843090201" class="Linklist Footnote"></span> netto zufließen (z<sub>i</sub>
+				  &gt; 0)<span onclick="createDiv('ID0E4SBK0.7696616224803318', 'NILINKFN36')"><sup class="reference" xmlns:LinkUtils="urn:StrandsExtension">42) </sup></span><span ID="ID0E4SBK0.7696616224803318" class="Linklist Footnote"></span>, bzw. von ihnen netto
+				  abgegeben<span onclick="createDiv('ID0EBTBK0.6396559577619918', 'NILINKFN40')"><sup class="reference" xmlns:LinkUtils="urn:StrandsExtension">43) </sup></span><span ID="ID0EBTBK0.6396559577619918" class="Linklist Footnote"></span> werden
+				  (z<sub>i</sub> &lt; 0).</p>
+      </li>
+      <li>
+        <p>der <i>Surplusverwendung
+				  </i><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/GL0002.gif" height="24" width="56" alt=""></span>, d. h. den Anteilen an den <i><span class="lookup" onclick="createDiv('ID0EYTBK', 'NILINKDEF11')" title="Anklicken, um Verweis ein- bzw. auszublenden.">Wertschöpfungsbeiträgen</span><span ID="ID0EYTBK" class="Linklist Definition"></span></i> der
+				  einzelnen <i>Produktionsaktivitäten</i> j = 1, ..., s, die
+				  der Gesamtheit der <i>Wirtschaftssubjekte</i> in einer
+				  <i>Wirtschaftsperiode</i> netto zufließen
+				  (w<sub>j</sub> &gt; 0 ) <span onclick="createDiv('ID0EFUBK0.5575550699408888', 'NILINKFN37')"><sup class="reference" xmlns:LinkUtils="urn:StrandsExtension">44) </sup></span><span ID="ID0EFUBK0.5575550699408888" class="Linklist Footnote"></span>, bzw. von ihnen netto zugeschossen werden
+				  (w<sub>j</sub> &lt; 0);</p>
+      </li>
+    </ol>
+  </p>
+</div>
+<div class="Linklist Footnote" Id="NILINKFN39"><span><p>Der <i>Preisvektor</i> ist eine Größe,
+			 die nur auf einen Zeitpunkt bezogen werden kann. Man bezeichnet eine solche
+			 Größe als <i>Bestandsgröße</i>. </p>
+    <p>Implizit wird hier also die Modellvorstellung bereits durch die
+			 Annahme vereinfacht, daß der <i>Preisvektor</i> zu jedem
+			 Zeitpunkt innerhalb der betrachteten <i>Wirtschaftsperiode</i>
+			 gleich bleibt.</p></span></div>
+<div class="Linklist Footnote" Id="NILINKFN41"><span><p>Streng genommen ist der Vektor der
+			 <i>Prozessintensitäten</i> eine Größe, die nur
+			 auf einen Zeitpunkt bezogen werden kann. Man bezeichnet eine solche
+			 Größe als <i>Bestandsgröße</i>. </p>
+    <p>Man kann sich jedoch vorstellen, daß die einzelnen
+			 <i>Produktionsaktivitäten</i> zu unterschiedlichen
+			 Zeitpunkten während der betrachteten
+			 <i>Wirtschaftsperiode</i> mit unterschiedlichen
+			 <i>Prozessintensitäten</i> betrieben werden. Als
+			 volkswirtschaftliche Kenngröße ist nur die Summe dieser
+			 <i>Prozessintensitäten</i> von Belang.</p>
+    <p>Ebenso ist die Vorstellung zulässig, daß sich die
+			 <i>Produktionsaktivitäten</i> in mehrere Unterprozesse
+			 aufgliedern, die zu unterschielichen Zeitpunkten, ggf. mit dem Einsatz
+			 unterschiedlicher Vorleistungsgüterarten ausgeführt
+			 werden.</p></span></div>
+<div class="Linklist Footnote" Id="NILINKFN38"><span><p>Der Vektor der <i>Güterverwendung</i> ist
+		  eine Größe, die immer auf einen Zeitraum bezogen werden muß.
+		  Man bezeichnet eine solche Größe als
+		  <i>Flußgröße</i>.</p></span></div>
+<div class="Linklist Footnote" Id="NILINKFN36"><span><p><i>Wirtschaftssubjekten</i> können
+		  Gütermengen natürlich nur dann netto zufließen, wenn in der
+		  Wirtschaftsperiode Produktion stattfindet.</p></span></div>
+<div class="Linklist Footnote" Id="NILINKFN40"><span><p><i>Wirtschaftssubjekte</i> können
+		  Gütermengen natürlich nur dann netto abgeben, wenn sie zu Beginn der
+		  Wirtschaftsperiode über Anfangsbestände der betreffenden
+		  Güterarten verfügen.</p></span></div>
+<div class="Linklist Footnote" Id="NILINKFN37"><span><p>Der Vektor der <i>Surplusverwendung</i> ist eine
+			 Größe, die immer auf einen Zeitraum bezogen werden muß. Man
+			 bezeichnet eine solche Größe als
+			 <i>Flußgröße</i>.</p>
+    <p>Entscheidend ist, dass der <i>Surplus</i> hier
+			 nicht als eine Residualgrösse aufgefasst wird, sondern als ein von den
+			 <i>Wirtschaftssubjekten</i> als <i>Anspruch</i>
+			 geplanter Anteil an der aus den
+			 <i>Produktionsaktivitäten</i> fließenden
+			 <i>Wertschöpfung</i>, auf dessen Erlangung ihr
+			 <i>wirtschaftliches Handeln</i> gerichtet ist.</p>
+    <p>Negative Werte der <i>Surplusverwendung</i>
+			 bedeuten (Rück)Erstattungen der <i>Wirtschaftssubjekte</i>
+			 an <i>Produktionsaktivitäten</i>.</p></span></div>
+<div class="Linklist Definition" Id="NILINKDEF24">
+  <p>Definition 8. 5: <i>(Surplusverwendungsfunktion)</i><p>Gegeben seien m <i>implizite Gleichungen
+				</i><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn224.gif" height="28" width="125" alt=""></span>, die die <i>Handlungsdispositionen</i> der
+				<i>Wirtschaftssubjekte</i> h = 1, ..., m bezüglich der
+				<i><span class="lookup" onclick="createDiv('ID0E4LCK', 'NILINKDEF33')" title="Anklicken, um Verweis ein- bzw. auszublenden.">volkswirtschaftlichen
+				Kenngrößen </span><span ID="ID0E4LCK" class="Linklist Definition"></span></i> (<b>p</b>,
+				<b>y</b>, <b>z</b>, <b>w</b>) beschreiben.</p>
+    <p>Läßt sich deren Summenfunktion <span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn225.gif" height="52" width="254" alt=""></span> eindeutig nach den Variablen <b>z</b> und
+				<b>w</b> auflösen, so heißt die Projektion der so
+				entstehenden Funktion auf <b>w</b></p>
+    <div class="Formel"><span class="NumberedItemCount">8. 7</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn173.gif" height="28" width="61" alt=""></span></div>
+    <p>die <i>Surplusverwendungsfunktion</i><span onclick="createDiv('ID0EPNCK0.6665513928358216', 'NILINKFN46')"><sup class="reference" xmlns:LinkUtils="urn:StrandsExtension">50) </sup></span><span ID="ID0EPNCK0.6665513928358216" class="Linklist Footnote"></span>.</p>
+    <p>Die <i>Surplusverwendungsfunktion</i> gibt die
+				<i>Anteile</i> an den <i><span class="lookup" onclick="createDiv('ID0E3NCK', 'NILINKDEF11')" title="Anklicken, um Verweis ein- bzw. auszublenden.">Wertschöpfungsbeiträgen</span><span ID="ID0E3NCK" class="Linklist Definition"></span></i> der
+				einzelnen <i>Produktionsaktivitäten</i> j = 1, ..., s an,
+				die die Gesamtheit der <i>Wirtschaftssubjekte</i> in einer
+				<i>Wirtschaftsperiode</i> beanspruchen (w<sub>j</sub>
+				&gt; 0) bzw. erstatten (w<sub>j</sub> &lt; 0) würde, wenn die
+				<i>volkswirtschaftlichen Kenngrößen</i> gleich
+				<span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn230.gif" height="28" width="45" alt=""></span> wären.</p>
+  </p>
+</div>
+<div class="Linklist Footnote" Id="NILINKFN46"><span><p>Präziser wäre die Bezeichnung
+			 <i>Surplusanteilfunktion</i>, denn w<sub>j</sub> ist
+			 der pro <span class="lookup" onclick="createDiv('ID0EBPCK', 'NILINKDEF4')" title="Anklicken, um Verweis ein- bzw. auszublenden.">normierter
+			 Produktionsaktivität</span><span ID="ID0EBPCK" class="Linklist Definition"></span> j beanspruchte <i>Surplus</i>;
+			 d. h. für die <i><span class="lookup" onclick="createDiv('ID0EIPCK', 'NILINKDEF5')" title="Anklicken, um Verweis ein- bzw. auszublenden.">Prozessintensität </span><span ID="ID0EIPCK" class="Linklist Definition"></span></i>
+			 y<sub>j</sub> = 1. Der insgesamt aus der
+			 <i>Produktionsaktivität</i> beanspruchte Surplus ist
+			 w<sub>j</sub> * y<sub>j</sub>.</p></span></div>
+<div class="Linklist Satz" Id="NILINKS15">
+  <p>Satz 13. 1: <i>(Existenz des
+		von-Neumann-Gleichgewichts) (vgl. <span class="reference"><a href="###" title="Afriat, Sidney N.: Von Neumann's economic model. - in [DOR89]. - S. 193 - 220" onClick="window.open(&quot;/MvcStrands/lineare-wirtschaftstheorie/Tag-Bibliography/%24%24Bibliography&quot;, &quot;BIB&quot;, &quot;scrollbars,width=300height=650,left=20,top=20&quot;)"><img src="http://localhost/MvcStrands/images/bibliography.gif" alt="bibliography" title="bibliography" xmlns:LinkUtils="urn:StrandsExtension">[AFR89], S.
+		201</a></span><span class="top"><a href="http://www.riquest.de/rqitems/07902" target="riquest" title="open catalog" xmlns:LinkUtils="urn:StrandsExtension"><img src="http://localhost/MvcStrands/images/catalog.gif" alt="open catalog" title="open catalog"></a></span></i><p>Gegeben sei eine <span class="lookup" onclick="createDiv('ID0ER5FK', 'NILINKDEF5')" title="Anklicken, um Verweis ein- bzw. auszublenden.">endliche
+		  Produktionstechnologie </span><span ID="ID0ER5FK" class="Linklist Definition"></span> mit <span class="lookup" onclick="createDiv('ID0EV5FK', 'NILINKDEF2')" title="Anklicken, um Verweis ein- bzw. auszublenden.">konstanten Skalenerträgen </span><span ID="ID0EV5FK" class="Linklist Definition"></span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn008.gif" height="24" width="156" alt=""></span>. </p>
+    <p>Der <span class="lookup" onclick="createDiv('ID0EH6FK', 'NILINKDEF18')" title="Anklicken, um Verweis ein- bzw. auszublenden.">ökonomische
+		  Zinsfaktor </span><span ID="ID0EH6FK" class="Linklist Definition"></span> sei <span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn263.gif" height="34" width="108" alt=""></span> und der <span class="lookup" onclick="createDiv('ID0EW6FK', 'NILINKDEF13')" title="Anklicken, um Verweis ein- bzw. auszublenden.">technologische
+		  Expansionsfaktor </span><span ID="ID0EW6FK" class="Linklist Definition"></span> sei <span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn098.gif" height="38" width="108" alt=""></span>.</p>
+    <p>Ist <span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn012.gif" height="22" width="18" alt=""></span> überdies <span class="lookup" onclick="createDiv('ID0ETAGK', 'NILINKDEF27')" title="Anklicken, um Verweis ein- bzw. auszublenden.">regulär</span><span ID="ID0ETAGK" class="Linklist Definition"></span> dann gilt:</p>
+    <p>Die Menge der <span class="lookup" onclick="createDiv('ID0E2AGK', 'NILINKDEF32')" title="Anklicken, um Verweis ein- bzw. auszublenden.">von-Neumann-Faktoren</span><span ID="ID0E2AGK" class="Linklist Definition"></span> - d. h. die Menge der
+		  <i>Expansions-</i> und <i>Zinsfaktoren </i><span class='Greek'>l</span> = <span class='Greek'>r</span>, für die <i><span class="lookup" onclick="createDiv('ID0EIBGK', 'NILINKDEF15')" title="Anklicken, um Verweis ein- bzw. auszublenden.">von-Neumann-Gleichgewichte</span><span ID="ID0EIBGK" class="Linklist Definition"></span></i>
+		  existieren - ist das nicht-leere, abgeschlossene und beschränkte Intervall
+		  <span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/GL0016.gif" height="28" width="58" alt=""></span>.</p>
+    <p>Mit Bezug auf das <i><span class="lookup" onclick="createDiv('ID0E3BGK', 'NILINKDEF12')" title="Anklicken, um Verweis ein- bzw. auszublenden.">lineare ökonomische Systemmodell</span><span ID="ID0E3BGK" class="Linklist Definition"></span></i>
+		  ausgedrückt bedeutet dies:</p>
+    <p>Für jede <i><span class="lookup" onclick="createDiv('ID0EFCGK', 'NILINKDEF23')" title="Anklicken, um Verweis ein- bzw. auszublenden.">Güterverwendungsfunktion
+		  </span><span ID="ID0EFCGK" class="Linklist Definition"></span></i><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/GL0005.gif" height="28" width="134" alt=""></span> und <i><span class="lookup" onclick="createDiv('ID0EVCGK', 'NILINKDEF24')" title="Anklicken, um Verweis ein- bzw. auszublenden.">Surplusverwendungsfunktion </span><span ID="ID0EVCGK" class="Linklist Definition"></span></i><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/GL0006.gif" height="28" width="138" alt=""></span> mit <span class='Greek'>l</span> := 1 + <span class='Greek'>m</span> = <span class='Greek'>r</span>
+		  := 1 + <span class='Greek'>p</span> im Intervall <span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/GL0016.gif" height="28" width="58" alt=""></span> existieren Lösungen des zugehörigen <i><span class="lookup" onclick="createDiv('ID0EYDGK', 'NILINKDEF12')" title="Anklicken, um Verweis ein- bzw. auszublenden.">linearen ökonomischen
+		  Systemmodells</span><span ID="ID0EYDGK" class="Linklist Definition"></span></i>.</p>
+  </p>
+</div>
+<div class="Linklist Definition" Id="NILINKDEF18">
+  <p>Definition 7. 1: <i>(ökonomischer
+		  Zinsfaktor oder ökonomischer Expansionsfaktor)</i><p>Gegeben sie die <span class="lookup" onclick="createDiv('ID0EODDI', 'NILINKDEF5')" title="Anklicken, um Verweis ein- bzw. auszublenden.">endliche
+			 Produktionstechnologie</span><span ID="ID0EODDI" class="Linklist Definition"></span> mit <span class="lookup" onclick="createDiv('ID0ESDDI', 'NILINKDEF2')" title="Anklicken, um Verweis ein- bzw. auszublenden.">konstanten Skalenerträgen </span><span ID="ID0ESDDI" class="Linklist Definition"></span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn008.gif" height="24" width="156" alt=""></span>.</p>
+    <ol>
+      <li>
+        <p>Für <span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn064.gif" height="28" width="54" alt=""></span>, <span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn261.gif" height="24" width="42" alt=""></span> heißt</p>
+        <div class="Formel"><span class="NumberedItemCount">7. 5</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn115.gif" height="36" width="286" alt=""></span></div>
+        <p> der <i>relative Zinsfaktor</i>.</p>
+      </li>
+      <li>
+        <div class="Formel"><span class="NumberedItemCount">7. 6</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn263.gif" height="34" width="108" alt=""></span></div>
+        <p> der <i>ökonomische Expansionsfaktor</i>
+				  (oder der <i>ökonomische Zinsfaktor</i>) und
+				  </p>
+        <div class="Formel"><span class="NumberedItemCount">7. 7</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn262.gif" height="34" width="106" alt=""></span></div>
+        <p> der <i>absolute Zinsfaktor</i> dieser
+				  Technologie.</p>
+      </li>
+    </ol>
+  </p>
+</div>
+<div class="Linklist Definition" Id="NILINKDEF13">
+  <p>Definition 4. 2: <i>(technologischer Expansionsfaktor)</i><p>Gegeben sei eine <span class="lookup" onclick="createDiv('ID0EOKBI', 'NILINKDEF5')" title="Anklicken, um Verweis ein- bzw. auszublenden.">endliche
+			 Produktionstechnologie </span><span ID="ID0EOKBI" class="Linklist Definition"></span> mit <span class="lookup" onclick="createDiv('ID0ESKBI', 'NILINKDEF2')" title="Anklicken, um Verweis ein- bzw. auszublenden.">konstanten Skalenerträgen </span><span ID="ID0ESKBI" class="Linklist Definition"></span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn008.gif" height="24" width="156" alt=""></span> und <span class="lookup" onclick="createDiv('ID0EBLBI', 'NILINKDEF28')" title="Anklicken, um Verweis ein- bzw. auszublenden.">relativen
+			 Expansionsfaktoren </span><span ID="ID0EBLBI" class="Linklist Definition"></span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn250.gif" height="36" width="286" alt=""></span></p>
+    <p>Dann heißt</p>
+    <div class="Formel"><span class="NumberedItemCount">4. 10</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn098.gif" height="38" width="108" alt=""></span></div>
+    <p> der <i>technologische Expansionsfaktor</i> und
+			 </p>
+    <div class="Formel"><span class="NumberedItemCount">4. 11</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn256.gif" height="38" width="105" alt=""></span></div>
+    <p> der <i>absolute Expansionsfaktor</i> dieser
+			 Technologie.</p>
+  </p>
+</div>
+<div class="Linklist Definition" Id="NILINKDEF28">
+  <p>Definition 4. 1: <i>(Relativer Expansionsfaktor)</i><p>Gegeben sei die <span class="lookup" onclick="createDiv('ID0EPABI', 'NILINKDEF5')" title="Anklicken, um Verweis ein- bzw. auszublenden.">endliche
+			 Produktionstechnologie </span><span ID="ID0EPABI" class="Linklist Definition"></span> mit <span class="lookup" onclick="createDiv('ID0ETABI', 'NILINKDEF2')" title="Anklicken, um Verweis ein- bzw. auszublenden.">konstanten Skalenerträgen </span><span ID="ID0ETABI" class="Linklist Definition"></span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn008.gif" height="24" width="156" alt=""></span></p>
+    <p>Für <span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn041.gif" height="28" width="109" alt=""></span> heißt</p>
+    <div class="Formel"><span class="NumberedItemCount">4. 4</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn250.gif" height="36" width="286" alt=""></span></div>
+    <p>der <i>relative Expansionsfaktor</i> zum Vektor der
+			 <span class="lookup" onclick="createDiv('ID0EDCBI', 'NILINKDEF1')" title="Anklicken, um Verweis ein- bzw. auszublenden.">Prozessintensitäten </span><span ID="ID0EDCBI" class="Linklist Definition"></span><b>y</b>.</p>
+  </p>
+</div>
+<div class="Linklist Formel" Id="NILINKGL106">
+  <p>Gleichung 12. 7: <span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn106.gif" height="28" width="324" alt=""></span></p>
+</div>
+<div class="Linklist Definition" Id="NILINKDEF36">
+  <p>Definition 15. 1: <i>(ökonomisches
+		von-Neumann-Gleichgewicht)</i><p>Sei (<b>p*</b>, <b>y*</b>) eine Lösung des
+		  <i><span class="lookup" onclick="createDiv('ID0EKOAM', 'NILINKDEF15')" title="Anklicken, um Verweis ein- bzw. auszublenden.">von-Neumann-Systems</span><span ID="ID0EKOAM" class="Linklist Definition"></span></i></p>
+    <p><span class="lookup" onclick="createDiv('ID0EQOAM', 'NILINKGL104')" title="Anklicken, um Verweis ein- bzw. auszublenden."> (12.3) </span><span ID="ID0EQOAM" class="Linklist Formel"></span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn104.gif" height="28" width="130" alt=""></span></p>
+    <p><span class="lookup" onclick="createDiv('ID0EAPAM', 'NILINKGL105')" title="Anklicken, um Verweis ein- bzw. auszublenden."> (12.4) </span><span ID="ID0EAPAM" class="Linklist Formel"></span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn105.gif" height="28" width="316" alt=""></span></p>
+    <p><span class="lookup" onclick="createDiv('ID0EQPAM', 'NILINKGL103')" title="Anklicken, um Verweis ein- bzw. auszublenden."> (12.5) </span><span ID="ID0EQPAM" class="Linklist Formel"></span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn103.gif" height="28" width="132" alt=""></span></p>
+    <p><span class="lookup" onclick="createDiv('ID0EAQAM', 'NILINKGL102')" title="Anklicken, um Verweis ein- bzw. auszublenden."> (12.6) </span><span ID="ID0EAQAM" class="Linklist Formel"></span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn102.gif" height="33" width="321" alt=""></span></p>
+    <p>mit</p>
+    <p><span class="lookup" onclick="createDiv('ID0ESQAM', 'NILINKGL106')" title="Anklicken, um Verweis ein- bzw. auszublenden."> (12.7) </span><span ID="ID0ESQAM" class="Linklist Formel"></span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn106.gif" height="28" width="324" alt=""></span></p>
+    <p>(<b>p*</b>, <b>y*</b>) heißt ein
+		  <i>ökonomisches von-Neumann-Gleichgewicht</i> genau dann,
+		  wenn zusätzlich</p>
+    <div class="Formel"><span class="NumberedItemCount">15. 1</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/GL0020.gif" height="24" width="100" alt=""></span></div>
+    <p>erfüllt ist.</p>
+  </p>
+</div>
+<div class="Linklist Formel" Id="NILINKGL0011">
+  <p>Gleichung 13. 1: <span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/GL0011.gif" height="18" width="48" alt=""></span></p>
+</div>
+<div class="Linklist Formel" Id="NILINKGL0020">
+  <p>Gleichung 15. 1: <span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/GL0020.gif" height="24" width="100" alt=""></span></p>
+</div>
+<div class="Linklist Satz" Id="NILINKS5">
+  <p>Satz 10. 1: <i>(Walras' Law)</i><p>Gegeben sei ein <i><span class="lookup" onclick="createDiv('ID0E26CK', 'NILINKDEF12')" title="Anklicken, um Verweis ein- bzw. auszublenden.">lineares ökonomisches Systemmodell</span><span ID="ID0E26CK" class="Linklist Definition"></span></i> mit
+		der <i><span class="lookup" onclick="createDiv('ID0EBADK', 'NILINKDEF23')" title="Anklicken, um Verweis ein- bzw. auszublenden.">Güterverwendungsfunktion </span><span ID="ID0EBADK" class="Linklist Definition"></span></i><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn172.gif" height="28" width="56" alt=""></span> und der <i><span class="lookup" onclick="createDiv('ID0ERADK', 'NILINKDEF24')" title="Anklicken, um Verweis ein- bzw. auszublenden.">Surplusverwendungsfunktion
+		</span><span ID="ID0ERADK" class="Linklist Definition"></span></i><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn173.gif" height="28" width="61" alt=""></span></p>
+    <p>Dann gilt für jede seiner Lösungen <span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn175.gif" height="28" width="65" alt=""></span>:</p>
+    <div class="Formel"><span class="NumberedItemCount">10. 1</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn176.gif" height="28" width="228" alt=""></span></div>
+  </p>
+</div>
+<div class="Linklist Formel" Id="NILINKGL0021">
+  <p>Gleichung 15. 4: <span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/GL0021.gif" height="28" width="100" alt=""></span></p>
+</div>
+<div class="Linklist Definition" Id="NILINKDEF32">
+  <p>Definition 13. 1: <i>(standardisiertes von-Neumann-System,
+		von-Neumann-Tripel, von-Neumann-Faktor)</i><p>Ein Tripel (<b>p</b>, <b>y</b>,
+		  <span class='Greek'>n</span>) mit <span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/GL0008.gif" height="20" width="46" alt=""></span>, <span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/GL0043.gif" height="24" width="44" alt=""></span> und <span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/GL0044.gif" height="24" width="44" alt=""></span> heißt ein <i>von-Neumann-Tripel</i>, wenn
+		  (<b>p</b>, <b>y</b>) ein Gleichgewicht für das
+		  <i>standardisierte <span class="lookup" onclick="createDiv('ID0E4QFK', 'NILINKDEF15')" title="Anklicken, um Verweis ein- bzw. auszublenden.">von-Neumann-System</span><span ID="ID0E4QFK" class="Linklist Definition"></span></i></p>
+    <div class="Formel"><span class="NumberedItemCount">13. 2</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/GL0009.gif" height="28" width="129" alt=""></span></div>
+    <p></p>
+    <div class="Formel"><span class="NumberedItemCount">13. 3</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/GL0010.gif" height="28" width="129" alt=""></span></div>
+    <p>ist.</p>
+    <p>(Beachte: <span class="lookup" onclick="createDiv('ID0EGSFK', 'NILINKGL0009')" title="Anklicken, um Verweis ein- bzw. auszublenden."> (13.2) </span><span ID="ID0EGSFK" class="Linklist Formel"></span> und
+		  <span class="lookup" onclick="createDiv('ID0EKSFK', 'NILINKGL0010')" title="Anklicken, um Verweis ein- bzw. auszublenden."> (13.3) </span><span ID="ID0EKSFK" class="Linklist Formel"></span> implizieren unmittelbar die
+		  Bedingungen <span class="lookup" onclick="createDiv('ID0EOSFK', 'NILINKGL105')" title="Anklicken, um Verweis ein- bzw. auszublenden."> (12.4) </span><span ID="ID0EOSFK" class="Linklist Formel"></span> und
+		  <span class="lookup" onclick="createDiv('ID0ESSFK', 'NILINKGL102')" title="Anklicken, um Verweis ein- bzw. auszublenden."> (12.6) </span><span ID="ID0ESSFK" class="Linklist Formel"></span> des <i><span class="lookup" onclick="createDiv('ID0EXSFK', 'NILINKDEF15')" title="Anklicken, um Verweis ein- bzw. auszublenden.">von-Neumann-Systems</span><span ID="ID0EXSFK" class="Linklist Definition"></span></i>.</p>
+    <p>Die Zahl <span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/GL0008.gif" height="20" width="46" alt=""></span> heißt ein
+		  <i>von-Neumann-Faktor</i>.</p>
+  </p>
+</div>
+<div class="Linklist Formel" Id="NILINKGL0009">
+  <p>Gleichung 13. 2: <span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/GL0009.gif" height="28" width="129" alt=""></span></p>
+</div>
+<div class="Linklist Formel" Id="NILINKGL0010">
+  <p>Gleichung 13. 3: <span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/GL0010.gif" height="28" width="129" alt=""></span></p>
+</div>
+<div class="Linklist Formel" Id="NILINKGL105">
+  <p>Gleichung 12. 4: <span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn105.gif" height="28" width="316" alt=""></span></p>
+</div>
+<div class="Linklist Formel" Id="NILINKGL102">
+  <p>Gleichung 12. 6: <span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn102.gif" height="33" width="321" alt=""></span></p>
+</div>
+<div class="Linklist Definition" Id="NILINKDEF31">
+  <p>Definition 1. 8: <i>(Unabhängige Güter, irreduzible und
+		  reduzible Produktionstechnologien)</i><p>Gegeben sei eine <span class="lookup" onclick="createDiv('ID0E5VAE', 'NILINKDEF5')" title="Anklicken, um Verweis ein- bzw. auszublenden.">endliche
+			 Produktionstechnologie </span><span ID="ID0E5VAE" class="Linklist Definition"></span> mit <span class="lookup" onclick="createDiv('ID0ECWAE', 'NILINKDEF2')" title="Anklicken, um Verweis ein- bzw. auszublenden.">konstanten Skalenerträgen </span><span ID="ID0ECWAE" class="Linklist Definition"></span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn008.gif" height="24" width="156" alt=""></span></p>
+    <ul>
+      <li>
+        <p>Eine Teilmenge von Güterarten <span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn309.gif" height="28" width="96" alt=""></span> heißt <i>unabhängig</i>, wenn es eine
+				  Teilmenge von <i>Produktionsaktivitäten </i><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn310.gif" height="28" width="101" alt=""></span> gibt, mit denen alle Güterarten in G ohne den Einsatz von
+				  Güterarten in <span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn311.gif" height="28" width="88" alt=""></span> produziert werden können, d. h.</p>
+        <div class="Formel"><span class="NumberedItemCount">1. 23</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn312.gif" height="28" width="172" alt=""></span></div>
+        <p></p>
+        <div class="Formel"><span class="NumberedItemCount">1. 24</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn313.gif" height="28" width="176" alt=""></span></div>
+      </li>
+      <li>
+        <p>Die <i>Produktionstechnologie</i> heißt
+				  <i>irreduzibel</i>, wenn es in ihr keine
+				  <i>unabhängige Menge von Güterarten</i> gibt.</p>
+      </li>
+      <li>
+        <p>Eine nicht <i>irreduzible </i><i>Produktionstechnologie</i> heißt
+				  <i>reduzibel</i> oder <i>zerlegbar</i>.</p>
+      </li>
+    </ul>
+  </p>
+</div>
+<div class="Linklist Definition" Id="NILINKDEF2">
+  <p>Definition 1. 3: <i>(Produktionstechnologie)</i><p>Sei</p>
+    <div class="Formel"><span class="NumberedItemCount">1. 5</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn019.gif" height="36" width="437" alt=""></span></div>
+    <p>eine Menge von <span class="lookup" onclick="createDiv('ID0EMEAC', 'NILINKDEF4')" title="Anklicken, um Verweis ein- bzw. auszublenden.">normierten
+		  Produktionsaktivitäten</span><span ID="ID0EMEAC" class="Linklist Definition"></span>, und</p>
+    <div class="Formel"><span class="NumberedItemCount">1. 6</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn020.gif" height="60" width="124" alt=""></span></div>
+    <p>eine Korrespondenz, die jeder <i>normierten
+		  Produktionsaktivität</i> in <span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn021.gif" height="25" width="20" alt=""></span> die Menge der Prozessintensitäten zuordnet, mit denen sie
+		  betrieben werden kann. </p>
+    <p>Dann heißt das Tupel <span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn022.gif" height="36" width="52" alt=""></span> eine <i>Produktionstechnologie</i>.</p>
+    <ul>
+      <li>
+        <p>Man spricht (vgl. <span class="reference"><a href="###" title="Debreu, Gérard: Theory of Value. - New York : Wiley, 1959. - (Deutsche Übersetzung: Werttheorie. - Berlin, Heidelberg, New York : Springer. - 1976" onClick="window.open(&quot;/MvcStrands/lineare-wirtschaftstheorie/Tag-Bibliography/%24%24Bibliography&quot;, &quot;BIB&quot;, &quot;scrollbars,width=300height=650,left=20,top=20&quot;)"><img src="http://localhost/MvcStrands/images/bibliography.gif" alt="bibliography" title="bibliography" xmlns:LinkUtils="urn:StrandsExtension">[DEB59], S. 50
+				f.</a></span><span class="top"><a href="http://www.riquest.de/rqitems/07204" target="riquest" title="open catalog" xmlns:LinkUtils="urn:StrandsExtension"><img src="http://localhost/MvcStrands/images/catalog.gif" alt="open catalog" title="open catalog"></a></span>) von einer <i>Produktionstechnologie</i> mit</p>
+        <ol>
+          <li>
+            <p><i>nichtzunehmenden Skalenerträgen</i>,
+					 wenn</p>
+            <div class="Formel"><span class="NumberedItemCount">1. 7</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn024.gif" height="30" width="316" alt=""></span></div>
+            <p>d. h., jede technologisch mögliche
+					 <i>Prozessintensität</i> kann beliebig vermindert
+					 werden.</p>
+          </li>
+          <li>
+            <p><i>nichtabnehmenden Skalenerträgen</i>,
+					 wenn</p>
+            <div class="Formel"><span class="NumberedItemCount">1. 8</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn023.gif" height="30" width="309" alt=""></span></div>
+            <p>d. h., jede technologisch mögliche
+					 <i>Prozessintensität</i> kann beliebig erhöht
+					 werden.</p>
+          </li>
+          <li>
+            <p><i> konstanten Skalenerträgen</i>, wenn
+					 <span class="lookup" onclick="createDiv('ID0EFIAC', 'NILINKGL24')" title="Anklicken, um Verweis ein- bzw. auszublenden."> (1.7) </span><span ID="ID0EFIAC" class="Linklist Formel"></span> und
+					 <span class="lookup" onclick="createDiv('ID0EJIAC', 'NILINKGL23')" title="Anklicken, um Verweis ein- bzw. auszublenden."> (1.8) </span><span ID="ID0EJIAC" class="Linklist Formel"></span> gilt, d. h. die
+					 <i>Prozessintensität</i> kann beliebig verändert
+					 werden; anders gesagt</p>
+            <div class="Formel"><span class="NumberedItemCount">1. 9</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn025.gif" height="30" width="154" alt=""></span></div>
+          </li>
+        </ol>
+      </li>
+    </ul>
+  </p>
+</div>
+<div class="Linklist Definition" Id="NILINKDEF4">
+  <p>Definition 1. 2: <i>(Normierte Vektoren)</i><p>Ein <i>Vektor </i><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn004.gif" height="24" width="106" alt=""></span> heißt</p>
+    <ol>
+      <li>
+        <p>normiert auf den <i>Einheits-Simplex</i> genau
+				  dann, wenn</p>
+        <div class="Formel"><span class="NumberedItemCount">1. 2</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn016.gif" height="57" width="185" alt=""></span></div>
+      </li>
+      <li>
+        <p>normiert auf die <i>Einheits-Sphäre</i>
+				  genau dann, wenn</p>
+        <div class="Formel"><span class="NumberedItemCount">1. 3</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn017.gif" height="57" width="182" alt=""></span></div>
+      </li>
+      <li>
+        <p>normiert auf die <i>k-te
+				  Einheits-Hyperfläche</i> genau dann, wenn</p>
+        <div class="Formel"><span class="NumberedItemCount">1. 4</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn018.gif" height="36" width="257" alt=""></span></div>
+      </li>
+    </ol>
+  </p>
+</div>
+<div class="Linklist Formel" Id="NILINKGL24">
+  <p>Gleichung 1. 7: <span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn024.gif" height="30" width="316" alt=""></span></p>
+</div>
+<div class="Linklist Formel" Id="NILINKGL23">
+  <p>Gleichung 1. 8: <span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn023.gif" height="30" width="309" alt=""></span></p>
+</div>
+<div class="Linklist Definition" Id="NILINKDEF27">
+  <p>Definition 1. 5: <i>(Reguläre Technologie)</i><p>Eine <span class="lookup" onclick="createDiv('ID0EXBAE', 'NILINKDEF5')" title="Anklicken, um Verweis ein- bzw. auszublenden.">endliche
+			 Produktionstechnologie </span><span ID="ID0EXBAE" class="Linklist Definition"></span> mit <span class="lookup" onclick="createDiv('ID0E2BAE', 'NILINKDEF2')" title="Anklicken, um Verweis ein- bzw. auszublenden.">konstanten Skalenerträgen </span><span ID="ID0E2BAE" class="Linklist Definition"></span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn008.gif" height="24" width="156" alt=""></span> heißt</p>
+    <ol>
+      <li>
+        <p><i>input-regulär</i>, wenn<span onclick="createDiv('ID0ESCAE0.5053571353225769', 'NILINKFN12')"><sup class="reference" xmlns:LinkUtils="urn:StrandsExtension">4) </sup></span><span ID="ID0ESCAE0.5053571353225769" class="Linklist Footnote"></span></p>
+        <div class="Formel"><span class="NumberedItemCount">1. 13</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn244.gif" height="29" width="158" alt=""></span></div>
+        <p>(d. h., jede <i>Produktionsaktivität</i> j
+				  verlangt von mindestens einer Güterart positive Einsatzmengen.) </p>
+      </li>
+      <li>
+        <p><i>output-regulär</i>, wenn<span onclick="createDiv('ID0EPDAE0.14474141371657206', 'NILINKFN12')"><sup class="reference" xmlns:LinkUtils="urn:StrandsExtension">5) </sup></span><span ID="ID0EPDAE0.14474141371657206" class="Linklist Footnote"></span></p>
+        <div class="Formel"><span class="NumberedItemCount">1. 14</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/GL0018.gif" height="28" width="154" alt=""></span></div>
+        <p>(d. h., von jeder <i>Güterart</i> i
+				  können durch mindestens eine
+				  <i>Produktionsaktivität</i> positive Ausstoßmengen
+				  erzeugt werden.)</p>
+      </li>
+      <li>
+        <p><i>regulär</i>, wenn sie zugleich
+				  <i>input-</i> und <i>output-regulär</i>
+				  ist.</p>
+      </li>
+    </ol>
+  </p>
+</div>
+<div class="Linklist Definition" Id="NILINKDEF5">
+  <p>Definition 1. 4: <i>(Endliche Produktionstechnologie)</i><p>Eine <span class="lookup" onclick="createDiv('ID0EQJAC', 'NILINKDEF2')" title="Anklicken, um Verweis ein- bzw. auszublenden.">Produktionstechnologie </span><span ID="ID0EQJAC" class="Linklist Definition"></span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn022.gif" height="36" width="52" alt=""></span> heißt <i>endlich</i>, wenn sie nur endlich
+			 viele <span class="lookup" onclick="createDiv('ID0EBKAC', 'NILINKDEF1')" title="Anklicken, um Verweis ein- bzw. auszublenden.">Produktionsaktivitäten
+			 </span><span ID="ID0EBKAC" class="Linklist Definition"></span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn009.gif" height="24" width="93" alt=""></span>, j = 1, ... , s enthält.</p>
+    <ul>
+      <li>
+        <p><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn021.gif" height="25" width="20" alt=""></span> kann dann als
+				  <i>Produktionsmatrix</i></p>
+        <div class="Formel"><span class="NumberedItemCount">1. 10</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn008.gif" height="24" width="156" alt=""></span></div>
+        <p>dargestellt werden, deren Spalten durch die j = 1, ... , s
+				  <i>Produktionsaktivitäten </i><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn009.gif" height="24" width="93" alt=""></span> gebildet werden. <b>B</b> und <b>A</b> sind
+				  somit <i>nicht-negative Matrizen</i>.<span onclick="createDiv('ID0EFMAC0.31260562562970706', 'NILINKFN16')"><sup class="reference" xmlns:LinkUtils="urn:StrandsExtension">3) </sup></span><span ID="ID0EFMAC0.31260562562970706" class="Linklist Footnote"></span></p>
+      </li>
+      <li>
+        <p>Die <span class="lookup" onclick="createDiv('ID0ENMAC', 'NILINKDEF1')" title="Anklicken, um Verweis ein- bzw. auszublenden.">Prozessintensitäten</span><span ID="ID0ENMAC" class="Linklist Definition"></span>, mit denen die einzelnen
+				  <i>Produktionsaktivitäten</i> betrieben werden, können
+				  dann als Vektor</p>
+        <div class="Formel"><span class="NumberedItemCount">1. 11</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn135.gif" height="38" width="330" alt=""></span></div>
+        <p>dargestellt werden.</p>
+        <p>Eine <i>endliche Produktionstechnologie</i>
+				  wird mit <span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn139.gif" height="38" width="81" alt=""></span> bezeichnet.</p>
+      </li>
+      <li>
+        <p>Bei <span class="lookup" onclick="createDiv('ID0EZNAC', 'NILINKDEF2')" title="Anklicken, um Verweis ein- bzw. auszublenden."> konstanten
+				  Skalenerträgen</span><span ID="ID0EZNAC" class="Linklist Definition"></span> ist</p>
+        <div class="Formel"><span class="NumberedItemCount">1. 12</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn144.gif" height="36" width="89" alt=""></span></div>
+        <p>Eine <i>endliche Produktionstechnologie</i> mit
+				  <span class="lookup" onclick="createDiv('ID0EROAC', 'NILINKDEF2')" title="Anklicken, um Verweis ein- bzw. auszublenden."> konstanten Skalenerträgen</span><span ID="ID0EROAC" class="Linklist Definition"></span>
+				  wird mit <span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn145.gif" height="36" width="62" alt=""></span> oder kurz durch die <i>Produktionsmatrix
+				  </i><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn170.gif" height="22" width="18" alt=""></span> bezeichnet.</p>
+      </li>
+    </ul>
+  </p>
+</div>
+<div class="Linklist Definition" Id="NILINKDEF2">
+  <p>Definition 1. 3: <i>(Produktionstechnologie)</i><p>Sei</p>
+    <div class="Formel"><span class="NumberedItemCount">1. 5</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn019.gif" height="36" width="437" alt=""></span></div>
+    <p>eine Menge von <span class="lookup" onclick="createDiv('ID0EMEAC', 'NILINKDEF4')" title="Anklicken, um Verweis ein- bzw. auszublenden.">normierten
+		  Produktionsaktivitäten</span><span ID="ID0EMEAC" class="Linklist Definition"></span>, und</p>
+    <div class="Formel"><span class="NumberedItemCount">1. 6</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn020.gif" height="60" width="124" alt=""></span></div>
+    <p>eine Korrespondenz, die jeder <i>normierten
+		  Produktionsaktivität</i> in <span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn021.gif" height="25" width="20" alt=""></span> die Menge der Prozessintensitäten zuordnet, mit denen sie
+		  betrieben werden kann. </p>
+    <p>Dann heißt das Tupel <span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn022.gif" height="36" width="52" alt=""></span> eine <i>Produktionstechnologie</i>.</p>
+    <ul>
+      <li>
+        <p>Man spricht (vgl. <span class="reference"><a href="###" title="Debreu, Gérard: Theory of Value. - New York : Wiley, 1959. - (Deutsche Übersetzung: Werttheorie. - Berlin, Heidelberg, New York : Springer. - 1976" onClick="window.open(&quot;/MvcStrands/lineare-wirtschaftstheorie/Tag-Bibliography/%24%24Bibliography&quot;, &quot;BIB&quot;, &quot;scrollbars,width=300height=650,left=20,top=20&quot;)"><img src="http://localhost/MvcStrands/images/bibliography.gif" alt="bibliography" title="bibliography" xmlns:LinkUtils="urn:StrandsExtension">[DEB59], S. 50
+				f.</a></span><span class="top"><a href="http://www.riquest.de/rqitems/07204" target="riquest" title="open catalog" xmlns:LinkUtils="urn:StrandsExtension"><img src="http://localhost/MvcStrands/images/catalog.gif" alt="open catalog" title="open catalog"></a></span>) von einer <i>Produktionstechnologie</i> mit</p>
+        <ol>
+          <li>
+            <p><i>nichtzunehmenden Skalenerträgen</i>,
+					 wenn</p>
+            <div class="Formel"><span class="NumberedItemCount">1. 7</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn024.gif" height="30" width="316" alt=""></span></div>
+            <p>d. h., jede technologisch mögliche
+					 <i>Prozessintensität</i> kann beliebig vermindert
+					 werden.</p>
+          </li>
+          <li>
+            <p><i>nichtabnehmenden Skalenerträgen</i>,
+					 wenn</p>
+            <div class="Formel"><span class="NumberedItemCount">1. 8</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn023.gif" height="30" width="309" alt=""></span></div>
+            <p>d. h., jede technologisch mögliche
+					 <i>Prozessintensität</i> kann beliebig erhöht
+					 werden.</p>
+          </li>
+          <li>
+            <p><i> konstanten Skalenerträgen</i>, wenn
+					 <span class="lookup" onclick="createDiv('ID0EFIAC', 'NILINKGL24')" title="Anklicken, um Verweis ein- bzw. auszublenden."> (1.7) </span><span ID="ID0EFIAC" class="Linklist Formel"></span> und
+					 <span class="lookup" onclick="createDiv('ID0EJIAC', 'NILINKGL23')" title="Anklicken, um Verweis ein- bzw. auszublenden."> (1.8) </span><span ID="ID0EJIAC" class="Linklist Formel"></span> gilt, d. h. die
+					 <i>Prozessintensität</i> kann beliebig verändert
+					 werden; anders gesagt</p>
+            <div class="Formel"><span class="NumberedItemCount">1. 9</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn025.gif" height="30" width="154" alt=""></span></div>
+          </li>
+        </ol>
+      </li>
+    </ul>
+  </p>
+</div>
+<div class="Linklist Definition" Id="NILINKDEF4">
+  <p>Definition 1. 2: <i>(Normierte Vektoren)</i><p>Ein <i>Vektor </i><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn004.gif" height="24" width="106" alt=""></span> heißt</p>
+    <ol>
+      <li>
+        <p>normiert auf den <i>Einheits-Simplex</i> genau
+				  dann, wenn</p>
+        <div class="Formel"><span class="NumberedItemCount">1. 2</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn016.gif" height="57" width="185" alt=""></span></div>
+      </li>
+      <li>
+        <p>normiert auf die <i>Einheits-Sphäre</i>
+				  genau dann, wenn</p>
+        <div class="Formel"><span class="NumberedItemCount">1. 3</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn017.gif" height="57" width="182" alt=""></span></div>
+      </li>
+      <li>
+        <p>normiert auf die <i>k-te
+				  Einheits-Hyperfläche</i> genau dann, wenn</p>
+        <div class="Formel"><span class="NumberedItemCount">1. 4</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn018.gif" height="36" width="257" alt=""></span></div>
+      </li>
+    </ol>
+  </p>
+</div>
+<div class="Linklist Formel" Id="NILINKGL24">
+  <p>Gleichung 1. 7: <span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn024.gif" height="30" width="316" alt=""></span></p>
+</div>
+<div class="Linklist Formel" Id="NILINKGL23">
+  <p>Gleichung 1. 8: <span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn023.gif" height="30" width="309" alt=""></span></p>
+</div>
+<div class="Linklist Footnote" Id="NILINKFN16"><span><p><i>Nicht-negative
+		  Matrizen</i> weisen besondere Eigenschaften auf, darunter einige, die im
+		  allgemeinen Fall nur für symmetrische Matrizen gelten. (vgl z. B.
+		  <span class="reference"><a href="###" title="Berman, Abraham; Plemmons, Robert J.: Nonnegative matrices in the mathematical sciences. - New York : Academic Press, 1979. - (Classics in applied mathematics ; 9)" onClick="window.open(&quot;/MvcStrands/lineare-wirtschaftstheorie/Tag-Bibliography/%24%24Bibliography&quot;, &quot;BIB&quot;, &quot;scrollbars,width=300height=650,left=20,top=20&quot;)"><img src="http://localhost/MvcStrands/images/bibliography.gif" alt="bibliography" title="bibliography" xmlns:LinkUtils="urn:StrandsExtension">[BER79]</a></span><span class="top"><a href="http://www.riquest.de/rqitems/07259" target="riquest" title="open catalog" xmlns:LinkUtils="urn:StrandsExtension"><img src="http://localhost/MvcStrands/images/catalog.gif" alt="open catalog" title="open catalog"></a></span>)</p></span></div>
+<div class="Linklist Footnote" Id="NILINKFN12"><span><p>Spalten einer Matrix werden durch hochgestellte, Zeilen durch
+			 tiefgestellte Indizes bezeichnet.</p></span></div>
+<div class="Linklist Satz" Id="NILINKS14">
+  <p>Satz 7. 2: <i>(Gleichheit von
+		  ökonomischem Zinsfaktor und technologischer Expansionsrate)</i><p>Gegeben sei eine <span class="lookup" onclick="createDiv('ID0EMWAK', 'NILINKDEF5')" title="Anklicken, um Verweis ein- bzw. auszublenden.">endliche
+			 Produktionstechnologie </span><span ID="ID0EMWAK" class="Linklist Definition"></span> mit <span class="lookup" onclick="createDiv('ID0EQWAK', 'NILINKDEF2')" title="Anklicken, um Verweis ein- bzw. auszublenden.">konstanten Skalenerträgen </span><span ID="ID0EQWAK" class="Linklist Definition"></span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn008.gif" height="24" width="156" alt=""></span> mit dem <span class="lookup" onclick="createDiv('ID0E6WAK', 'NILINKDEF18')" title="Anklicken, um Verweis ein- bzw. auszublenden.">ökonomischen Zinsfaktor </span><span ID="ID0E6WAK" class="Linklist Definition"></span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn263.gif" height="34" width="108" alt=""></span> und dem <span class="lookup" onclick="createDiv('ID0EOXAK', 'NILINKDEF13')" title="Anklicken, um Verweis ein- bzw. auszublenden.">technologischen
+			 Expansionsfaktor </span><span ID="ID0EOXAK" class="Linklist Definition"></span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn098.gif" height="38" width="108" alt=""></span>.</p>
+    <p>Ist <span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn012.gif" height="22" width="18" alt=""></span> überdies <span class="lookup" onclick="createDiv('ID0EKYAK', 'NILINKDEF27')" title="Anklicken, um Verweis ein- bzw. auszublenden.">regulär</span><span ID="ID0EKYAK" class="Linklist Definition"></span> und
+			 <span class="lookup" onclick="createDiv('ID0EPYAK', 'NILINKDEF31')" title="Anklicken, um Verweis ein- bzw. auszublenden.">irreduzibel</span><span ID="ID0EPYAK" class="Linklist Definition"></span> dann
+			 gilt</p>
+    <div class="Formel"><span class="NumberedItemCount">7. 28</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn315.gif" height="25" width="57" alt=""></span></div>
+  </p>
+</div>
+<div class="Linklist Definition" Id="NILINKDEF29">
+  <p>Definition 4. 3: <i>(technologische
+		Prozessintensitäten)</i><p>Gegeben sei eine <span class="lookup" onclick="createDiv('ID0EVRBI', 'NILINKDEF5')" title="Anklicken, um Verweis ein- bzw. auszublenden.">endliche
+		  Produktionstechnologie </span><span ID="ID0EVRBI" class="Linklist Definition"></span> mit <span class="lookup" onclick="createDiv('ID0EZRBI', 'NILINKDEF2')" title="Anklicken, um Verweis ein- bzw. auszublenden.">konstanten Skalenerträgen </span><span ID="ID0EZRBI" class="Linklist Definition"></span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn008.gif" height="24" width="156" alt=""></span> und dem <span class="lookup" onclick="createDiv('ID0EISBI', 'NILINKDEF13')" title="Anklicken, um Verweis ein- bzw. auszublenden.">technologischen
+		  Expansionsfaktor </span><span ID="ID0EISBI" class="Linklist Definition"></span><span class='Greek'>l</span><sub>0</sub>. </p>
+    <p>Ein Vektor <span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn099.gif" height="28" width="118" alt=""></span>, dessen <span class="lookup" onclick="createDiv('ID0E3SBI', 'NILINKDEF28')" title="Anklicken, um Verweis ein- bzw. auszublenden.">relativer
+		  Expansionsfaktor</span><span ID="ID0E3SBI" class="Linklist Definition"></span> gleich dem <i>technologischen
+		  Expansionsfaktor</i> ist, d. h.</p>
+    <div class="Formel"><span class="NumberedItemCount">4. 14</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn286.gif" height="36" width="325" alt=""></span></div>
+    <p>heißt Vektor der <i>technologischen
+		  Prozessintensitäten </i>.</p>
+  </p>
+</div>
+<div class="Linklist Definition" Id="NILINKDEF30">
+  <p>Definition 7. 2: <i>(ökonomischer Preisvektor)</i><p>Gegeben sei eine <span class="lookup" onclick="createDiv('ID0EQHDI', 'NILINKDEF5')" title="Anklicken, um Verweis ein- bzw. auszublenden.">endliche
+			 Produktionstechnologie </span><span ID="ID0EQHDI" class="Linklist Definition"></span> mit <span class="lookup" onclick="createDiv('ID0EUHDI', 'NILINKDEF2')" title="Anklicken, um Verweis ein- bzw. auszublenden.">konstanten Skalenerträgen </span><span ID="ID0EUHDI" class="Linklist Definition"></span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn008.gif" height="24" width="156" alt=""></span> und dem <span class="lookup" onclick="createDiv('ID0EDIDI', 'NILINKDEF18')" title="Anklicken, um Verweis ein- bzw. auszublenden.">ökonomischen Zinsfaktor </span><span ID="ID0EDIDI" class="Linklist Definition"></span><span class='Greek'>r</span><sub>0</sub>. </p>
+    <p>Ein Vektor <span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn116.gif" height="28" width="120" alt=""></span>, dessen <span class="lookup" onclick="createDiv('ID0EYIDI', 'NILINKDEF18')" title="Anklicken, um Verweis ein- bzw. auszublenden.">relativer
+			 Zinsfaktor</span><span ID="ID0EYIDI" class="Linklist Definition"></span> gleich dem <i>ökonomischen Zinsfaktor</i>
+			 ist, d. h.</p>
+    <div class="Formel"><span class="NumberedItemCount">7. 8</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn287.gif" height="36" width="328" alt=""></span></div>
+    <p>heißt der <i>ökonomische
+			 Preisvektor</i>.</p>
+  </p>
+</div>
+<div class="Linklist Definition" Id="NILINKDEF18">
+  <p>Definition 7. 1: <i>(ökonomischer
+		  Zinsfaktor oder ökonomischer Expansionsfaktor)</i><p>Gegeben sie die <span class="lookup" onclick="createDiv('ID0EODDI', 'NILINKDEF5')" title="Anklicken, um Verweis ein- bzw. auszublenden.">endliche
+			 Produktionstechnologie</span><span ID="ID0EODDI" class="Linklist Definition"></span> mit <span class="lookup" onclick="createDiv('ID0ESDDI', 'NILINKDEF2')" title="Anklicken, um Verweis ein- bzw. auszublenden.">konstanten Skalenerträgen </span><span ID="ID0ESDDI" class="Linklist Definition"></span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn008.gif" height="24" width="156" alt=""></span>.</p>
+    <ol>
+      <li>
+        <p>Für <span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn064.gif" height="28" width="54" alt=""></span>, <span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn261.gif" height="24" width="42" alt=""></span> heißt</p>
+        <div class="Formel"><span class="NumberedItemCount">7. 5</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn115.gif" height="36" width="286" alt=""></span></div>
+        <p> der <i>relative Zinsfaktor</i>.</p>
+      </li>
+      <li>
+        <div class="Formel"><span class="NumberedItemCount">7. 6</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn263.gif" height="34" width="108" alt=""></span></div>
+        <p> der <i>ökonomische Expansionsfaktor</i>
+				  (oder der <i>ökonomische Zinsfaktor</i>) und
+				  </p>
+        <div class="Formel"><span class="NumberedItemCount">7. 7</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn262.gif" height="34" width="106" alt=""></span></div>
+        <p> der <i>absolute Zinsfaktor</i> dieser
+				  Technologie.</p>
+      </li>
+    </ol>
+  </p>
+</div>
+<div class="Linklist Formel" Id="NILINKGL322">
+  <p>Gleichung 7. 31: <span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn322.gif" height="28" width="101" alt=""></span></p>
+</div>
+<div class="Linklist Lemma" Id="NILINKL9">
+  <p>Lemma 4. 2: <ol>
+      <li>
+        <div class="Formel"><span class="NumberedItemCount">4. 12</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn259.gif" height="25" width="53" alt=""></span></div>
+      </li>
+      <li>
+        <p>Ist <span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn008.gif" height="24" width="156" alt=""></span><i><span class="lookup" onclick="createDiv('ID0EIOBI', 'NILINKDEF27')" title="Anklicken, um Verweis ein- bzw. auszublenden.">
+				  output-regulär</span><span ID="ID0EIOBI" class="Linklist Definition"></span></i>, dann gilt</p>
+        <div class="Formel"><span class="NumberedItemCount">4. 13</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn258.gif" height="25" width="81" alt=""></span></div>
+      </li>
+    </ol>
+  </p>
+</div>
+<div class="Linklist Satz" Id="NILINKS16">
+  <p>Satz 15. 1: <i>(Eindeutigkeit des
+		<span class="lookup" onclick="createDiv('ID0EU1AM', 'NILINKDEF32')" title="Anklicken, um Verweis ein- bzw. auszublenden.">von-Neumann-Faktors</span><span ID="ID0EU1AM" class="Linklist Definition"></span>)</i><p>Gegeben sei eine <span class="lookup" onclick="createDiv('ID0E21AM', 'NILINKDEF5')" title="Anklicken, um Verweis ein- bzw. auszublenden.">endliche
+		  Produktionstechnologie </span><span ID="ID0E21AM" class="Linklist Definition"></span> mit <span class="lookup" onclick="createDiv('ID0E61AM', 'NILINKDEF2')" title="Anklicken, um Verweis ein- bzw. auszublenden.">konstanten Skalenerträgen </span><span ID="ID0E61AM" class="Linklist Definition"></span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn008.gif" height="24" width="156" alt=""></span> und dem <span class="lookup" onclick="createDiv('ID0EO2AM', 'NILINKDEF18')" title="Anklicken, um Verweis ein- bzw. auszublenden.">ökonomischen Zinsfaktor </span><span ID="ID0EO2AM" class="Linklist Definition"></span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn263.gif" height="34" width="108" alt=""></span> sowie dem <span class="lookup" onclick="createDiv('ID0E42AM', 'NILINKDEF13')" title="Anklicken, um Verweis ein- bzw. auszublenden.">technologischen Expansionsfaktor </span><span ID="ID0E42AM" class="Linklist Definition"></span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn098.gif" height="38" width="108" alt=""></span> . </p>
+    <p>Ist <span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/eqn012.gif" height="22" width="18" alt=""></span><span class="lookup" onclick="createDiv('ID0EZ3AM', 'NILINKDEF27')" title="Anklicken, um Verweis ein- bzw. auszublenden."> regulär</span><span ID="ID0EZ3AM" class="Linklist Definition"></span> und
+		  <span class="lookup" onclick="createDiv('ID0E43AM', 'NILINKDEF31')" title="Anklicken, um Verweis ein- bzw. auszublenden.">irreduzibel</span><span ID="ID0E43AM" class="Linklist Definition"></span>, so ist </p>
+    <ol>
+      <li>
+        <p><span class='Greek'>l</span><sub>0</sub> =
+				<span class='Greek'>r</span><sub>0</sub> = <span class='Greek'>n</span>, </p>
+        <p>und somit der <span class="lookup" onclick="createDiv('ID0ES4AM', 'NILINKDEF32')" title="Anklicken, um Verweis ein- bzw. auszublenden.">von-Neumann-Faktor</span><span ID="ID0ES4AM" class="Linklist Definition"></span> - d. h. der
+				<i>Expansions-</i> und <i>Zinsfaktor </i><span class='Greek'>n</span>, für den <i><span class="lookup" onclick="createDiv('ID0E44AM', 'NILINKDEF15')" title="Anklicken, um Verweis ein- bzw. auszublenden.">von-Neumann-Gleichgewichte</span><span ID="ID0E44AM" class="Linklist Definition"></span></i> existieren -
+				eindeutig bestimmt.</p>
+      </li>
+      <li>
+        <p>Alle <i><span class="lookup" onclick="createDiv('ID0EH5AM', 'NILINKDEF15')" title="Anklicken, um Verweis ein- bzw. auszublenden.">von-Neumann-Gleichgewichte</span><span ID="ID0EH5AM" class="Linklist Definition"></span></i>
+				(<b>p<sup>*</sup>,
+				<b>y</b><sup>*</sup></b>) zu diesem
+				<span class="lookup" onclick="createDiv('ID0ET5AM', 'NILINKDEF32')" title="Anklicken, um Verweis ein- bzw. auszublenden.">von-Neumann-Faktor</span><span ID="ID0ET5AM" class="Linklist Definition"></span> sind
+				<span class="lookup" onclick="createDiv('ID0EX5AM', 'NILINKDEF36')" title="Anklicken, um Verweis ein- bzw. auszublenden.">ökonomische
+				von-Neumann-Gleichgewichte</span><span ID="ID0EX5AM" class="Linklist Definition"></span>, d. h. </p>
+        <p><span class="lookup" onclick="createDiv('ID0E45AM', 'NILINKGL0020')" title="Anklicken, um Verweis ein- bzw. auszublenden."> (15.1) </span><span ID="ID0E45AM" class="Linklist Formel"></span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/GL0020.gif" height="24" width="100" alt=""></span></p>
+      </li>
+    </ol>
+  </p>
+</div>
+<div class="Linklist Footnote" Id="NILINKFN59"><span><p>Nimmt man lediglich <span class="lookup" onclick="createDiv('ID0E4FBM', 'NILINKDEF27')" title="Anklicken, um Verweis ein- bzw. auszublenden.">reguläre Produktionstechnologien</span><span ID="ID0E4FBM" class="Linklist Definition"></span> an, so
+		  existieren gemäß <span class="lookup" onclick="createDiv('ID0ECGBM', 'NILINKS15')" title="Anklicken, um Verweis ein- bzw. auszublenden.">Satz  (13.1) </span><span ID="ID0ECGBM" class="Linklist Satz"></span><i>von-Neumann-Gleichgewichte</i> für ein Kontinuum von
+		  <span class="lookup" onclick="createDiv('ID0EHGBM', 'NILINKDEF32')" title="Anklicken, um Verweis ein- bzw. auszublenden.">von-Neumann-Faktoren</span><span ID="ID0EHGBM" class="Linklist Definition"></span></p>
+    <p>Schon in seinem Aufsatz von 1937/46 weist <i>von
+		  Neumann</i> darauf hin, dass stärkere Annahmen erforderlich sind,
+		  um die Eindeutigkeit des <span class="lookup" onclick="createDiv('ID0EPGBM', 'NILINKDEF32')" title="Anklicken, um Verweis ein- bzw. auszublenden.">von-Neumann-Faktors</span><span ID="ID0EPGBM" class="Linklist Definition"></span> zu gewährleisten - d. h.
+		  <span class='Greek'>l</span><sub>0</sub> =
+		  <span class='Greek'>r</span><sub>0</sub>: </p>
+    <p><span class="Quote">Die Eindeutigkeit des
+		  <span class="lookup" onclick="createDiv('ID0E5GBM', 'NILINKDEF32')" title="Anklicken, um Verweis ein- bzw. auszublenden.">von-Neumann-Faktors</span><span ID="ID0E5GBM" class="Linklist Definition"></span> ist nicht
+		  mehr gegeben, "[if the <i>production technology</i>] might break
+		  up into diconnected parts"<span class="reference"><a href="###" title="Neumann, John von: Über ein ökonomisches Gleichungssystem und eine Verallgemeinerung des Brouwerschen Fixpunktsatzes. - in: The review of economic studies. - 13(1)1945/46. - S. 1 - 9. - (deutschhsprachiges Original in: [MEN37]. - 8(1937). - S. 73-83)" onClick="window.open(&quot;/MvcStrands/lineare-wirtschaftstheorie/Tag-Bibliography/%24%24Bibliography&quot;, &quot;BIB&quot;, &quot;scrollbars,width=300height=650,left=20,top=20&quot;)"><img src="http://localhost/MvcStrands/images/bibliography.gif" alt="bibliography" title="bibliography" xmlns:LinkUtils="urn:StrandsExtension">[NEU37, S.
+		  3</a></span><span class="top"><a href="http://www.riquest.de/rqitems/07251" target="riquest" title="open catalog" xmlns:LinkUtils="urn:StrandsExtension"><img src="http://localhost/MvcStrands/images/catalog.gif" alt="open catalog" title="open catalog"></a></span></span></p>
+    <p>Um dem zu entgehen macht <i>von Neumann</i>
+		  allerdings die eher brachiale Annahme</p>
+    <div class="Formel"><span class="NumberedItemCount">15. 10</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/GL0019.gif" height="29" width="300" alt=""></span></div>
+    <p>derzufolge in jeder <i>Produktionsaktivität</i>
+		  von jeder Güterart eine positive Menge a<sub>i j</sub> als
+		  Vorleistung eingesetzt oder eine positive Menge b<sub>i j</sub>
+		  erzeugt werden muss.</p>
+    <p>Auch wenn <i>von Neumann</i> das Schwergewicht dieser
+		  Annahme dadurch pragmatisch herunterspielt, dass ja die geforderten Mengen
+		  beliebig klein angesetzt werden könnten, trifft man mit dem Konzept der
+		  <span class="lookup" onclick="createDiv('ID0EIIBM', 'NILINKDEF31')" title="Anklicken, um Verweis ein- bzw. auszublenden.">irreduziblen Technologie </span><span ID="ID0EIIBM" class="Linklist Definition"></span> das
+		  zugrunde liegende Problem doch wesentlich präziser. Wie von <i>von
+		  Neumann</i> klar beschrieben, darf sich die Technologie eben nicht in
+		  unabhängige Teil-Technologien aufspalten lassen.</p></span></div>
+<div class="Linklist Footnote" Id="NILINKFN80"><span><p>
+      <div class="Formel"><span class="NumberedItemCount">15. 13</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/GL0101.gif" height="214" width="474" alt=""></span><p> Für <span class='Greek'>n</span><sub>2</sub>
+			 entsprechend.</p>
+      </div>
+    </p></span></div>
+<div class="Linklist Footnote" Id="NILINKFN81"><span><p>
+      <div class="Formel"><span class="NumberedItemCount">15. 14</span><span class="InlineGraphic"><img src="/MvcStrands/MyArticles/lineare-wirtschaftstheorie/GL0103.gif" height="310" width="338" alt=""></span></div>
+    </p></span></div>
