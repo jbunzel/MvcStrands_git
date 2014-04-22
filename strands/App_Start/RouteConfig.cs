@@ -46,6 +46,7 @@ namespace strands
                 XPathNavigator config = null;
                 XPathNavigator node = null;
 
+                if (request.QueryString.Get(strands.Services.AjaxCrawlable.Fragment) != null) return null;
                 if (legacyUrl.ToLower().Contains("default.aspx") || legacyUrl.Contains("?"))
                 {
                     //const string status = "301 Moved Permanently";

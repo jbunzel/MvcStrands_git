@@ -4,10 +4,13 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+using strands.Services;
+
 namespace strands.Controllers
 {
     public class HomeController : Controller
     {
+        [AjaxCrawlable]
         public ActionResult Index( string Strand, string Section, string Element)
         {
             string view = "Index";

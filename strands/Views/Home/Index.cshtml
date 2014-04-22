@@ -1,76 +1,83 @@
-﻿<div id="strands" class="Normal"></div>
-@Styles.Render("~/content/" + @ViewBag.Type)
-@Scripts.Render("~/bundles/strands")
-@section scripts{
-	<script type="text/javascript">
-	    var config = { contextPath: '@Url.Content("~")' };
-	    var strand = @Html.Raw(Json.Encode(@ViewBag.Strand));
-	    var section = @Html.Raw(Json.Encode(@ViewBag.Section));
-	    var element = @Html.Raw(Json.Encode(@ViewBag.Element));
+﻿@if (ViewBag.AjaxCrawlerSnapshot != null)
+{
+    <!-- Snapshot -->
+    @ViewBag.AjaxCrawlerSnapshot;
+}
+else {
+    <div id="strands" class="Normal"></div>
+    @Styles.Render("~/content/" + @ViewBag.Type)
+    @Scripts.Render("~/bundles/strands")
+    @section scripts{
+	    <script type="text/javascript">
+	        var config = { contextPath: '@Url.Content("~")' };
+	        var strand = @Html.Raw(Json.Encode(@ViewBag.Strand));
+	        var section = @Html.Raw(Json.Encode(@ViewBag.Section));
+	        var element = @Html.Raw(Json.Encode(@ViewBag.Element));
 
-	    $(function ()
-	    {
-	        if($.cookie('_clientInfo') == undefined) {
-	            Modernizr.addTest('mathml', function(){
-	                var hasMathML = false;
-	                if ( document.createElementNS ) {
-	                    var ns = "http://www.w3.org/1998/Math/MathML",
-                            div = document.createElement("div");
-	                    div.style.position = "absolute"; 
-	                    var mfrac = div.appendChild(document.createElementNS(ns,"math"))
-                                       .appendChild(document.createElementNS(ns,"mfrac"));
-	                    mfrac.appendChild(document.createElementNS(ns,"mi"))
-                             .appendChild(document.createTextNode("xx"));
-	                    mfrac.appendChild(document.createElementNS(ns,"mi"))
-                             .appendChild(document.createTextNode("yy"));
-	                    document.body.appendChild(div);
-	                    hasMathML = div.offsetHeight > div.offsetWidth;
-	                }
-	                return hasMathML;
-	            });
+	        $(function ()
+	        {
+	            if($.cookie('_clientInfo') == undefined) {
+	                Modernizr.addTest('mathml', function(){
+	                    var hasMathML = false;
+	                    if ( document.createElementNS ) {
+	                        var ns = "http://www.w3.org/1998/Math/MathML",
+                                div = document.createElement("div");
+	                        div.style.position = "absolute"; 
+	                        var mfrac = div.appendChild(document.createElementNS(ns,"math"))
+                                           .appendChild(document.createElementNS(ns,"mfrac"));
+	                        mfrac.appendChild(document.createElementNS(ns,"mi"))
+                                 .appendChild(document.createTextNode("xx"));
+	                        mfrac.appendChild(document.createElementNS(ns,"mi"))
+                                 .appendChild(document.createTextNode("yy"));
+	                        document.body.appendChild(div);
+	                        hasMathML = div.offsetHeight > div.offsetWidth;
+	                    }
+	                    return hasMathML;
+	                });
 
-	            var clientInfo = {
-	                browserWidth: $(window).width(),
-	                browserHeight: $(window).height(),
-                    MathMLSupport: Modernizr.mathml,
-	            };
-	            //var cookieVal = JSON.stringify(clientInfo);
-	            var date = new Date();
-	            var minutes = 30;
-	            date.setTime(date.getTime() + (minutes * 60 * 1000));
+	                var clientInfo = {
+	                    browserWidth: $(window).width(),
+	                    browserHeight: $(window).height(),
+                        MathMLSupport: Modernizr.mathml,
+	                };
+	                //var cookieVal = JSON.stringify(clientInfo);
+	                var date = new Date();
+	                var minutes = 30;
+	                date.setTime(date.getTime() + (minutes * 60 * 1000));
 	            	 
-	            $.cookie.json = true;
-	            $.cookie("_clientInfo", clientInfo, {
-                    path: "/",
-	                expires: date 
-	            });
+	                $.cookie.json = true;
+	                $.cookie("_clientInfo", clientInfo, {
+                        path: "/",
+	                    expires: date 
+	                });
+	            }
+	            $.ajax({
+		            url: HostAdress() + '/api' + Path(),
+		            type: "GET",
+		            data: null,
+		            dataType: "json",
+		            success: function (data) {
+		                $('#strands').html(data);
+                        if ($("#METADATA").length > 0)
+		                    setMetadata();
+		            },
+		            error: function (xhr) {
+		                _myHelper.showMessage(decodeURIComponent(xhr.responseText).replace(/\+/g, ' '), "error");
+		            }
+		        });
+	        });
+
+	        function HostAdress() {
+	            return ((config.contextPath.length > 0) && (config.contextPath.charAt(config.contextPath.length - 1)) == "/") ? config.contextPath.substring(0, config.contextPath.length - 1) : config.contextPath;
+	        };
+
+	        function Path() {
+	            var t = (strand != "") ? "/" + strand : "";
+	            var s = (section != "") ? "/" + section : "";
+	            var e = (element != "") ? "/" + element : "";
+
+	            return t + s + e; 
 	        }
-	        $.ajax({
-		        url: HostAdress() + '/api' + Path(),
-		        type: "GET",
-		        data: null,
-		        dataType: "json",
-		        success: function (data) {
-		            $('#strands').html(data);
-                    if ($("#METADATA").length > 0)
-		                setMetadata();
-		        },
-		        error: function (xhr) {
-		            _myHelper.showMessage(decodeURIComponent(xhr.responseText).replace(/\+/g, ' '), "error");
-		        }
-		    });
-	    });
-
-	    function HostAdress() {
-	        return ((config.contextPath.length > 0) && (config.contextPath.charAt(config.contextPath.length - 1)) == "/") ? config.contextPath.substring(0, config.contextPath.length - 1) : config.contextPath;
-	    };
-
-	    function Path() {
-	        var t = (strand != "") ? "/" + strand : "";
-	        var s = (section != "") ? "/" + section : "";
-	        var e = (element != "") ? "/" + element : "";
-
-	        return t + s + e; 
-	    }
-	</script>
+	    </script>
+    }
 }
