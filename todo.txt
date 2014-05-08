@@ -9,23 +9,24 @@
 02.015			Anzeige der "Strands under construction" korrigieren
 02.016			Direktzugriff auf Verzeichnis MyArticles unterbinden
 
-02.02		D3 SVG Diagramme einbinden															
-02.021			D3 SVG Diagramme linkfähig machen	
-02.0211				D3 SVG Diagramme als NumberedItems linkfähig machen				
-02.02111				Grundfunktionalität								
-02.02112				FEHLER: falls Diagramm und Link auf der gleichen Seite
-02.0212				D3 SVG Diagramme (alleinstehend oder im Mottos) linkfähig machen
-02.022			D3 SVG Diagramme Formatierungsmöglichkeiten verfeinern
-02.023			Padding links, rechts, Höhe differenzieren
-02.024			D3 SVG Diagramme Mime-Typ application/json auf den remote servern registrieren (lassen)
+02.02		D3 SVG Diagramme einbinden	
+02.021			D3 Unterstützung reinstallieren																			begonnen:140508		erledigt: 140508														
+02.022			D3 SVG Diagramme linkfähig machen	
+02.0221				D3 SVG Diagramme als NumberedItems linkfähig machen				
+02.02211				Grundfunktionalität								
+02.02212				FEHLER: falls Diagramm und Link auf der gleichen Seite
+02.0222				D3 SVG Diagramme (alleinstehend oder im Mottos) linkfähig machen
+02.023			D3 SVG Diagramme Formatierungsmöglichkeiten verfeinern
+02.024			Padding links, rechts, Höhe differenzieren
+02.025			D3 SVG Diagramme Mime-Typ application/json auf den remote servern registrieren (lassen)
 
-02.03		Seitencache einrichten																											erledigt: 131225
+02.03		Seitencache einrichten																						begonnen: 131225	erledigt: 131225
 
-02.04		Ajax Crawling ermöglichen																					begonnen: 140422	erledigt: 
+02.04		Ajax Crawling ermöglichen																					begonnen: 140422	erledigt: 140422
 
-02.99		Sicherung & Veröffentlichung																				begonnen: 131229
-02.991			Zwischenversion 0.2.0.1 auf www.strands.de veröffentlichen																	erledigt: 131229
-02.991			Zwischenversion 0.2.0.1 auf github sichern und veröffentlichen
+02.99		Sicherung & Veröffentlichung																				begonnen: 131229	erledigt:
+02.991			Zwischenversion 0.2.0.0 auf www.strands.de veröffentlichen												begonnen: 131229	erledigt: 131229
+02.991			Zwischenversion 0.2.1.0 auf github sichern und veröffentlichen											begonnen: 140422	erledigt: 140422
 02.999			Version 0.2 auf github sichern & veröffentlichen
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
