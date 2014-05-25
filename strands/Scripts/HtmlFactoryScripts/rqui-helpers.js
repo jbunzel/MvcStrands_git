@@ -2,31 +2,31 @@
 var $win = $(window); //jquery win object
 var dimensions = [$win.width(), $win.height()]; //initial dimensions
 
-$(window).resize(function () { //on window resize...
-    if (!myInterval) //if the interval is not set,
-    {
-        myInterval = setInterval(function () { //initialize it
-            //and check to see if the dimenions have changed or remained the same
-            if (dimensions[0] === $win.width() && dimensions[1] === $win.height()) {   //if they are the same, then we are no longer resizing the window
-                clearInterval(myInterval); //deactivate the interval
-                myInterval = false; //use it as a flag
+//$(window).resize(function () { //on window resize...
+//    if (!myInterval) //if the interval is not set,
+//    {
+//        myInterval = setInterval(function () { //initialize it
+//            //and check to see if the dimenions have changed or remained the same
+//            if (dimensions[0] === $win.width() && dimensions[1] === $win.height()) {   //if they are the same, then we are no longer resizing the window
+//                clearInterval(myInterval); //deactivate the interval
+//                myInterval = false; //use it as a flag
 
-                //doStuff(); //call your callback function
-                resizeToWindow();
-            }
-            else {
-                dimensions[0] = $win.width(); //else keep the new dimensions
-                dimensions[1] = $win.height();
-            }
-        }, 64);  //and perform a check every 64ms
-    }
+//                //doStuff(); //call your callback function
+//                resizeToWindow();
+//            }
+//            else {
+//                dimensions[0] = $win.width(); //else keep the new dimensions
+//                dimensions[1] = $win.height();
+//            }
+//        }, 64);  //and perform a check every 64ms
+//    }
 
-});
+//});
 
-function resizeToWindow() {
-    $(".content-box, .rq-result-box").css("min-height", (dimensions[1] - 220) + "px");
-    $(".rq-sidebar, .rq-left-sidebar, .content-box, .rq-result-box").css("max-height", (dimensions[1] - 220) + "px");
-};
+//function resizeToWindow() {
+//    $(".content-box, .rq-result-box").css("min-height", (dimensions[1] - 220) + "px");
+//    $(".rq-sidebar, .rq-left-sidebar, .content-box, .rq-result-box").css("max-height", (dimensions[1] - 220) + "px");
+//};
 
 function ajaxLoadingIndicator(el) {
     this.init = function () {

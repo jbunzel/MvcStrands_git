@@ -44,6 +44,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\packages\HtmlAgilityPack.1.4.6\lib\Net40\HtmlAgilityPack.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -169,6 +172,8 @@
     <Content Include="Content\themes\strands\Toc.css" />
     <Content Include="googlef355f0c991170732.html" />
     <Content Include="robots.txt" />
+    <Content Include="Scripts\d3\d3.js" />
+    <Content Include="Scripts\d3\d3.min.js" />
     <Content Include="Scripts\HtmlFactoryScripts\rqui-helpers.js" />
     <Content Include="Scripts\HtmlFactoryScripts\rqui-pdf.js" />
     <Content Include="Scripts\jquery.cookie.js" />

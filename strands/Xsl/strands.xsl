@@ -130,9 +130,10 @@
           <xsl:value-of select="'text/javascript'" />
         </xsl:attribute>
         <xsl:attribute name="src">
-          <xsl:value-of select="'js/d3.v3.min.js'" />
+          <xsl:value-of select="concat($AppURL,'/scripts/d3/d3.min.js')" />
       </xsl:attribute>
       </xsl:element>
+<!--
       <xsl:element name="script">
         <xsl:attribute name="type">
           <xsl:value-of select="'text/javascript'" />
@@ -141,6 +142,7 @@
           <xsl:value-of select="'js/jquery/jquery-1.7.1.min.js'" />
         </xsl:attribute>
       </xsl:element>
+-->
       <xsl:for-each select="//D3Graph[not(preceding::*/@Type = @Type)]">
           <xsl:element name="script">
             <xsl:attribute name="type">

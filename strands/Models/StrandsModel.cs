@@ -19,8 +19,21 @@ namespace strands.Models
         #region public properties
 
         public StrandsGraph Strands { get; set; }
-        public string BaseUrl { get; set; }
-        public string CrossBaseUri { get; set; }
+        public static string BaseUrl 
+        {
+            get
+            {
+                return StrandsModel._articleBase;
+            }
+        }
+
+        public static string CrossBaseUri 
+        { 
+            get 
+            {
+                return StrandsModel.BaseUrl.Contains("://") ? StrandsModel.BaseUrl : HttpContext.Current.Server.MapPath(StrandsModel.BaseUrl);
+            }
+        }
         public Strand ActualStrand { get; set; }
 
         #endregion
@@ -30,11 +43,11 @@ namespace strands.Models
         public StrandsModel() 
         {
             this.Strands = new StrandsGraph();
-            this.BaseUrl = StrandsModel._articleBase;
-            if (this.BaseUrl.Contains("://"))
-                this.CrossBaseUri = this.BaseUrl;
-            else
-                this.CrossBaseUri = HttpContext.Current.Server.MapPath(this.BaseUrl);
+            //this.BaseUrl = StrandsModel._articleBase;
+            //if (this.BaseUrl.Contains("://"))
+            //    this.CrossBaseUri = this.BaseUrl;
+            //else
+            //    this.CrossBaseUri = HttpContext.Current.Server.MapPath(this.BaseUrl);
             this.ActualStrand = null;
         }
 
@@ -124,6 +137,14 @@ namespace strands.Models
             this.Uri = "";
             this.ActualSection = null;
             this.Name = "";
+        }
+
+        public Strand(Strand theStrand)
+        {
+            this.Uri = theStrand.Uri;
+            this.Name = theStrand.Name;
+            this.Sections = theStrand.Sections;
+            this.ActualSection = theStrand.ActualSection;
         }
 
         public Strand (string StrandName)

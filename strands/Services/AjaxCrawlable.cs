@@ -17,12 +17,14 @@ namespace strands.Services
             }
             else
             {
-                var repository = new StrandsRepository();
                 var strand = filterContext.ActionParameters["Strand"] != null ? filterContext.ActionParameters["Strand"].ToString() : "";
                 var section = filterContext.ActionParameters["Section"] != null ? filterContext.ActionParameters["Section"].ToString() : "";
                 var element = filterContext.ActionParameters["Element"] != null ? filterContext.ActionParameters["Element"].ToString() : "";
-                              
-                filterContext.Controller.ViewBag.AjaxCrawlerSnapshot = MvcHtmlString.Create(repository.Lookup(strand, section, element));
+                var strandDoc = new StrandsRepository().Lookup(strand, section, element); 
+ 
+                filterContext.Controller.ViewBag.AjaxCrawlerSnapshot = MvcHtmlString.Create(strandDoc.HTML);
+                filterContext.Controller.ViewBag.Title = strandDoc.GetDocElement("Title");
+                filterContext.Controller.ViewBag.Description = strandDoc.GetDocElement("Description");
             }
         }
     }
