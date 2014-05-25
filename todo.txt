@@ -19,13 +19,13 @@
 02.023			Padding links, rechts, Höhe differenzieren
 02.024			D3 SVG Diagramme Mime-Typ application/json auf den remote servern registrieren (lassen)
 
-02.03		Seitencache einrichten																											erledigt: 131225
+02.03		Seitencache einrichten																						begonnen: 131225	erledigt: 131225
 
-02.04		Ajax Crawling ermöglichen																					begonnen: 140422	erledigt: 
+02.04		Ajax Crawling ermöglichen																					begonnen: 140422	erledigt: 140422
 
-02.99		Sicherung & Veröffentlichung																				begonnen: 131229
-02.991			Zwischenversion 0.2.0.1 auf www.strands.de veröffentlichen																	erledigt: 131229
-02.991			Zwischenversion 0.2.0.1 auf github sichern und veröffentlichen
+02.99		Sicherung & Veröffentlichung																				begonnen: 131229	erledigt:
+02.991			Zwischenversion 0.2.0.1 auf www.strands.de veröffentlichen												begonnen: 131229	erledigt: 131229
+02.991			Zwischenversion 0.2.0.1 auf github sichern und veröffentlichen											begonnen: 140422	erledigt: 140422
 02.999			Version 0.2 auf github sichern & veröffentlichen
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
