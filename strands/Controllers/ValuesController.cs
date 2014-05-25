@@ -52,7 +52,7 @@ namespace strands.Controllers
         {
             try
             {
-                return repository.Lookup(Strand, Section, Element);
+                return repository.Lookup(Strand, Section, Element).HTML;
             }
             catch (Exception ex)
             {

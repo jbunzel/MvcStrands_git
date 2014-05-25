@@ -20,7 +20,7 @@ namespace strands.Controllers
             ViewBag.Section = (Section != null) ? Section : "";
             ViewBag.Element = (Element != null) ? Element : "";
             ViewBag.Type = ((string)ViewBag.Strand == "Themes") ? "Themes" : type;
-            ViewBag.Title = "The Strands - " + ((ViewBag.Strand == "Themes")||(ViewBag.Strand == "Search") ? (ViewBag.Section != "" ? ViewBag.Section : "Home") : ViewBag.Strand);
+            if (string.IsNullOrEmpty(ViewBag.Title)) ViewBag.Title = "The Strands - " + ((ViewBag.Strand == "Themes")||(ViewBag.Strand == "Search") ? ViewBag.Strand : (ViewBag.Section != "" ? ViewBag.Section : "Home"));
             return View(view, ((string)ViewBag.Type == "Themes" || (string)ViewBag.Type == "strands") ? "_Layout" : "_BoxLayout");
         }
     }

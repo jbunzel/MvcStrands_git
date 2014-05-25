@@ -153,8 +153,8 @@
     <Para Id="crisis" Type="featured">
       <ULink URL="crisis/crisis.xml"> Über wirtschaftliches Gleichgewicht &amp; Krise </ULink>
     </Para>
-    <Para Id="vwg" Type="featured">
-      <ULink URL="vwg/vwg.xml"> Deutsche Wirtschaft</ULink>
+    <Para Id="deutsche-wirtschaft" Type="featured">
+      <ULink URL="deutsche-wirtschaft/deutsche-wirtschaft.xml"> Deutsche Wirtschaft</ULink>
     </Para>
     <Para Id="japan" Type="featured">
       <ULink URL="japan/japan.xml"> Japan's perennial Economic Crisis </ULink>
