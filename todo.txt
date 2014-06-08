@@ -3,14 +3,15 @@
 02.00	Version 0.2
 
 02.01		Bugs 0.1 beseitigen
-02.012			Sprungmarke für Bibliographie einfügen. (s. strands.xsl, TODO-Notiz)
+02.012			Sprungmarke für Bibliographie einfügen. (s. strands.xsl, TODO-Notiz)									begonnen: 140608	
 02.013			Fehlermeldungen verbessern & auf Default-Seite umlenken
 02.014			Suchergebnisse, die auf PopUp-Inhalte zeigen (z.B. Poems), richtig anzeigen
 02.015			Anzeige der "Strands under construction" korrigieren
 02.016			Direktzugriff auf Verzeichnis MyArticles unterbinden
+02.017			ISSUE: pop-up windows for notes display wrong content													begonnen: 140607	erledigt: 140607 
 
 02.02		D3 SVG Diagramme einbinden	
-02.021			D3 Unterstützung reinstallieren																			begonnen:140508		erledigt: 140508														
+02.021			D3 Unterstützung reinstallieren																			begonnen: 140508	erledigt: 140508														
 02.022			D3 SVG Diagramme linkfähig machen	
 02.0221				D3 SVG Diagramme als NumberedItems linkfähig machen				
 02.02211				Grundfunktionalität								
@@ -22,11 +23,21 @@
 
 02.03		Seitencache einrichten																						begonnen: 131225	erledigt: 131225
 
-02.04		Ajax Crawling ermöglichen																					begonnen: 140422	erledigt: 140422
+02.04		Ajax Crawling ermöglichen																					begonnen: 140422	erledigt: 140525
+02.041			liefert beim Anfrage-Suffix "?_escaped_fragments=" den Seiten-Snapshot aus								begonnen: 140422	erledigt: 140422
+02.042			Setzt die Metatags Titel & Description auf die Werte des  Seiten-Snapshots								begonnen: 140522	erledigt: 140525	 
+
+02.05		Adds About Pages																							begonnen: 140531
+02.051			enables about-pages with specific xsl-transforms														begonnen: 140601	erledigt: 140601
+02.052			allows separate css-stylersheets for about-pages
+02.053			adds about-pages style design
+02.054			adds about-page contents 	
 
 02.99		Sicherung & Veröffentlichung																				begonnen: 131229	erledigt:
-02.991			Zwischenversion 0.2.0.0 auf www.strands.de veröffentlichen												begonnen: 131229	erledigt: 131229
-02.991			Zwischenversion 0.2.1.0 auf github sichern und veröffentlichen											begonnen: 140422	erledigt: 140422
+02.991			veröffentlicht Zwischenversion 0.2.0.0 auf www.strands.de												begonnen: 131229	erledigt: 131229
+02.992			sichert & veröffentlicht Zwischenversion 0.2.1.0 auf github												begonnen: 140422	erledigt: 140422
+02.993			veröffentlicht Zwischenversion 0.2.2.0 auf www.strands.de												begonnen: 140525	erledigt: 140525
+02.994			sichert & veröffentlicht Zwischenversion 0.2.2.0 auf github												begonnen: 140531	erledigt:											
 02.999			Version 0.2 auf github sichern & veröffentlichen
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------

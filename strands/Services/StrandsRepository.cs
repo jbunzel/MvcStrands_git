@@ -149,9 +149,10 @@ namespace strands.Services
                 var arguments = new XsltArgumentList();
                 var settings = new XsltSettings();
                 var readersettings = new XmlReaderSettings();
-                string xslsrc = (!string.IsNullOrEmpty(this.DisplayType)) ? "/XMLList.xsl" : "/Strands.xsl";
-                var xslfile = (this.Name == "Themes") ? HttpContext.Current.Server.MapPath(this._xslAppUrl + "/StrandList.xsl") : HttpContext.Current.Server.MapPath(this._xslAppUrl + xslsrc);
-
+                //string xslsrc = (!string.IsNullOrEmpty(this.DisplayType)) ? "/XMLList.xsl" : "/Strands.xsl";
+                //var xslfile = (this.Name == "themes") ? HttpContext.Current.Server.MapPath(this._xslAppUrl + "/StrandList.xsl") : HttpContext.Current.Server.MapPath(this._xslAppUrl + xslsrc);
+                var xslfile = HttpContext.Current.Server.MapPath(this._xslAppUrl + ((!string.IsNullOrEmpty(this.DisplayType)) ? "XMLList.xsl" : this.XslName));
+    
                 settings.EnableDocumentFunction = true;
                 settings.EnableScript = true;
                 readersettings.DtdProcessing = DtdProcessing.Parse;

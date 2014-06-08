@@ -43,11 +43,6 @@ namespace strands.Models
         public StrandsModel() 
         {
             this.Strands = new StrandsGraph();
-            //this.BaseUrl = StrandsModel._articleBase;
-            //if (this.BaseUrl.Contains("://"))
-            //    this.CrossBaseUri = this.BaseUrl;
-            //else
-            //    this.CrossBaseUri = HttpContext.Current.Server.MapPath(this.BaseUrl);
             this.ActualStrand = null;
         }
 
@@ -86,6 +81,14 @@ namespace strands.Models
 
     public class Strand
     {
+        #region private members
+
+        private static string _strandsXslName = "strands.xsl";
+        private static string _themesXslName = "strandlist.xsl";
+        private static string _defaultXslName = "jbarticle.xsl";
+
+        #endregion
+
         #region private methods
 
         private string GetUri()
@@ -123,7 +126,8 @@ namespace strands.Models
         #region public properties
 
         public string Uri { get; set; }
-        public string Name { get; set; } 
+        public string Name { get; set; }
+        public string XslName { get; set; }
         public SectionList Sections {get; set; }
         public StrandSection ActualSection { get; set; }
  
@@ -143,6 +147,7 @@ namespace strands.Models
         {
             this.Uri = theStrand.Uri;
             this.Name = theStrand.Name;
+            this.XslName = theStrand.XslName;
             this.Sections = theStrand.Sections;
             this.ActualSection = theStrand.ActualSection;
         }
@@ -150,11 +155,24 @@ namespace strands.Models
         public Strand (string StrandName)
             :this()
         {
-            this.Name = StrandName;
-            if (StrandName == "Themes")
-                this.Uri = StrandsModel._xmlAppDir + StrandsModel._themesXmlName;
-            else
-                this.Uri = GetUri(); // TODO: check different name of strand file in directory.
+            this.Name = StrandName.ToLower();
+            switch (this.Name)
+            {
+                case "themes":
+                    this.Uri = StrandsModel._xmlAppDir + StrandsModel._themesXmlName;
+                    this.XslName = Strand._themesXslName;
+                    break;
+                case "about":
+                case "privacy":
+                case "terms":
+                    this.Uri = StrandsModel._xmlAppDir + StrandName + ".xml";
+                    this.XslName = Strand._defaultXslName;
+                    break;
+                default:
+                    this.Uri = GetUri(); // TODO: check different name of strand file in directory.
+                    this.XslName = Strand._strandsXslName;
+                    break;
+            }
         }
 
         #endregion
@@ -189,7 +207,20 @@ namespace strands.Models
 
             pn = new XPathDocument(GetDirectoryPath()).CreateNavigator();
             // Debug-Variable: string t = (ActualSection != null) ? ActualSection.SectionPath + ((ActualSection.ActualElement != null) ? ActualSection.ActualElement.ElementPath : "") : "";
-            return pn.Select((ActualSection != null) ? ActualSection.SectionPath + ((ActualSection.ActualElement != null) ? ActualSection.ActualElement.ElementPath : "") : ""); 
+            return pn.Select((ActualSection != null) ? ActualSection.SectionPath + ((ActualSection.ActualElement != null) ? ActualSection.ActualElement.ElementPath : "") : "");
+            //switch (this.ActualSection.Name)
+            //{ 
+            //    case "Tag-Note":
+            //      int i;
+            //      string ep = ActualSection.ActualElement.ElementPath.Substring(1);
+
+            //      if (int.TryParse(ep, out i))
+            //           return pn.Select(ActualSection.SectionPath.Substring(0, ActualSection.SectionPath.Length) + "[" + ep + "]");
+            //       else
+            //           return pn.Select(ActualSection.SectionPath.Substring(0, ActualSection.SectionPath.Length - 1) + "[@ID='" + ep + "']");
+            //    default:
+            //        return pn.Select((ActualSection != null) ? ActualSection.SectionPath + ((ActualSection.ActualElement != null) ? ActualSection.ActualElement.ElementPath : "") : ""); 
+            //}
         }
 
         #endregion
@@ -224,7 +255,6 @@ namespace strands.Models
                 if (int.TryParse(SectionName, out i))
                 {
                     XPathNavigator pn;
-                    //XPathNodeIterator pni;
 
                     pn = new XPathDocument(this._theStrand.GetDirectoryPath()).CreateNavigator();
                     pn = pn.SelectSingleNode("Article/Sect1[" + SectionName + "]/@Id");
@@ -310,7 +340,30 @@ namespace strands.Models
         {
             string name = (this.Name.IndexOf("$$") >= 0) ? this.Name.Substring(0, this.Name.IndexOf("$$")) : this.Name;
 
-            return (! string.IsNullOrEmpty(name)) ? "/" + name : "";
+            if (this.Name.IndexOf("-") >= 0)
+            {
+                string en = this.Name.Substring(0, this.Name.IndexOf("-"));
+                int i;
+                string ep = this.Name.Substring(this.Name.IndexOf("-") + 1);
+
+                switch (en)
+                {
+                    case "Note":
+                        if (int.TryParse(ep, out i))
+                            return "/Note[" + ep + "]";
+                        else
+                            return "/Note[@ID='" + ep + "']";
+                    case "Position":
+                        if (int.TryParse(ep, out i))
+                            return "#" + ep;
+                        else
+                            return "#" + ep;
+                    default:
+                        return "";
+                }
+            }
+            else
+                return (! string.IsNullOrEmpty(name)) ? "/" + name : "";
         }
 
         #endregion

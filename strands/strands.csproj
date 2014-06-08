@@ -153,7 +153,16 @@
     <Compile Include="Services\StrandsRepository.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\xml\Terms.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_Data\xml\Privacy.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="App_Data\xml\IndexConfig.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_Data\xml\About.xml">
       <SubType>Designer</SubType>
     </Content>
     <Content Include="App_Data\xml\StrandsConfig.xml">
