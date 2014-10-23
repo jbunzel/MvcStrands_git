@@ -9,6 +9,8 @@ namespace strands.Services
 {
     public class StrandsCache
     {
+        private static bool _enabled = true;
+
         private static string GetCachePath(Strand Strand)
         {
             string sectionName = (Strand.ActualSection != null) ? Strand.ActualSection.Name : "";
@@ -20,7 +22,7 @@ namespace strands.Services
         
         public static bool Contains(Strand Strand)
         {
-            if (!Strand.Name.StartsWith("Theme"))
+            if (_enabled && !Strand.Name.StartsWith("Theme"))
             {
                 string cachePath = StrandsCache.GetCachePath(Strand);
                 if (!System.IO.File.Exists(cachePath))
@@ -44,18 +46,29 @@ namespace strands.Services
 
         public static string Read(Strand Strand)
         {
-            string cachePath = StrandsCache.GetCachePath(Strand);
-            return System.IO.File.ReadAllText(cachePath);
+            if (!_enabled)
+                return "";
+            else
+            {
+                string cachePath = StrandsCache.GetCachePath(Strand);
+
+                return System.IO.File.ReadAllText(cachePath);
+            }
         }
 
         public static string Write(Strand Strand, string HtmlString)
         {
-            if (!Strand.Name.StartsWith("Theme"))
+            if (_enabled && !Strand.Name.StartsWith("Theme"))
             {
                 string cachePath = StrandsCache.GetCachePath(Strand);
                 System.IO.File.WriteAllText(cachePath, HtmlString);
             }
             return HtmlString;
+        }
+
+        public static void EnableStrandsChache(bool value)
+        {
+            _enabled = value;
         }
     }
 }

@@ -50,6 +50,7 @@ namespace strands.Controllers
         // GET api/values/5
         public string Get(string Strand, string Section, string Element)
         {
+            Services.StrandsCache.EnableStrandsChache(true);
             try
             {
                 return repository.Lookup(Strand, Section, Element).HTML;

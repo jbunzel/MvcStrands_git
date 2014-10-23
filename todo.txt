@@ -3,7 +3,7 @@
 02.00	Version 0.2
 
 02.01		Bugs 0.1 beseitigen
-02.012			Sprungmarke für Bibliographie einfügen. (s. strands.xsl, TODO-Notiz)									begonnen: 140608	
+02.012			Sprungmarke für Bibliographie einfügen. (s. strands.xsl, TODO-Notiz)									begonnen: 	
 02.013			Fehlermeldungen verbessern & auf Default-Seite umlenken
 02.014			Suchergebnisse, die auf PopUp-Inhalte zeigen (z.B. Poems), richtig anzeigen
 02.015			Anzeige der "Strands under construction" korrigieren
@@ -21,23 +21,27 @@
 02.024			Padding links, rechts, Höhe differenzieren
 02.025			D3 SVG Diagramme Mime-Typ application/json auf den remote servern registrieren (lassen)
 
-02.03		Seitencache einrichten																						begonnen: 131225	erledigt: 131225
+02.03		Add page cache																								begonnen: 131225	erledigt: 131225
 
-02.04		Ajax Crawling ermöglichen																					begonnen: 140422	erledigt: 140525
+02.04		Enable ajax crawling																						begonnen: 140422	erledigt: 140525
 02.041			liefert beim Anfrage-Suffix "?_escaped_fragments=" den Seiten-Snapshot aus								begonnen: 140422	erledigt: 140422
 02.042			Setzt die Metatags Titel & Description auf die Werte des  Seiten-Snapshots								begonnen: 140522	erledigt: 140525	 
 
-02.05		Adds About Pages																							begonnen: 140531
-02.051			enables about-pages with specific xsl-transforms														begonnen: 140601	erledigt: 140601
-02.052			allows separate css-stylersheets for about-pages
-02.053			adds about-pages style design
-02.054			adds about-page contents 	
+02.05		Add About & Terms Pages																						begonnen: 140531
+02.051			enable about-pages with specific xsl-transforms															begonnen: 140601	erledigt: 140601
+02.052			allow separate css-stylesheets for about-pages
+02.053			add about-pages style design
+02.054			add about-page contents
+
+02.06		Improve content presentation																				begonnen: 141023
+02.061			Add link to context page on collapsible content panels
+02.062			Direct external links to new browser window																begonnen: 141023	erledigt: 141023
 
 02.99		Sicherung & Veröffentlichung																				begonnen: 131229	erledigt:
 02.991			veröffentlicht Zwischenversion 0.2.0.0 auf www.strands.de												begonnen: 131229	erledigt: 131229
 02.992			sichert & veröffentlicht Zwischenversion 0.2.1.0 auf github												begonnen: 140422	erledigt: 140422
 02.993			veröffentlicht Zwischenversion 0.2.2.0 auf www.strands.de												begonnen: 140525	erledigt: 140525
-02.994			sichert & veröffentlicht Zwischenversion 0.2.2.0 auf github												begonnen: 140531	erledigt:											
+02.994			sichert & veröffentlicht Zwischenversion 0.2.2.0 auf github												begonnen: 140531	erledigt: 140608											
 02.999			Version 0.2 auf github sichern & veröffentlichen
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------

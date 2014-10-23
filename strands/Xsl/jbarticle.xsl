@@ -412,7 +412,7 @@
 
 
   <xsl:template match = "ELink">
-    <a href="{@URL}">
+    <a href="{@URL}" target="_blank">
       <xsl:apply-templates/>
     </a>
   </xsl:template>
