@@ -24,6 +24,44 @@
         window.open(path, 'SEARCH','scrollbars,width=500,height=650,left=20,top=20');
       }
     </script>
+    
+    <xsl:if test="//Object[@Type='staticDatepicker']">
+      <xsl:element name="link">
+        <xsl:attribute name="rel">
+          <xsl:value-of select="'stylesheet'" />
+        </xsl:attribute>
+        <xsl:attribute name="type">
+          <xsl:value-of select="'text/css'" />
+        </xsl:attribute>
+        <xsl:attribute name="href">
+          <xsl:value-of select="concat($AppURL,'/content/jqueryui-1-11-4_custom/jquery-ui.min.css')" />
+        </xsl:attribute>
+      </xsl:element>
+      <xsl:element name="script">
+        <xsl:attribute name="type">
+          <xsl:value-of select="'text/javascript'" />
+        </xsl:attribute>
+        <xsl:attribute name="src">
+          <xsl:value-of select="concat($AppURL,'/scripts/jqueryui-1-11-4_custom/jquery-ui.min.js')" />
+        </xsl:attribute>
+      </xsl:element>
+      <xsl:element name="script">
+        <xsl:attribute name="type">
+          <xsl:value-of select="'text/javascript'" />
+        </xsl:attribute>
+        <xsl:attribute name="src">
+          <xsl:value-of select="concat($AppURL,'/scripts/jqueryui-1-11-4_custom/datepicker-de.js')" />
+        </xsl:attribute>
+      </xsl:element>
+      <xsl:element name="script">
+        <xsl:attribute name="type">
+          <xsl:value-of select="'text/javascript'" />
+        </xsl:attribute>
+        <xsl:attribute name="src">
+          <xsl:value-of select="concat($AppURL,'/scripts/HtmlFactoryScripts/rqui-datepicker.js')" />
+        </xsl:attribute>
+      </xsl:element>
+    </xsl:if>
 
     <table width="100%">
         <xsl:apply-templates select="/Article/Sect1[@Type=$TabId]" />
@@ -77,18 +115,7 @@
         <xsl:apply-templates select="Graphic">
           <xsl:with-param name="base" select="concat($AppImgBase,'/')" />
         </xsl:apply-templates>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <table width="100%">
-          <tr>
-            <td width="30%"></td>
-            <td width="70%">
-              <xsl:apply-templates select="*[(name() != 'Graphic') and (name() != 'Object') ]"/>
-            </td>
-          </tr>
-        </table>
+        <xsl:apply-templates select="*[(name() != 'Graphic') and (name() != 'Object') ]"/>
       </td>
     </tr>
   </xsl:template>
@@ -168,9 +195,6 @@
     </xsl:if>
     <xsl:if test="Para[@Type='featured']">
       <tr>
-        <td align="center" height="20"></td>
-      </tr>
-      <tr>
         <td>
           <table width="100%">
             <xsl:for-each select="Para[@Type='featured']">
@@ -178,26 +202,38 @@
                 <td width="25%"></td>
                 <td align="right">
                   <table width="100%">
-                    <tr>
-                      <td align="right" colspan="2">
-                        <xsl:element name="a">
-                          <xsl:attribute name="class">
-                            <xsl:text>comment</xsl:text>
-                          </xsl:attribute>
-                          <xsl:attribute name="href">
- <!--
-                            <xsl:call-template name="generate_smart_url">
-                              <xsl:with-param name="location" select="ULink/@URL" />
-                            </xsl:call-template>
--->
-                            <xsl:value-of select="LinkUtils:GenerateUlink(ULink/@URL, '')"/>
-                          </xsl:attribute>
-                          <xsl:text>  </xsl:text>
-                          <xsl:value-of select="ULink" />
-                        </xsl:element>
-                      </td>
-                    </tr>
-                    <xsl:apply-templates select="document(concat($XBaseURL,ULink/@URL))" mode="items"/>
+                    <xsl:choose>
+                      <xsl:when test="self::node()[starts-with(@Id,'object')]">
+                        <tr>
+                          <td align="right" colspan="2">
+                            <xsl:apply-templates select="Title"/>
+                          </td>
+                        </tr>
+                        <xsl:apply-templates select="Text" />
+                        <tr>
+                          <td align="right" colspan="2">
+                            <xsl:apply-templates select="Object" />
+                          </td>
+                        </tr>  
+                      </xsl:when>
+                      <xsl:otherwise>
+                        <tr>
+                          <td align="right" colspan="2">
+                            <xsl:element name="a">
+                              <xsl:attribute name="class">
+                                <xsl:text>comment</xsl:text>
+                              </xsl:attribute>
+                              <xsl:attribute name="href">
+                                <xsl:value-of select="LinkUtils:GenerateUlink(ULink/@URL, '')"/>
+                              </xsl:attribute>
+                              <xsl:text>  </xsl:text>
+                              <xsl:value-of select="ULink" />
+                            </xsl:element>
+                          </td>
+                        </tr>
+                        <xsl:apply-templates select="document(concat($XBaseURL,ULink/@URL))" mode="items"/>
+                      </xsl:otherwise>
+                    </xsl:choose>
                   </table>
                 </td>
               </tr>
@@ -224,11 +260,6 @@
                               <xsl:text>comment</xsl:text>
                             </xsl:attribute>
                             <xsl:attribute name="href">
-<!--                              
-                              <xsl:call-template name="generate_smart_url">
-                                <xsl:with-param name="location" select="ULink/@URL" />
-                              </xsl:call-template>
--->
                               <xsl:value-of select="LinkUtils:GenerateUlink(ULink/@URL, '')"/>
                             </xsl:attribute>
                             <xsl:text>  </xsl:text>
@@ -239,7 +270,7 @@
                       <xsl:if test="@Type='noted'">
                         <xsl:apply-templates select="document(concat($XBaseURL,ULink/@URL))" mode="items"/>
                       </xsl:if>
-                      </table>
+                    </table>
                   </td>
                 </tr>
               </xsl:for-each>
@@ -301,6 +332,26 @@
         </td>
       </tr>
     </xsl:if>
+  </xsl:template>
+
+  <xsl:template match="Para/Title">
+    <h3>
+      <xsl:apply-templates />
+    </h3>
+  </xsl:template>
+
+  <xsl:template match="Text">
+    <xsl:variable name="WD" select="@width" />
+    
+    <tr>
+      <td width="5%">
+        <img src="{$AppImgBase}/clearpixel.gif" border="0" width="1" height="1" />
+      </td>
+      <td width="{$WD}" class="Abstract">
+        <xsl:apply-templates />
+        <!--<xsl:value-of select="." />-->
+      </td>
+    </tr>
   </xsl:template>
   
 </xsl:stylesheet>

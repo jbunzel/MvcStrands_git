@@ -24,6 +24,8 @@
 
 02.04		Ajax Crawling ermöglichen																					begonnen: 140422	erledigt: 140422
 
+02.05		Implement calender object																					begonnen: 150510	erledigt: 150516
+
 02.99		Sicherung & Veröffentlichung																				begonnen: 131229	erledigt:
 02.991			Zwischenversion 0.2.0.0 auf www.strands.de veröffentlichen												begonnen: 131229	erledigt: 131229
 02.991			Zwischenversion 0.2.1.0 auf github sichern und veröffentlichen											begonnen: 140422	erledigt: 140422

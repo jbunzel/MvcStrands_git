@@ -45,13 +45,17 @@ namespace strands.Services
         {
             ElementName = this.StripDisplayType(ElementName);
 
-            try {
+            return new StrandDocument(model.Select(StrandName, SectionName, ElementName), this._displayType);
 
-                return new StrandDocument(model.Select(StrandName, SectionName, ElementName), this._displayType);
-            }
-            catch (Exception ex) {
-                throw new Exception("ERROR!\\n" + ex.Message + ".", ex);
-            }
+            //try
+            //{
+
+            //    return new StrandDocument(model.Select(StrandName, SectionName, ElementName), this._displayType);
+            //}
+            //catch (Exception ex)
+            //{
+            //    throw new Exception("ERROR!\\n" + ex.Message + ".", ex);
+            //}
         }
 
         #endregion

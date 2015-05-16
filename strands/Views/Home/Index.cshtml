@@ -8,6 +8,7 @@ else
     <div id="strands" class="Normal"></div>
     @Styles.Render("~/content/" + @ViewBag.Type)
     @Scripts.Render("~/bundles/strands")
+    @*@Scripts.Render("~/bundles/jqueryui")*@
     @section scripts{
 	    <script type="text/javascript">
 	        var config = { contextPath: '@Url.Content("~")' };
@@ -63,7 +64,12 @@ else
 		                    setMetadata();
 		            },
 		            error: function (xhr) {
-		                _myHelper.showMessage(decodeURIComponent(xhr.responseText).replace(/\+/g, ' '), "error");
+		                var msg = decodeURIComponent(xhr.responseText).replace(/\+/g, ' ');
+
+		                if (msg.substr(0, 10) == "REDIRECT=>")
+		                    window.location.replace(msg.substring(10, msg.length));
+                        else
+		                    _myHelper.showMessage(decodeURIComponent(xhr.responseText).replace(/\+/g, ' '), "error");
 		            }
 		        });
 	        });

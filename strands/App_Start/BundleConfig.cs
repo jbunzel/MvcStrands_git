@@ -12,8 +12,9 @@ namespace strands
                         "~/Scripts/jquery-{version}.js",
                         "~/Scripts/jquery.cookie.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
-                        "~/Scripts/jquery-ui-{version}.js"));
+            //bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
+            //            "~/Scripts/jqueryui/jquery-ui-{version}.js",
+            //            "~/Scripts/HtmlFactoryScripts/rqui-datepicker.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.unobtrusive*",
@@ -25,10 +26,12 @@ namespace strands
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/strands").Include(
-                        "~/Scripts/HtmlFactoryScripts/rqui*"));
+                        "~/Scripts/HtmlFactoryScripts/rqui-helpers.js",
+                        "~/Scripts/HtmlFactoryScripts/rqui-pdf.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/search").Include(
-                        "~/Scripts/HtmlFactoryScripts/rqui*",
+                        "~/Scripts/HtmlFactoryScripts/rqui-helpers.js",
+                        "~/Scripts/HtmlFactoryScripts/rqui-pdf.js",
                         "~/Scripts/jsrender.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
@@ -64,19 +67,19 @@ namespace strands
                         "~/Content/themes/strands/strands.css",
                         "~/Content/themes/strands/search.css"));
 
-            bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
-                        "~/Content/themes/base/jquery.ui.core.css",
-                        "~/Content/themes/base/jquery.ui.resizable.css",
-                        "~/Content/themes/base/jquery.ui.selectable.css",
-                        "~/Content/themes/base/jquery.ui.accordion.css",
-                        "~/Content/themes/base/jquery.ui.autocomplete.css",
-                        "~/Content/themes/base/jquery.ui.button.css",
-                        "~/Content/themes/base/jquery.ui.dialog.css",
-                        "~/Content/themes/base/jquery.ui.slider.css",
-                        "~/Content/themes/base/jquery.ui.tabs.css",
-                        "~/Content/themes/base/jquery.ui.datepicker.css",
-                        "~/Content/themes/base/jquery.ui.progressbar.css",
-                        "~/Content/themes/base/jquery.ui.theme.css"));
+            //bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
+            //            "~/Content/themes/base/jquery.ui.core.css",
+            //            "~/Content/themes/base/jquery.ui.resizable.css",
+            //            "~/Content/themes/base/jquery.ui.selectable.css",
+            //            "~/Content/themes/base/jquery.ui.accordion.css",
+            //            "~/Content/themes/base/jquery.ui.autocomplete.css",
+            //            "~/Content/themes/base/jquery.ui.button.css",
+            //            "~/Content/themes/base/jquery.ui.dialog.css",
+            //            "~/Content/themes/base/jquery.ui.slider.css",
+            //            "~/Content/themes/base/jquery.ui.tabs.css",
+            //            "~/Content/themes/base/jquery.ui.datepicker.css",
+            //            "~/Content/themes/base/jquery.ui.progressbar.css",
+            //            "~/Content/themes/base/jquery.ui.theme.css"));
         }
     }
 }

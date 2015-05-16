@@ -7,7 +7,7 @@ body {
     margin-right: auto;
     background-color: silver;
     font-family: Georgia;
-    font-size: 100.01%;
+    font-size: 12px;
     line-height: 140%;
     color: #797979;
 }
@@ -246,3 +246,8 @@ fieldset {
 /*-------------*/
 /* theme rules */
 /*-------------*/
+body {
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%; 
+    -ms-text-size-adjust: 100%;
+}

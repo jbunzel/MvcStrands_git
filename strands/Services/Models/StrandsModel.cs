@@ -223,18 +223,26 @@ namespace strands.Models
 
                 if (int.TryParse(SectionName, out i))
                 {
-                    XPathNavigator pn;
+                    XPathNavigator pd, pn;
                     //XPathNodeIterator pni;
 
-                    pn = new XPathDocument(this._theStrand.GetDirectoryPath()).CreateNavigator();
-                    pn = pn.SelectSingleNode("Article/Sect1[" + SectionName + "]/@Id");
+                    pd = new XPathDocument(this._theStrand.GetDirectoryPath()).CreateNavigator();
+                    pn = pd.SelectSingleNode("Article/Sect1[" + SectionName + "]/@Id");
                     if (pn != null)
                     {
                         this.Name = pn.InnerXml;
                         path = "Article/Sect1[@Id='" + this.Name + "']";
                     }
                     else
+                    {
                         path = "Article/Sect1[" + SectionName + "]";
+                        try {
+                            pd.SelectSingleNode(path).ToString(); // throw an exception when SelectSingleNode() returns null
+                        }
+                        catch (Exception ex) {
+                            throw new Exception("Strand section not found", ex);
+                        }
+                    }
                 }
                 else
                 {

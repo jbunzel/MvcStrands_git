@@ -528,6 +528,17 @@
           </xsl:element>
         </xsl:element>
       </xsl:when>
+      <xsl:when test="@Type='staticDatepicker'">
+        <xsl:element name="div">
+          <xsl:attribute name = "id">
+            <xsl:text>date</xsl:text>
+          </xsl:attribute>
+          <xsl:attribute name="class">
+            <xsl:text>Object</xsl:text>
+          </xsl:attribute>
+          <xsl:value-of disable-output-escaping="yes" select="."/>
+        </xsl:element>
+      </xsl:when>
       <xsl:otherwise>
         <xsl:element name="div">
           <xsl:attribute name="class">

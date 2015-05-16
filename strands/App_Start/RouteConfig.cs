@@ -67,7 +67,14 @@ namespace strands
                         newUrl = urlPrefix;
                 }
                 testUrl = (string.IsNullOrEmpty(newUrl)) ? legacyUrl.Replace(urlPrefix + "/", "") : newUrl.Replace(urlPrefix + "/", "");
-                config = new XPathDocument(HttpContext.Current.Server.MapPath(HttpRuntime.AppDomainAppVirtualPath + "/App_Data/xml/StrandsConfig.xml")).CreateNavigator();
+                try
+                {
+                    config = new XPathDocument(HttpContext.Current.Server.MapPath(HttpRuntime.AppDomainAppVirtualPath + "/App_Data/xml/StrandsConfig.xml")).CreateNavigator();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message, ex.InnerException);
+                }
                 while (!string.IsNullOrEmpty(testUrl))
                 {
                     node = config.SelectSingleNode("/configuration/legacy-routes/route[@old='" + testUrl + "']");

@@ -14,6 +14,17 @@ namespace strands.Controllers
     {
         private StrandsRepository repository;
 
+        private Exception Parse(Exception ex, string Strand, string Section, string Element)
+        {
+            if (Strand.Contains("_TB"))
+            {
+                DateTime date = new DateTime(int.Parse(Strand.Substring(0, 2)), int.Parse(Strand.Substring(2, 2)), int.Parse(Section));
+                string uri = "http://de.wikipedia.org/wiki/" + date.ToString("dd._MMMM");
+                ex = new Exception("REDIRECT=>" + uri, ex.InnerException);
+            }
+            return ex;
+        }
+
         private Exception ErrorHandler(Exception ex)
         {
             var resp = new HttpResponseMessage(HttpStatusCode.NotFound)
@@ -56,7 +67,7 @@ namespace strands.Controllers
             }
             catch (Exception ex)
             {
-                ErrorHandler(ex);
+                ErrorHandler(Parse(ex, Strand, Section, Element));
                 return "";
             }
         }
