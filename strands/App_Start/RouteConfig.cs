@@ -23,6 +23,12 @@ namespace strands
             );
 
             routes.MapRoute(
+                name: "About",
+                url: "about/{section}",
+                defaults: new { controller = "Home", action = "About", section = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{strand}/{section}/{element}",
                 defaults: new { controller = "Home", action = "Index", strand = UrlParameter.Optional, section = UrlParameter.Optional, element = UrlParameter.Optional }

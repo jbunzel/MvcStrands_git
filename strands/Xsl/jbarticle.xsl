@@ -19,10 +19,12 @@
   
   <xsl:template match="/">
     <xsl:apply-templates />
-    <h2>Fußnoten</h2>
-    <xsl:call-template name="generate-linklist">
-      <xsl:with-param name="link-nodelist" select="$Sect//Link[generate-id()=generate-id(key('linkend-group',@Linkend)[ancestor::*=$Sect][1])]" />
-    </xsl:call-template>
+    <xsl:if test="//Footnote">
+      <h2>Fußnoten</h2>
+      <xsl:call-template name="generate-linklist">
+        <xsl:with-param name="link-nodelist" select="$Sect//Link[generate-id()=generate-id(key('linkend-group',@Linkend)[ancestor::*=$Sect][1])]" />
+      </xsl:call-template>
+    </xsl:if>
   </xsl:template>
 
   
@@ -410,7 +412,7 @@
 
 
   <xsl:template match = "ELink">
-    <a href="{@URL}">
+    <a href="{@URL}" target="_blank">
       <xsl:apply-templates/>
     </a>
   </xsl:template>

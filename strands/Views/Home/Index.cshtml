@@ -15,8 +15,9 @@ else
 	        var strand = @Html.Raw(Json.Encode(@ViewBag.Strand));
 	        var section = @Html.Raw(Json.Encode(@ViewBag.Section));
 	        var element = @Html.Raw(Json.Encode(@ViewBag.Element));
-
-	        $(function ()
+            //var position = window.location.hash.replace('#','');
+            
+            $(function ()
 	        {
 	            if($.cookie('_clientInfo') == undefined) {
 	                Modernizr.addTest('mathml', function(){
@@ -61,7 +62,13 @@ else
 		            success: function (data) {
 		                $('#strands').html(data);
                         if ($("#METADATA").length > 0)
-		                    setMetadata();
+                            setMetadata();
+                        //if (position) {
+                        //    if ($('body').find('#' + position)) {
+                        //        alert('#' + position);
+                        //        $('#' + position).show();
+                        //    }
+                        //}
 		            },
 		            error: function (xhr) {
 		                var msg = decodeURIComponent(xhr.responseText).replace(/\+/g, ' ');

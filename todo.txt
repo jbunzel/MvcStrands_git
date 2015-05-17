@@ -3,14 +3,15 @@
 02.00	Version 0.2
 
 02.01		Bugs 0.1 beseitigen
-02.012			Sprungmarke für Bibliographie einfügen. (s. strands.xsl, TODO-Notiz)
+02.012			Sprungmarke für Bibliographie einfügen. (s. strands.xsl, TODO-Notiz)									begonnen: 	
 02.013			Fehlermeldungen verbessern & auf Default-Seite umlenken
 02.014			Suchergebnisse, die auf PopUp-Inhalte zeigen (z.B. Poems), richtig anzeigen
 02.015			Anzeige der "Strands under construction" korrigieren
 02.016			Direktzugriff auf Verzeichnis MyArticles unterbinden
+02.017			ISSUE: pop-up windows for notes display wrong content													begonnen: 140607	erledigt: 140607 
 
 02.02		D3 SVG Diagramme einbinden	
-02.021			D3 Unterstützung reinstallieren																			begonnen:140508		erledigt: 140508														
+02.021			D3 Unterstützung reinstallieren																			begonnen: 140508	erledigt: 140508														
 02.022			D3 SVG Diagramme linkfähig machen	
 02.0221				D3 SVG Diagramme als NumberedItems linkfähig machen				
 02.02211				Grundfunktionalität								
@@ -20,9 +21,21 @@
 02.024			Padding links, rechts, Höhe differenzieren
 02.025			D3 SVG Diagramme Mime-Typ application/json auf den remote servern registrieren (lassen)
 
-02.03		Seitencache einrichten																						begonnen: 131225	erledigt: 131225
+02.03		Add page cache																								begonnen: 131225	erledigt: 131225
 
-02.04		Ajax Crawling ermöglichen																					begonnen: 140422	erledigt: 140422
+02.04		Enable ajax crawling																						begonnen: 140422	erledigt: 140525
+02.041			liefert beim Anfrage-Suffix "?_escaped_fragments=" den Seiten-Snapshot aus								begonnen: 140422	erledigt: 140422
+02.042			Setzt die Metatags Titel & Description auf die Werte des  Seiten-Snapshots								begonnen: 140522	erledigt: 140525	 
+
+02.05		Add About & Terms Pages																						begonnen: 140531
+02.051			enable about-pages with specific xsl-transforms															begonnen: 140601	erledigt: 140601
+02.052			allow separate css-stylesheets for about-pages
+02.053			add about-pages style design
+02.054			add about-page contents
+
+02.06		Improve content presentation																				begonnen: 141023
+02.061			Add link to context page on collapsible content panels
+02.062			Direct external links to new browser window																begonnen: 141023	erledigt: 141023
 
 02.05		Implement calender object																					begonnen: 150510	erledigt: 150516
 

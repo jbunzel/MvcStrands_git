@@ -761,15 +761,14 @@
 -->                
                 <xsl:value-of select ="concat('#', $ref)"/>
               </xsl:variable>
-
               <xsl:variable name="Strand">
-<!-- TODO (s. o. 
+<!--                
                 <xsl:value-of select="LinkUtils:GenerateUlink($BibURL, 'Tag-Bibliography', $Position, 'Bibliography')"/>
 -->
                 <xsl:value-of select="LinkUtils:GenerateUlink($BibURL, 'Tag-Bibliography', 'Bibliography')"/>
+                
               </xsl:variable>
-
-              <xsl:value-of select="concat('window.open(&quot;', $Strand, '&quot;, &quot;BIB&quot;, &quot;scrollbars,width=300','height=650,left=20,top=20&quot;)')" />
+              <xsl:value-of select="concat('window.open(&quot;', concat($Strand,$Position), '&quot;, &quot;BIB&quot;, &quot;scrollbars,width=300','height=650,left=20,top=20&quot;)')" />
             </xsl:attribute>
             <img src="{$AppImgBase}/bibliography.gif" alt="bibliography" title="bibliography" />
             <xsl:text></xsl:text>
@@ -893,7 +892,7 @@
                 </xsl:attribute>
                 <xsl:attribute name="onClick">
                   <xsl:variable name="Element">
-                    <xsl:value-of select ="concat('Note[', count(preceding-sibling::Note)+1, ']')"/>
+                    <xsl:value-of select ="concat('Note-', count(preceding-sibling::Note)+1)"/>
                   </xsl:variable>
                   
                   <xsl:variable name="Strand">
@@ -917,7 +916,7 @@
                 </xsl:attribute>
                 <xsl:attribute name="onClick">
                   <xsl:variable name="Element">
-                    <xsl:value-of select ="concat('Note[', count(preceding-sibling::Note)+1, ']')"/>
+                    <xsl:value-of select ="concat('Note-', count(preceding-sibling::Note)+1)"/>
                   </xsl:variable>
 
                   <xsl:variable name="Strand">
