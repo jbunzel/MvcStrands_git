@@ -205,7 +205,13 @@
     </Motto>
     <Para Id="object1" Type="featured">
       <Title>Das Tagebuch ...</Title>
-      <Text width="4.5%">...befragt <Emphasis>mir meine</Emphasis> Tage - <Emphasis>aller Welt</Emphasis> die Allerweltstage.</Text>
+      <Text width="12%">
+        <LiteralLayout>
+          Miss Prism: <Emphasis>Memory, my dear Cecily, is the diary that we all carry about with us.</Emphasis>
+         Cecily:     <Emphasis>Yes, but it usually chronicles the things that have never happened ...</Emphasis>
+                                             <Emphasis>(The Importance of Being Earnest, Oscar Wilde)</Emphasis>
+        </LiteralLayout>
+      </Text>
       <Object Type="staticDatepicker" xmlns:html="test" />
     </Para>
     <Para Id="fragebogen" Type="featured">
@@ -216,5 +222,5 @@
     </Para>
   </Sect1>
 
-  <LastModDate>Montag, 21. März 2005 22:09:49</LastModDate>
+  <LastModDate>Montag, 17. Mai 2015 10:20:49</LastModDate>
 </Article>

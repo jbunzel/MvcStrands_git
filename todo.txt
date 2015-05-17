@@ -28,8 +28,10 @@
 
 02.99		Sicherung & Veröffentlichung																				begonnen: 131229	erledigt:
 02.991			Zwischenversion 0.2.0.0 auf www.strands.de veröffentlichen												begonnen: 131229	erledigt: 131229
-02.991			Zwischenversion 0.2.1.0 auf github sichern und veröffentlichen											begonnen: 140422	erledigt: 140422
-02.999			Version 0.2 auf github sichern & veröffentlichen
+02.992			Zwischenversion 0.2.1.0 auf github sichern und veröffentlichen											begonnen: 140422	erledigt: 140422
+02.993			Zwischenversion 0.2.2.0 auf www.strands.de veröffentlichen												begonnen: 150517	erledigt: 150517	
+02.994			Zwischenversion 0.2.2.0 auf github sichern und veröffentlichen											begonnen: 150517	erledigt: 150517
+02.999			Version 0.2.x.0 (final) auf github sichern & veröffentlichen											begonnen:			erledigt:
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
 
